@@ -44,6 +44,19 @@ Teaches you 90% of the language.
 https://en.wikipedia.org/wiki/%22Hello,_World!%22_program
 https://docs.oracle.com/javase/tutorial/getStarted/cupojava/unix.html
 
+How to compile java code:
+* Create a file called ClassName.java
+* javac ClassName.java
+* java ClassName 
+
+Make sure your file name and the class in the file are the same. 
+Make sure you run javac in the directory where the file is
+Make sure you run java in the directory where hte generated .class file is
+
+javac turns your .java file into a .class file that you can run
+java runs the file ( but dont say `java ClassName.class`. Instead say `java ClassName`.
+
+
 See `Code/HelloWorld.java`
 
 ## Break [ 8:00 - 8:05 ]
@@ -65,9 +78,11 @@ https://docs.oracle.com/javase/tutorial/java/nutsandbolts/variables.html
 
 Going beyond Hello world with primitives.
 
-* int
+Read the reference above for a bit more info about each of these primitive data types.
+
+* int 
 * byte
-* short
+* short 
 * long
 * float
 * double

@@ -88,7 +88,6 @@ Search this page for `static` and read all it has to say:
 https://docs.oracle.com/javase/tutorial/java/javaOO/classvars.html
 
 This is a very important keyword that I've been using without explaining. `static` generally means that the thing marked static is shared by the whole class and may be used with or without an instance of the class. 
-
 static final variables could be used to design a file full of constants, for example. We've seen how we mark our main methods `static` and create ( 'new-up' ) some class instances in main(). 
 
 You cannot access instance variables and methods from a static method. Static methods can only directly access other static methods and variables. TO get access to instance methods and variables, you need to new up an instance. 

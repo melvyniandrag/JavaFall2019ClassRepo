@@ -1,0 +1,2 @@
+find . -name "*.java" > JavaFiles
+javac @JavaFiles -d classes

@@ -39,5 +39,6 @@ See the attached sample code as an example.
 Due by midnight on Sunday, September 8th 2019. ( The midnight between Sunday and Monday )
 Submit a unique assignment. You are free and encouraged to work together while studying this very interesting subject, but two identical assignmnets will get a zero for each one! Make variable names and values, class names, function names different to ensure everyone has a unique submission.
 
-## PS
-People who missed the first class due to waitlist, etc. will have to submit this by Sunday, September 15th along with the week02 assignment.
+Submit via Blackboard:
+* Your sourcecode ( .java file(s) )
+* Screenshot of your code running with some information that identifies you in the screenshot. ( png, JPEG, etc.)

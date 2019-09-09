@@ -3,7 +3,7 @@ In this repo you'll find lecture notes, homework assignments, and other class ma
 
 The class discord server is:
 
-https://SERVER.gg/Ryffmv
+https://SERVER.gg/BQk8UNV
 
 but replace 'SERVER' with 'discord'
 

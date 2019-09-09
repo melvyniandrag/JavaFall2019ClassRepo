@@ -12,3 +12,7 @@ There is so much free info about Java all over the internet, we don't need to bu
 We'll use the free, official documentation and tutorials as necessary.
 
 https://docs.oracle.com/javase/tutorial/index.html
+
+## Random - my notes, ignore:
+https://www.baeldung.com/java-unsigned-arithmetic
+https://docs.oracle.com/javase/tutorial/java/nutsandbolts/datatypes.html

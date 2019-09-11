@@ -1,6 +1,6 @@
-package com.package2;
+package package2;
 
-import com.package1.Inherit;
+import package1.BaseClass;
 
 public class Inherit extends BaseClass{
 	public static void main(String[] args){

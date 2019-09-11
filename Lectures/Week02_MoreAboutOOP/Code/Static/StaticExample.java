@@ -32,6 +32,10 @@ public class StaticExample{
 
 
 		// CantTouchThis(); // Just try.
+		// You cant run this because it isn't a static method - non static methods need to be
+		// called from an instance of a class like instance.method(). See how we call
+		// se1.CantTouchThis() below. If we made the method static, then we could call it here without
+		// and instance of the class.
 		
 		System.out.println("How many 'StaticExample's? " + StaticExample.NumInstances );
 		StaticExample se1 = new StaticExample();

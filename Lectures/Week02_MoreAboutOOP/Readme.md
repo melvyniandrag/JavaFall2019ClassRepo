@@ -72,6 +72,8 @@ See the code in `Code/AccessSpecifiers`
 
 You may be wondering why we have this private/public/protected stuff. From my point of view, it's mainly for style. If you are reading a huge body of Java source code and trying to understand it, if you see the word 'private' keyword on a method then you know that the method is never meant to be used outside the class. For that to be helpful you need a certain level of experience reading and writing code which you may or may not have yet. You can see that private methods and variables aren't visible outside of the Base and Inherited classes they are declared in, and the "whys" of it all might become more clear to you with time.
 
+Just for completeness, look at the access specifier stuff that happens in `Code/PackageAccessSpecifiers`
+
 ## [ 8:00 - 8:05 ] Break
 
 ## [ 8:05 - 8:25 ] Enum classes

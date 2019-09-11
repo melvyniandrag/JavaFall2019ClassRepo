@@ -1,7 +1,7 @@
-package com.package1;
+package package1;
 
 public class BaseClass{
-	void sayHello(){
+	public void sayHello(){
 		System.out.println("Hello");
 	}
 }

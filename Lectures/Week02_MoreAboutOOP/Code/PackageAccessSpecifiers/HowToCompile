@@ -1,0 +1,2 @@
+javac package*/*.java
+java package2.Inherit

@@ -4,17 +4,18 @@
 
 Given this table of values:
 
-Name | Age
-Madison | 34
-Stephanie | 60
-Allyson | 50
-Maria | 17
-Michael | 26
-Joseph | 30
-Stephen | 40
-Ryan | 14
-Margaret | 13
-Candace | 39
+| Name | Age |
+|----|----|
+| Madison | 34 |
+| Stephanie | 60 |
+| Allyson | 50 |
+| Maria | 17 |
+| Michael | 26 |
+| Joseph | 30 |
+| Stephen | 40 |
+| Ryan | 14 |
+| Margaret | 13 |
+| Candace | 39 |
 
 Write a Java class containing the methods:
 

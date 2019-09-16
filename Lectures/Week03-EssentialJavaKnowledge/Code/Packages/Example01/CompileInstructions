@@ -1,0 +1,3 @@
+javac packagename/*
+javac Main.java
+java Main

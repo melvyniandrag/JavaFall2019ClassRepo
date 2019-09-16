@@ -166,11 +166,27 @@ javapoint.com/java-string-valueof
 
 *Reference: https://docs.oracle.com/javase/tutorial/java/package/index.html*
 
+Purpose of Packages:
+See "Creating and Using Packages" at the reference above.
 
+* It communicates to other developers that the files in a package are related
+* It helps you remember that a set of .java files are related - trust me, you'll forget what you were doing if you walk away from some code for 6 months or a year.
+* Gives you some isolation for different names. E.g. you can implement the method f() in several packages so they don't conflict! ( We need to see an example of this, this is quite imporant. Packages provide a 'namespace' for functions. This is important, but you probably won't realize how important packages/namespaces are until you hit a related bug while you are on the job, writing code ,and it blows up in your face. Nevertheless, I'll try to show you.
+* You can allow classes in a package to communicate, but restrict the access outside the package .This goes back to our discussion or public vs private. Sometimes you want classes in a package to be able to exchange certain bits of data, but you don't want classes outside the package to use this data.
 
-## [ 8:00 - 8:15 ] Compile and Run Astronomy Examples
+Let's walk through the samples in `Code/Packages` now together.
+
+1. Run through the Example01.
+2. Then change the access specifiers and see what happens
+3. Add a layer to the package and see what happens.
+
+## [ 8:00 - 8:15 ] Compile and Run Astronomy Examples. 
 
 * Code *
+
+## [ 8:15 - 8:20 ] Exercise with pacakges
+
+Compile two packages with a method of the same name. Compile these packages, create a new Main class and use both classes in your Main.
 
 ## [ 8:20 - 8:40 ] Exceptions
 

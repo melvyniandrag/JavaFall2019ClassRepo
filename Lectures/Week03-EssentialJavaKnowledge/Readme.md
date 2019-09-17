@@ -178,17 +178,31 @@ Let's walk through the samples in `Code/Packages` now together.
 
 1. Run through the Example01.
 2. Then change the access specifiers and see what happens
-3. Add a layer to the package and see what happens.
+3. Run through Example 02, showing how I added another level 
 
 ## [ 8:00 - 8:15 ] Compile and Run Astronomy Examples. 
 
-* Code *
+Have class download the class repo ( use git if they have it, download the zip if they dont. )
 
-## [ 8:15 - 8:20 ] Exercise with pacakges
+Walk through downloading and compiling the code quickly so that hopefully a few people understand.
+
+Show the class a few samples running.
+
+Then have the people who understood go and explain to the rest of the class.
+
+Wait until everyone can run the few sample programs I listed.
+
+Have the class look through the code and see that the java files have pacakge rsf.x.y.z at the top. The astro code isn't mine, I foudn it in a cool book. This is to show that packaging really works.
+
+## [ 8:15 - 8:20 ] One more thing about packages
 
 Compile two packages with a method of the same name. Compile these packages, create a new Main class and use both classes in your Main.
 
+See `Code/Packages/Example03`
+
 ## [ 8:20 - 8:40 ] Exceptions
+
+
 
 
 ## [ 8:40 - 8:50 ] Exercise triggering specific exceptions

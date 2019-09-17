@@ -1,2 +1,23 @@
-find . -name "*.java" > JavaFiles
-javac @JavaFiles -d classes
+If you're on Windows I don't think the `find` command will work.
+But I've included the JavaFiles file for you to run the second command, I think that will work.
+
+
+##########################################
+#  How to compile                        # 
+##########################################
+#  find . -name "*.java" > JavaFiles     #
+#  javac @JavaFiles -d classes           #
+##########################################
+
+After compiling you will see that a new folder called 'classes' is there.
+The folder was generated with the -d flag of javac
+There are several files in there was can run. 
+
+Lets go to the 'classes' folder ( I'll use the 'cd' command - if you don't know that, just
+open a terminal in the 'classes' folder.
+
+Then try this:
+
+1. java rsf.astron.graphics.intro.SunMotion 
+2. java rsf.ui.TextInputDialog 
+3. Find another file you can run. What public static void method is guaranteed to be in the class you ran?

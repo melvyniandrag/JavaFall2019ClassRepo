@@ -1,0 +1,5 @@
+javac packagename/*.java
+javac packagename/anotherlevel/*.java
+javac packagename/adifferentotherlevel/*.java
+javac Main.java
+java Main

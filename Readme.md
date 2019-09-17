@@ -24,3 +24,9 @@ And why?
 https://docs.oracle.com/javase/tutorial/java/nutsandbolts/datatypes.html
 
 
+## PPM
+https://people.cs.clemson.edu/~dhouse/courses/405/notes/ppm-files.pdf
+https://www.kylepaulsen.com/stuff/NetpbmViewer/
+https://www.rkenmi.com/posts/ppm-image-to-grayscale-c?lang=jp
+
+

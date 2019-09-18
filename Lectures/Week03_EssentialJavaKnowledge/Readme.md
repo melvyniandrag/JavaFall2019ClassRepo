@@ -26,26 +26,19 @@ while this information is enough to do interesting work, there is still much mor
 to know about the language. Tonight we're going to add the following things to your
 bag of java tricks:
 
-* [ 7:00 - 7:15 ] Numbers
-* [ 7:15 - 7:30 ] Strings
-* [ 7:30 - 7:45 ] Exercises
-* Hacktoberfest
-* [ 7:45 - 8:00 ] Packages in Java
-* [ 8:00 - 8:15 ] Compile and Run Astronomy Examples
-* Openhouse
-* [ 8:20 - 8:40 ] Exceptions
-* [ 8:40 - 8:50 ] Exercise triggering specific exceptions
-* [ 9:42 - 9:45 ] Homework discussion.
-
-
-At the end of class there's a few things I want to discuss which is an upcoming Hackathon here at NJCU that will give you
-the opportunity to get some opensource contributions on your resume as well as win a free tshirt. Also it would help a project I'm working on and maybe get some more 'street cred' for NJCU students in the tech world.
-
-Also there's an open house coming up. I've brought some stuff here I thought we could show off and maybe get high school kids to work on with us. I know a bit about a few things, not many things, but I could guide you on some projects I'm familiar with. On the table here you'll I brought in some gizmos we could use to present.
+## [ 7:00 - 7:30 ] Numbers
+## [ 7:30 - 7:45 ] Strings
+## [ 7:45 - 8:10 ] Exercises
+## [ 8:10 -8:40 ] Packages in Java
+## [ 8:40 - 9:00 ] Compile and Run Astronomy Examples. 
+## [ 9:00 - 9:10 ] One more thing about packages
+## [ 9:10 - 9:30 ] Exceptions
+## [ 9:30 - 9:40 ] Exercise triggering specific exceptions
+## [ 9:40 - 9:45 ] Homework, Hacktoberfest, Open House discussion.
 
 Also about homework, I've graded it. I think I was plainly clear about my expectations - homework done on time, not late. I've tried to makethe assignments easy enough that you can do them on time if you put in the effort. I think I've been plainly clear about my expectations - that homework is done correctly and on time, please do not ask for exceptions. Homeworks 1 & 2 are graded. I might offer extra credit later in the semester to make up for the lost points on these if I see consistent work done on time throughout the semester. Get homework done on time and correctly. I'm available, as are your peers, as is youtube and reddit and stackoverflow to help you understand whatever you find hard.
 
-## [ 7:00 - 7:15 ] Numbers
+## [ 7:00 - 7:30 ] Numbers
 
 *Reference: https://docs.oracle.com/javase/tutorial/java/data/index.html*
 
@@ -86,7 +79,7 @@ System.out.format("The value of i is: %d%n", i);
 
 See `Code/PrintingNumbers`
 
-## [ 7:15 - 7:30 ] Strings
+## [ 7:30 - 7:45 ] Strings
 
 *Reference: https://docs.oracle.com/javase/tutorial/java/data/index.html*
 
@@ -123,9 +116,11 @@ dzone.com/articles/java-string-format-examples
 
 See `Code/Strings`.
 
-## [ 7:30 - 7:45 ] Exercises
+## [ 7:45 - 8:10 ] Exercises
 
-1. Write a program using `Byte` objects that uses methods similar to the methods above that were only for the Integer class. e.g. does 	`static Byte decode ( String b )` exist? Does `static Byte valueOf(String s )` exist?
+Give the class 5 minutes for each problem. Wait for them to finish, then go over it and move on to the next one.
+
+1. Write a program using `Byte` objects that uses methods similar to the methods above that were only for the Integer class. e.g. does 	`static Byte decode ( String b )` exist? 
 
 2. In the documentation there is also a reference about how to print dates.
 
@@ -174,7 +169,7 @@ javapoint.com/java-string-valueof
 
 5. Try parseInt() and parseByte(). Try parseByte() with value 300. See `Code/Parse`. You can't parse 300. What's the biggest you can parse?
 
-##  [ 7:45 - 8:00 ] Packages in Java
+##  [ 8:10 -8:40 ] Packages in Java
 
 *Reference: https://docs.oracle.com/javase/tutorial/java/package/index.html*
 
@@ -192,7 +187,7 @@ Let's walk through the samples in `Code/Packages` now together.
 2. Then change the access specifiers and see what happens
 3. Run through Example 02, showing how I added another level 
 
-## [ 8:00 - 8:15 ] Compile and Run Astronomy Examples. 
+## [ 8:40 - 9:00 ] Compile and Run Astronomy Examples. 
 
 Have class download the class repo ( use git if they have it, download the zip if they dont. )
 
@@ -206,13 +201,13 @@ Wait until everyone can run the few sample programs I listed.
 
 Have the class look through the code and see that the java files have pacakge rsf.x.y.z at the top. The astro code isn't mine, I foudn it in a cool book. This is to show that packaging really works.
 
-## [ 8:15 - 8:20 ] One more thing about packages
+## [ 9:00 - 9:10 ] One more thing about packages
 
 Compile two packages with a method of the same name. Compile these packages, create a new Main class and use both classes in your Main.
 
 See `Code/Packages/Example03`
 
-## [ 8:20 - 8:40 ] Exceptions
+## [ 9:10 - 9:30 ] Exceptions
 
 Exceptions are quite controversial in computer programming. The way they are implemented, whether or not they should exist, etc. are all contested. We aren't implementing programming languages or studying language theory in this class, so the pros and cons of exceptions aren't relevant to us in this class - I'll just drop some notes here in case you already know about exceptions and want to read more:
 * https://softwareengineering.stackexchange.com/questions/107723/arguments-for-or-against-using-try-catch-as-logical-operators
@@ -227,7 +222,7 @@ Whether you like them or hate them, exceptions exist in Java and are a fundament
 
 See `Code/Exceptions`
 
-## [ 8:40 - 8:50 ] Exercise triggering specific exceptions
+## [ 9:30 - 9:40 ] Exercise triggering specific exceptions
 
 Write a function that throws FileNotFoundException. Something like:
 
@@ -239,6 +234,11 @@ public void g() throws FileNotFoundException{
 
 call `g()` in `main()` and handle the exception.
 
-## [ 9:42 - 9:45 ] Homework discussion.
+## [ 9:40 - 9:45 ] Homework, Hacktoberfest, Open House discussion.
 
- 
+ At the end of class there's a few things I want to discuss which is an upcoming Hackathon here at NJCU that will give you
+the opportunity to get some opensource contributions on your resume as well as win a free tshirt. Also it would help a project I'm working on and maybe get some more 'street cred' for NJCU students in the tech world.
+
+Also there's an open house coming up. I've brought some stuff here I thought we could show off and maybe get high school kids to work on with us. I know a bit about a few things, not many things, but I could guide you on some projects I'm familiar with. On the table here you'll I brought in some gizmos we could use to present.
+
+

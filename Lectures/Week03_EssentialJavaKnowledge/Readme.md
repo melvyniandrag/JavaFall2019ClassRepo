@@ -1,4 +1,9 @@
 # Week 3 Lecture
+
+It's an exciting time to be learning Java. Java 13 was just announced! In this class we are targetting Java 8 because it's stable and widely used. I think Android is *almost* at 100% Java8 compliance, but Java 9, 10, 11, 12, 13 aren't supported in Android yet. So Knowing Java 8 still prepares you well for the real world.
+
+Java 13 - https://www.forbes.com/sites/oracle/2019/09/17/after-four-fast-releases-java-13-blends-big-features-and-subtle-fixes/#49d90de04b98
+
 We've so far covered some basic java information and I expect you are able to write 
 and compile simple Java programs. Amongst the things you now about are:
 
@@ -24,21 +29,27 @@ bag of java tricks:
 * [ 7:00 - 7:15 ] Numbers
 * [ 7:15 - 7:30 ] Strings
 * [ 7:30 - 7:45 ] Exercises
+* Hacktoberfest
 * [ 7:45 - 8:00 ] Packages in Java
 * [ 8:00 - 8:15 ] Compile and Run Astronomy Examples
+* Openhouse
 * [ 8:20 - 8:40 ] Exceptions
 * [ 8:40 - 8:50 ] Exercise triggering specific exceptions
-* [ 8:50 - 9:10 ] Threads + concurrency
-* [ 9:10 - 9:20 ] Exercise with multithreading
-* [ 9:20 - 9:35 ] File I/O
-* [ 9:35 - 9:42 ] Exercise with File I/O
 * [ 9:42 - 9:45 ] Homework discussion.
+
+
+At the end of class there's a few things I want to discuss which is an upcoming Hackathon here at NJCU that will give you
+the opportunity to get some opensource contributions on your resume as well as win a free tshirt. Also it would help a project I'm working on and maybe get some more 'street cred' for NJCU students in the tech world.
+
+Also there's an open house coming up. I've brought some stuff here I thought we could show off and maybe get high school kids to work on with us. I know a bit about a few things, not many things, but I could guide you on some projects I'm familiar with. On the table here you'll I brought in some gizmos we could use to present.
+
+Also about homework, I've graded it. I think I was plainly clear about my expectations - homework done on time, not late. I've tried to makethe assignments easy enough that you can do them on time if you put in the effort. I think I've been plainly clear about my expectations - that homework is done correctly and on time, please do not ask for exceptions. Homeworks 1 & 2 are graded. I might offer extra credit later in the semester to make up for the lost points on these if I see consistent work done on time throughout the semester. Get homework done on time and correctly. I'm available, as are your peers, as is youtube and reddit and stackoverflow to help you understand whatever you find hard.
 
 ## [ 7:00 - 7:15 ] Numbers
 
 *Reference: https://docs.oracle.com/javase/tutorial/java/data/index.html*
 
-In Java we generally work with objects in our code, instead of primitives. I presented primitives over the last few weeks like int, float, double, byte, etc. Today I'm going to show you that Java hasa analogues of these primitives that are objects. These classes are called 'Byte', 'Double', 'Float', 'Integer', 'Short' and 'Long', and all are implementations of the Number class. This means that somewhere in the source code of the Java language there is something like:
+In Java we generally work with objects in our code, instead of primitives. I presented primitives over the last few weeks like int, float, double, byte, etc. Today I'm going to show you that Java has analogues of these primitives that are objects. These classes are called 'Byte', 'Double', 'Float', 'Integer', 'Short' and 'Long', and all are implementations of the Number class. This means that somewhere in the source code of the Java language there is something like:
 
 ```
 public class Integer extends Number{
@@ -52,6 +63,7 @@ The reasons that these things exist can be read about in the documentation I've 
 According to the documentation. I haven't verified all of these methods, but they should be there according to the language specification.
 
 [ see documentation ]
+
 
 ### Some methods are just for individual classes. 
 The following methods are only for the Integer class. 
@@ -213,27 +225,19 @@ https://stackoverflow.com/questions/35343584/which-programming-languages-dont-ha
 
 Whether you like them or hate them, exceptions exist in Java and are a fundamental part of the language. The java code you read and write will use exceptions, so you need to learn alot about them. I'll show you an example and then we'll talk more about them.
 
-### General exception
-
-See `Code/Exceptions/Example01`
-
-###
-
-
+See `Code/Exceptions`
 
 ## [ 8:40 - 8:50 ] Exercise triggering specific exceptions
 
-## [ 8:50 - 9:10 ] Threads + concurrency
+Write a function that throws FileNotFoundException. Something like:
 
-*Reference: https://docs.oracle.com/javase/tutorial/essential/concurrency/index.html*
+```
+public void g() throws FileNotFoundException{
+	throw FileNotFoundException("foobar");
+}
+```
 
-## [ 9:10 - 9:20 ] Exercise with multithreading
-
-## [ 9:20 - 9:35 ] File I/O
-
-*Reference https://www.geeksforgeeks.org/file-class-in-java/*
-
-## [ 9:35 - 9:42 ] Exercise with File I/O
+call `g()` in `main()` and handle the exception.
 
 ## [ 9:42 - 9:45 ] Homework discussion.
 

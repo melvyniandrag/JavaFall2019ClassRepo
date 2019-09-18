@@ -241,4 +241,4 @@ the opportunity to get some opensource contributions on your resume as well as w
 
 Also there's an open house coming up. I've brought some stuff here I thought we could show off and maybe get high school kids to work on with us. I know a bit about a few things, not many things, but I could guide you on some projects I'm familiar with. On the table here you'll I brought in some gizmos we could use to present.
 
-
+Talk to Justin + Anthony + Mark about Arduino and 3d printed parts. Don't forget Arduino is installed on this laptop in /home/melvyn/arduino*

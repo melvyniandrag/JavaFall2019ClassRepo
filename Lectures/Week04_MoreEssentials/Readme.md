@@ -1,16 +1,45 @@
 # Week 04 Lecture
 
+Schedule
+* [ 7:00 - 7:15 ] Homework Review
+* [ 7:15 - 9:00 ] Threads + concurrency
+* [ 7:20 - 7:25 ]A Real Life Story
+* [ 7:25 - 7:45 ] How to do it
+* [ 7:45 - 7:46 ] Pop Quiz
+* [ 7:46 - 8:00 ] Returning to threading.
+* [ 8:00 - 8:10 ] Exercise1 with multithreading
+* [ 8:10 - 8:20 ] Exercise 2 with multithreading
+* [ 8:20 - 8:30 ] Exercise 3 with multithreading
+* Returning to lecture
+* [ 8:30 - 8:35 ] Calculating PI.
+* [ 8:35 - 8:40 ] Exercise With Sleep
+* [ 8:40 - Note about the exercise
+* Improving upon CalcPi1.java
+* Improving on CalcPI2.java
+* Exercise
+* [ 8:20 - 8:35 ] Daemon Threads vs. User Threads
+* Garbage Collection as a daemon thread
+* Exercise
+* Recap and what's next
+* [ 8:35 - 8:45 ] Preamble to Runnables
+* [ 8:45 - 8:55 ]Exercise together
+* [ 30 seconds ] Why do I even care about concurrent programming?!?!
+* [ 8:55 - 9:00 ] Exercise
+* [ 9:00 - 9:35 ] Exceptions 
+* Exercise
+* Exercise triggering specific exceptions
+* Exercise 2 with Exceptions
+* Homework Discussion
+
 Last week we covered a couple of interesting topics in Java - namely, a little bit about Java packages, the basic Java number classes, and Java Strings. Tonight we will cover three more topics in Java. 
 
 * Concurrency
 * Exceptions 
-* File I/O
 
 Of course there is so much to know about these three topics, so I'll just try to give you a little morsel of information about each.
 
 * Concurrency - Java programs can do multiple things at once. This may surprise you to find out.
 * Exceptions - Sometimes things go wrong will your program is running. Java has exceptions to help handle these things.
-* File I/O - So far we've only been writing out to the terminal. Java can also write to files ( and read from files too! )
 
 ## Threads + concurrency
 
@@ -409,15 +438,57 @@ your curiosity so you go read one of these books and learn more.
 
 ## Exceptions
 
+Exceptions are quite controversial in computer programming. The way they are implemented, whether or not they should exist, etc. are all contested. We aren't implementing programming languages or studying language theory in this class, so the pros and cons of exceptions aren't relevant to us in this class - I'll just drop some notes here in case you already know about exceptions and want to read more:
+* https://softwareengineering.stackexchange.com/questions/107723/arguments-for-or-against-using-try-catch-as-logical-operators
+* https://petercai.com/the-case-against-exceptions/
+* https://stackoverflow.com/questions/613954/the-case-against-checked-exceptions
+* https://www.atlassian.com/blog/archives/exceptions_are_bad
 
+If you want to learn about languages that don't have exceptions, read here:
+https://stackoverflow.com/questions/35343584/which-programming-languages-dont-have-runtime-exceptions 
 
-## Exercise with Exceptions
+Whether you like them or hate them, exceptions exist in Java and are a fundamental part of the language. The java code you read and write will use exceptions, so you need to learn alot about them. I'll show you an example and then we'll talk more about them.
 
+See `Code/Exceptions`
 
-## File I/O
+Things to look out for here are:
 
-*Reference https://www.geeksforgeeks.org/file-class-in-java/*
+* throws
+* throw
+* try
+* catch
+* Exception
+* IllegalArgumentException ( and other specific exceptions )
 
-## [ 9:35 - 9:42 ] Exercise with File I/O
+## Exercise
+Type up the code samples here for BUILT IN EXCEPTIONS:
 
+https://www.geeksforgeeks.org/types-of-exception-in-java-with-examples/
 
+Skip over the User defined exceptions. 
+
+Just take note that you can program your own special error scenarios if you want to.
+
+For now it is sufficient to get a handle on using the standard Java exceptions.
+
+## Exercise triggering specific exceptions
+
+Write a function that throws FileNotFoundException. Something like:
+
+```
+public void g() throws FileNotFoundException{
+	throw FileNotFoundException("foobar");
+}
+```
+
+call `g()` in `main()` and handle the exception.
+
+Remove the throws keyword from g and see if it compiles. Explain.
+
+## Exercise 2 with Exceptions
+
+Try to trigger an interrupt exception with Java. Look back at the try/catch exceptions in Java and try to trigger an interrupt exception.
+
+See `Code/InterruptException`
+
+To be honest I haven't given much thought to all the different scenarios that InterruptExceptions might arise in. I just put in enough effort to be able to trigger one and get a passing understanding. Sometimes, your computer might interrupt one of your threads for one reason or other. Just be aware that this can happen and that there are mechanisms for dealing with it.

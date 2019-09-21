@@ -207,32 +207,6 @@ Compile two packages with a method of the same name. Compile these packages, cre
 
 See `Code/Packages/Example03`
 
-## [ 9:10 - 9:30 ] Exceptions
-
-Exceptions are quite controversial in computer programming. The way they are implemented, whether or not they should exist, etc. are all contested. We aren't implementing programming languages or studying language theory in this class, so the pros and cons of exceptions aren't relevant to us in this class - I'll just drop some notes here in case you already know about exceptions and want to read more:
-* https://softwareengineering.stackexchange.com/questions/107723/arguments-for-or-against-using-try-catch-as-logical-operators
-* https://petercai.com/the-case-against-exceptions/
-* https://stackoverflow.com/questions/613954/the-case-against-checked-exceptions
-* https://www.atlassian.com/blog/archives/exceptions_are_bad
-
-If you want to learn about languages that don't have exceptions, read here:
-https://stackoverflow.com/questions/35343584/which-programming-languages-dont-have-runtime-exceptions 
-
-Whether you like them or hate them, exceptions exist in Java and are a fundamental part of the language. The java code you read and write will use exceptions, so you need to learn alot about them. I'll show you an example and then we'll talk more about them.
-
-See `Code/Exceptions`
-
-## [ 9:30 - 9:40 ] Exercise triggering specific exceptions
-
-Write a function that throws FileNotFoundException. Something like:
-
-```
-public void g() throws FileNotFoundException{
-	throw FileNotFoundException("foobar");
-}
-```
-
-call `g()` in `main()` and handle the exception.
 
 ## [ 9:40 - 9:45 ] Homework, Hacktoberfest, Open House discussion.
 

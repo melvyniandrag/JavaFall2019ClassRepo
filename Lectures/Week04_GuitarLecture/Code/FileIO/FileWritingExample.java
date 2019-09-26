@@ -11,7 +11,7 @@ public class FileWritingExample{
 		FileWriter fw = null;
 		try{
 			fw = new FileWriter("MyFile.txt");
-			fw.write("Hello World!");
+			fw.write("Hello World!\r\n");
 		}
 		catch( Exception e ){
 			System.out.println(e.getMessage());

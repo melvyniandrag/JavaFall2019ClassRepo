@@ -39,13 +39,8 @@ public class Guitar{
 	
 	public static void main(String[] args){
 		Guitar gc = new Guitar();
-		gc.EMajShape(0);
-		gc.EMajShape(1);
-		gc.EMajShape(3);
-		gc.EMajShape(5);
-
 		gc.CMajShape(0);
-		gc.CMajShape(7);
+		gc.CMajShape(5);
 	}
 }
 

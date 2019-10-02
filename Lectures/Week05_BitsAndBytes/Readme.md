@@ -1,12 +1,13 @@
 # Week 05 Lecture
 
+## Introduction
 A lot of material in this lecture. After the lecture, be sure to check out these references:
 References:
 1. https://www.baeldung.com/java-bitwise-operators
 2. https://docs.oracle.com/javase/tutorial/java/nutsandbolts/opsummary.html
 3. https://www.youtube.com/watch?v=lKTsv6iVxV4
 4. https://www.youtube.com/watch?v=4qH4unVtJkE
-
+5. https://www.geeksforgeeks.org/java-lang-integer-tobinarystring-method/
 
 In this lecture we'll look at the 1s and 0s of various  Java datatypes, and see how to manipulate them.
 
@@ -149,6 +150,8 @@ What happens on the seventh?
 ## Unsigned right shifts ( >>> )
 You can right shift and, instead of replicating the left most bit, you insert zeros. Note - for all left shifts ( << ) java inserts zeros. For right shifts you have to choose either >> or >>> as you think about what result you want.
 
+See `Code/UnsignedShift.java`
+
 ## bitwise ops ( and, or, xor )
 Java provides three more useful bitshift operations. Namely, and (&), or(|) and xor(^).
 
@@ -159,6 +162,9 @@ Show an and, or and xor operation on the board.
 This might be confusing. Read the links provided at the top of this document if you want to refresh your memory about what the various things mean. 
 
 As I've hinted - there is some minor trouble in working with negative numbers in Java. I haven't told you how it does it yet, but Java handles negative numbers in a particular way that means you have to think a little bit when you manipulate them.
+
+
+This is useful for extracting particular bits. If you want all bits, you and your byte with 0xFF. If you want only the last 4, you can `&` your byte with `0x0F` and then shift it wherever you need to shift it to, if you need to.
 
 ## Homework Discussion
  
@@ -178,7 +184,54 @@ Construct this long:
 ## Endianness
 If time. Java is big endian. Other languages / platforms are little endian.
 
+This bit of information is important to know for interviews and stuff. If you are working in embedded software, or you do alot of sending data over networks ( internet, bluetooth, lora, etc. ) you need to know this. A picture is worth a thousand words.
+
+How do you write the 4 byte integer "1" in hex?
+
+0x00 0x00 0x00 0x01
+
+Or in binary if you prefer
+
+00000000 00000000 00000000 00000001
+
+( maybe now you see why it is preferable to write in hex. We could just write "1" in decimal, but that doesn't make it clear how many bytes are involved. That's ( one reason ) why we use binary / hex )
+
+On a little endian system, the LOWEST BYTE GOES FIRST!!! Very weird stuff. This is how the machines were implemented. So we would write
+
+0x01 0x00 0x00 0x00 
+
+on a big endian platform we write the largest byte ( most significant byte ) first
+
+0x00 0x00 0x00 0x00
+
+Depending on how you think about it, both of these representations have good reasons for existence.
+
+The Java VM is like a fake computer running on your computer. The java virtual machine is big endian. My real machine, however - the actual circuitry in my computer that the electrons flow through - is an intel machine. Intel architectures are little endian. 
+
+See `Code/IntelIsBlah Blah endian.cpp`
+
+and
+
+`Code/JavaEndianness`
+
+## Endianness exercise
+
+
 ## Negative numbers in Java
 Java uses two's complement.
 
 To get the negative value of a number in Java, you use the two's complement system.
+
+How java stores a negative number:
+1. Take the positive number
+2. Flip all the bits
+3. Add 0x01 to those bits.
+
+The above steps describe the "two's complement" system.
+
+e.g. short 1 -> short -1
+
+1. 00000000 00000001 ( take the number 1 )
+2. 11111111 11111110 ( Flip all the bits )
+3. 11111111 11111111 ( Add 1 to it )
+

@@ -8,16 +8,13 @@ References:
 4. https://www.youtube.com/watch?v=4qH4unVtJkE
 
 
-
 In this lecture we'll look at the 1s and 0s of various  Java datatypes, and see how to manipulate them.
 
 After this lecture you need to understand:
 
 * Signed shift operators >> and <<
 * Unsigned shift operator >>>
-* bitwise and operator &
-* bitwise or inclusive or |
-* bitwise exclusive or
+* bitwise operations ( ^, &, | )
 * Endianness
 * Two's complement
 * Hex representation of binary numbers
@@ -60,23 +57,124 @@ and we still have a spare bit pattern "11b" to send. Maybe we could encode "tool
 
 Now we have to see how to play with individual bits in java. So far I've showed you primitive types, which are 1- 8 *bytes*. And then we've looked at complicated objects. Now we will look at bits.
 
-## Signed bitshift
-Shifts bits, while preserving the 'sign bit' See `Code/SignedBitshift.java`
+## Binary numbers
+A quick discussion of binary numbers
+I do this on the board:
+* 1 in binary
+* 2 in binary
+* 3 in binary
+* 79  in binary
 
-## Unsigned bitshift
+## Binary exercise 
+You compute this in binary:
+* 4 in binary
+* 110 in binary
 
+## Hexadecimal representation
+A byte is made up of 8 bits. It is convenient for many reasons to write a byte in 2 hex characters instread of 8 1s and 0s. How to do this?
+
+How to read hex:
+
+Take a sample binary representation of a byte.
+
+10101011
+
+Split this into two groups of four
+
+1010    1011
+
+Now compute the decimal value of each part
+
+
+1010 = 10
+
+1011 = 11
+
+Hex numbers go like this: 0, 1, 2, 3, 4, ... 9, ( just like decimal numbers ) but there needs to be six more.
+
+so for counting in hex we do this:
+
+0, 1, 2, 3, 4, 5, 6 ,7, 8, 9, A, B, C, D, E, F
+
+most languages don't care if you write a-f in capital or lowercase. So the above number
+
+10101011
+
+can be written in hex as 
+
+0xAB.
+
+So throughout this class you might see me write `byte b = (byte) 0x11` or the like. Now you know what this means.
+
+Hex is just a compact and easy to understand way to write a binary value. 
+
+## Show an ACK from work
+
+Here is a sample bluetooth message that I would send from my tool to a smartphone:
+
+01101100 10100000 11110000 01011111
+
+Translate this to hex.
+
+
+## Preface to the rest of the lecture
+
+So far we haven't done any Java. Now let's apply this information to Java. In Java you often want to manipulate binary values ( 1s and 0s ) instead of primitives or objects. Now we will see how to do this.
+
+## Signed bitshifts ( left and right, >> and \<\< ) on positive numbers in Java
+Show how to shift bits See `Code/SignedBitshift01.java`
+
+Show how we can shift bits to the right. Start with 127 and shift it right 1, 2, 3, 4, 5, 6 places.
+
+Show how we can shift bits to the left. Start with 1 and shift 1, 2, 3, 4, 5, 6 places
+
+Call attention to the fact that with the left shift we ought to be able to shift the number one more spot to the left. 
+Should I show the disaster that happens first, then talk about it, or should I talk about it first, then show you?
+[Wait for response]
+
+In order of request:
+a) show what happens when you shift the byte 0x01 to the left 7 places
+b) mention how Java has no unsigned numbers. So that  bit there is reserved explicitly for the sign of the number. 
+In fact, Java uses the "two's complement" representation for signed numbers.
+
+There are different tools for different jobs. For my work, I generally want a language that allows me to shift a bit into that location and not have to worry about the side effects in terms of signs. This has caused some minor irritation on the job as it requires a bit more thought for managing binary data that you don't have to worry about when using C or C++. So why did the number turn negative? I've said it has something to do with the way numbers are stored in Java. Stay tuned and I'll explain what has happened in a few minutes.
+
+## Signed right bitshifts ( >> ) of negative numbers in Java
+Show how to shift -1 to the right 1, 2, 3, 4, 5, 6 times.
+
+What happens on the seventh?
+
+## Unsigned right shifts ( >>> )
+You can right shift and, instead of replicating the left most bit, you insert zeros. Note - for all left shifts ( << ) java inserts zeros. For right shifts you have to choose either >> or >>> as you think about what result you want.
 
 ## bitwise ops ( and, or, xor )
+Java provides three more useful bitshift operations. Namely, and (&), or(|) and xor(^).
+
+See `Code/BitwiseOperations.java`
+
+Show an and, or and xor operation on the board.
+
+This might be confusing. Read the links provided at the top of this document if you want to refresh your memory about what the various things mean. 
+
+As I've hinted - there is some minor trouble in working with negative numbers in Java. I haven't told you how it does it yet, but Java handles negative numbers in a particular way that means you have to think a little bit when you manipulate them.
+
+## Homework Discussion
+ 
+You need to be able to extract bits from numbers 
+
+In class activity  - we will turn a long into a byte in a funky way.
+A long has how many bytes in java?? 8
+We will convert the double into a byte array.
+We will extract the last bit from every byte.
+We will shift every bit to the proper spot. 
+We will and the shifted bytes so that we have
+
+Construct this long:
+0x01, 0x01, ... 0x01
 
 
-## Schedule
+## Endianness
+If time. Java is big endian. Other languages / platforms are little endian.
 
-* 7:00 - 7:30 Bits, bytes, and binary
-* Tow's complement
-* 7:30 - 8:00 Hexadecimal notation 
-* 8:00 - 8:10 Break
-* 8:10 - 8:30 The byte datatype. 
-* 8:30 - 9:00 Bitwise operations
-* 9:00 - 9:05 Break 
-
-* 9:35 - 9:45 Discuss Homework
+## Negative numbers in Java
+This is if there is time.

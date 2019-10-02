@@ -116,6 +116,8 @@ Here is a sample bluetooth message that I would send from my tool to a smartphon
 
 Translate this to hex.
 
+Have class do
+Hex worksheet
 
 ## Preface to the rest of the lecture
 

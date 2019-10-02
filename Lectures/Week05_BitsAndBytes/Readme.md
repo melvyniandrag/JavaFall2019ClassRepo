@@ -179,4 +179,6 @@ Construct this long:
 If time. Java is big endian. Other languages / platforms are little endian.
 
 ## Negative numbers in Java
-This is if there is time.
+Java uses two's complement.
+
+To get the negative value of a number in Java, you use the two's complement system.

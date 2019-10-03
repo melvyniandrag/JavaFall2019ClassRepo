@@ -20,4 +20,4 @@ Submit a '.zip' containing:
 * your code
 * screenshot of your code being compiled and running.
 
-Due by midnight, October 4th ( the midnight between Tues / Wednesday ) via blackboard.
+Due by midnight, October 8th ( the midnight between Tues / Wednesday ) via blackboard.

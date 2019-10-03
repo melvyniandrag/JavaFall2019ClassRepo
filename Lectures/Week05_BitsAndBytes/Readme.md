@@ -124,7 +124,7 @@ Hex worksheet
 
 So far we haven't done any Java. Now let's apply this information to Java. In Java you often want to manipulate binary values ( 1s and 0s ) instead of primitives or objects. Now we will see how to do this.
 
-## Signed bitshifts ( left and right, >> and \<\< ) on positive numbers in Java
+7:40 - 8:00 ## Signed bitshifts ( left and right, >> and \<\< ) on positive numbers in Java
 Show how to shift bits See `Code/SignedBitshift01.java`
 
 Show how we can shift bits to the right. Start with 127 and shift it right 1, 2, 3, 4, 5, 6 places.
@@ -142,17 +142,17 @@ In fact, Java uses the "two's complement" representation for signed numbers.
 
 There are different tools for different jobs. For my work, I generally want a language that allows me to shift a bit into that location and not have to worry about the side effects in terms of signs. This has caused some minor irritation on the job as it requires a bit more thought for managing binary data that you don't have to worry about when using C or C++. So why did the number turn negative? I've said it has something to do with the way numbers are stored in Java. Stay tuned and I'll explain what has happened in a few minutes.
 
-## Signed right bitshifts ( >> ) of negative numbers in Java
+8:00 - 8:10 ## Signed right bitshifts ( >> ) of negative numbers in Java
 Show how to shift -1 to the right 1, 2, 3, 4, 5, 6 times.
 
 What happens on the seventh?
 
-## Unsigned right shifts ( >>> )
+8:10 - 8:30 ## Unsigned right shifts ( >>> )
 You can right shift and, instead of replicating the left most bit, you insert zeros. Note - for all left shifts ( << ) java inserts zeros. For right shifts you have to choose either >> or >>> as you think about what result you want.
 
 See `Code/UnsignedShift.java`
 
-## bitwise ops ( and, or, xor )
+8:30 - 8:50 ## bitwise ops ( and, or, xor )
 Java provides three more useful bitshift operations. Namely, and (&), or(|) and xor(^).
 
 See `Code/BitwiseOperations.java`
@@ -166,7 +166,7 @@ As I've hinted - there is some minor trouble in working with negative numbers in
 
 This is useful for extracting particular bits. If you want all bits, you and your byte with 0xFF. If you want only the last 4, you can `&` your byte with `0x0F` and then shift it wherever you need to shift it to, if you need to.
 
-## Homework Discussion
+8:50 - 9:20## Homework Discussion
  
 You need to be able to extract bits from numbers 
 
@@ -181,7 +181,7 @@ Construct this long:
 0x01, 0x01, ... 0x01
 
 
-## Endianness
+9:20 - 9:40 ## Endianness
 If time. Java is big endian. Other languages / platforms are little endian.
 
 This bit of information is important to know for interviews and stuff. If you are working in embedded software, or you do alot of sending data over networks ( internet, bluetooth, lora, etc. ) you need to know this. A picture is worth a thousand words.
@@ -217,7 +217,7 @@ and
 ## Endianness exercise
 
 
-## Negative numbers in Java
+9:40 - 9:50 ## Negative numbers in Java
 Java uses two's complement.
 
 To get the negative value of a number in Java, you use the two's complement system.

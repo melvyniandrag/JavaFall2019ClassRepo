@@ -1,5 +1,5 @@
 public class JavaEndianness{
-    public static byte[] intToBytes(long l) {
+    public static byte[] intToBytes(int l) {
         byte[] result = new byte[4];
         for (int i = 3; i >= 0; i--) {
             result[i] = (byte)(l & 0xFF);

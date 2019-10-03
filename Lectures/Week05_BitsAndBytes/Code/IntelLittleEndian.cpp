@@ -4,7 +4,6 @@
 
 int main(int args, char ** argv){
 	int64_t signedInt = 1;
-	std::cout << signedInt << std::endl;
 
 	char* ptr = (char*) &signedInt;
 	for( int i = 0; i < 8; ++i ){

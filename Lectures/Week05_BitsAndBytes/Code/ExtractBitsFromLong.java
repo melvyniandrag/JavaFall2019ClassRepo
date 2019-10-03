@@ -38,9 +38,10 @@ public class ExtractBitsFromLong{
     }
 
     public static void main(String[] args){
-        //long l = 65438; // b 11111111 10011110 therefore, we expect to get 00000010 as our output byte.
+        long l = 1000000; 
+	    //long l = 65438; // b 11111111 10011110 therefore, we expect to get 00000010 as our output byte.
         //long l = -1; // 0xFF 0xFF 0xFF 0xFF 0xFF 0xFF 0xFF 0xFF, we expect 0xFF as our output byte.
-        long l = 999999295438L;// Note the "L" suffix - without this, java will report an error.
+        //long l = 999999295438L;// Note the "L" suffix - without this, java will report an error.
 			       // b11101000
                                //  11010100
                                //  10011010

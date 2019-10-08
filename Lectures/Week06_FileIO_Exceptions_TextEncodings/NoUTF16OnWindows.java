@@ -1,15 +1,19 @@
 import java.io.*;
 import java.nio.charset.Charset;
 
-public class NoUTF16OnWindows{
+public class UTF16ErrorWithoutFileIO{ 
 	public static void main(String[] args) throws Exception{
-		File file = new File("dostoyevsky-utf16.txt");
-		BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream(file), Charset.forName("UTF-16")));
-		try {
-			String fileContent = br.readLine();
-			System.out.println(fileContent);
-		} finally {
-			br.close();
-		}
+		byte[] fyodorUTF16Bytes = { 
+					(byte)0x04, (byte)0x24,
+					(byte)0x04, (byte)0x51,
+					(byte)0x04, (byte)0x34,
+					(byte)0x04, (byte)0x3e,
+					(byte)0x04, (byte)0x40,
+					(byte)0x00, (byte)0x0a
+		};
+		
+		String fyodor = new String(fyodorUTF16Bytes, Charset.forName("UTF-16"));
+		System.out.println(fyodor);
+		
 	}
 }

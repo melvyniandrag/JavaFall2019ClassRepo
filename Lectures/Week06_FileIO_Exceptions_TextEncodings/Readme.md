@@ -87,7 +87,7 @@ It is hard to type anything but ascii on a keyboard. Here's how to create non-as
 * Write an int array and convert to string. ( works with 2 or 4 byte characters )
 
 ### Surrogate pairs
-Show an example
+Show an example of a surrogate pair.
 
 
 ### Writing some characters with `\uXXXX` syntax
@@ -140,6 +140,12 @@ https://en.wikipedia.org/wiki/UTF-16
 
 ## UTF-8
 
+UTF-8 is the best thing you can learn. I love it. It's easy to learn, and super fun to learn.
+It's so easy to understand, but I fear you may be scared of the things I'm saying in class. There is a famous youtuber called TomScott. For homework you have to watch his video.
+ Explanation of how it works. 
+
+ Run `Code/StringToUTF8.java`
+
 ## File I/O
 So now we know a few ways that text can be encoded by a computer. When I first came to Java I felt really worried about how to read and write files because there were so many options and I wasn't sure about the way Java encoded text and what means Java had for writing/reading files in various encodings. 
 
@@ -183,6 +189,11 @@ public class Encoding{
 ```
 
 Have everyone run the example. If we all don't have different charsets, then that is a crazy coincidence. In general, different platforms have different encodings and for this reason I am inclined to not use the FileReader / FileWriter classes. These classes use the machine's default encoding, but we have no way to know what this on every machine our code may run on. This could cause serious problems for our software.
+
+## Buffered reader
+
+## To Bytes
+
 
 ## War story.
 

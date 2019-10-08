@@ -60,10 +60,10 @@ Weird! So Java allocates two bytes for a single Character, but we've seen that i
 
 See, when ASCII came out, this was many years ago. 40, 50 years ago ( I'm not sure when the standard was adopted, there is alot of history here ) computers and the related technology were being developed in the USA and in the UK. You see this heritage today because all of the programming languages, all of the Linux command line tools, all of the system calls in various operating systems - they are all in English! That's because all of the original system design and everything was done in English speaking countries, and now English has also taken over math and science, beating out competing languages like French, Russian and German. So for a long time there was no reason to really think about an alternative to ASCII. 
 
-But in the 80s and 90s and the PC was developed, international customers started buying and using computers - computers stopped being huge machines that only University and Government labs could afford. And so it became evident that ASCII wasn't enough. Customers in Spain needed a way to represent '~n' in text files. Germans needed a way to type 'B/ss' on their computers. In Russia, the people needed a way to type their cyrillic letters like 'f/cyrillic f' etc. And so a bunch of alternative encodings sprung into existence. Remember that ASCII used only 7 bits! So that left an additionaly 128 characters that could be represented by turning on the first bit in the octet. 
+But in the 80s and 90s and the PC was developed, international customers started buying and using computers - computers stopped being huge machines that only University and Government labs could afford. And so it became evident that ASCII wasn't enough. Customers in Spain needed a way to represent '~n' in text files. Germans needed a way to type 'B/ss' on their computers. In Russia, the people needed a way to type their cyrillic letters like 'f/cyrillic f' etc. And so a bunch of alternative encodings sprung into existence. Remember that ASCII used only 7 bits! So that left an additionaly 128 characters that could be represented by turning on the first bit in the octet. ve 
 
 How many letters are there in Cyrrillic?
-
+ve 
 How many chinese characters are there?
 
 How many Japanese characters are there?
@@ -74,12 +74,39 @@ It was about this time that Java was being developed. Java v. 1 was released in 
 
 There are/were several incantations of Unicode. When Java was first designed, thanks to several factors, the front runner was an encoding called UTF-16, which required - can you guess how many bits? [Wait] nad how many bytes? [wait] hence the size of a Java character being 2.
 
+Have a look at Java. Java strings store utf16 characters. Now try and wrap your head around this - compile, run and inspect the output of the `StringLength.java` code. 
+You will see that Java says that string has length 10, not 5. Very weird.
+How about the lenght of the string "hello"? Why does that say "5", but the other says"10"? Is the length() method counting nonzero bytes? There is alot to think about. I could tell you the answer but this lecture has alot of information in it. I'm trying to give you the big ideas such that you can go home and fill in the details whenever you need them . There are so many details, such as this one - why is "hello" length 5, but a cyrillic word with 5 letters lenght 10?
+
+Show the '\uxxxx` syntax for creating characters.
+
+It is hard to type anything but ascii on a keyboard. Here's how to create non-ascii characters in Java
+
+* \uXXXX syntax ( only works with 2 byte characters )
+* copy and paste the character from another source e.g. the internet.
+* Write an int array and convert to string. ( works with 2 or 4 byte characters )
+
+### Surrogate pairs
+Show an example
 
 
+### Writing some characters with `\uXXXX` syntax
 
-### Handling 32 bit utf-16 characters in Java
+Show how to write a Java string for something french using the uxxxx syntax. e.g. Have Czerinton write "hello" in Tamil on the board. Then get the unicode points from the table here:
+https://www.fileformat.info/info/unicode/block/tamil/list.htm
 
-## Bad documentation or a language addition?
+Then try to write it out in a java string using the "\uXXXX" syntax.
+
+
+### Writing some characters with the "cut paste method" - risky.
+Show an example
+
+### Handling 32 bit utf-16 characters in Java - bad documentation or a late language addition?
+
+Unfortunately for the Java language designers, shortly after the language design was finalized the Unicode people decided that 2 bytes wasn't enough to support 
+
+Print some emojis with Java.
+
 I was looking at this example:
 
 ```
@@ -103,6 +130,13 @@ I just changed the 7 to 8 in the url and ( thank goodness ) it worked and I foun
 https://docs.oracle.com/javase/8/docs/api/java/lang/String.html
 
 Wonder if this was a language addition in 8, or just patchy documentation for 7.
+
+
+### Wikipedia
+Look at the table here in class
+
+https://en.wikipedia.org/wiki/UTF-16
+
 
 ## UTF-8
 
@@ -128,7 +162,11 @@ $ iconv -f UTF-8 -t UTF-16BE dostoyevsky-utf8.txt > dostoyevsky-utf16.txt
 
 Use `xxd` or other hex analyzer to verify that the file converted correctly. Check , for example, the UTF-8 and UTF-16 hex encodings for the cyrillic 'f' - 'Ф'. Look here: https://www.fileformat.info/info/unicode/char/0424/index.htm.
 
+An interesting thing about this iconv - note that I specified UTF-16BE. Bonus points for "superb mental performance" for whoever can tell me what the "BE" stands for. I'll hint that there is also an "LE" option. 
 
+If you're not sure you can run the iconv method with LE and look at the output, compare to BE.
+
+Wait a minute for the answer.
 
 ## What is your system's default encoding?
 
@@ -155,6 +193,24 @@ Before even doing any cool machine learning, we had to go through great efforts 
 I won't tell you the boring details of how we checked text encodings - now you know enough to write your own code to check text encodings. This information is very important for machine learning, for writing international websites, for writing apps - when you write an android app and a user copies from text from a page in your app to paste it into google - what encoding is that text? Will google recognize it? Will your browser crash?
 
 This is important to know.
+
+## I hate Quora
+Half of the questions there are moronic or subjective. 
+
+And then most answers to the questions are simple, wrong, written by n00bs. Like this one:
+https://www.quora.com/How-do-I-program-an-emoji-in-Java
+
+Some tool named "Prince John" gave an incorrect, one sentence answer to a huge question that we still haven't quite answered in 3 hours of lecture.
+
+and on top of that, they ask you to register with the site to use it.
+
+I invite you to join me in not clicking quora links on google. I accidentally clicked this one and, as usual, was dissapointed by the output.
+
+
+## The proverb
+At the beginning of this class I told you that the Java mantra is "write once, run everywhere." Hopefully by now you realize that the better manta, that many have long accepted, is :
+
+Java is "write once, debug everywhere"
 
 ## References:
 Complete UTF16 listing = http://www.fileformat.info/info/charset/UTF-16/list.htm

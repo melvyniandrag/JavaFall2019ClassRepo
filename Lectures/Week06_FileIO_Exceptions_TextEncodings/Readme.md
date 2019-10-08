@@ -75,6 +75,8 @@ It was about this time that Java was being developed. Java v. 1 was released in 
 There are/were several incantations of Unicode. When Java was first designed, thanks to several factors, the front runner was an encoding called UTF-16, which required - can you guess how many bits? [Wait] nad how many bytes? [wait] hence the size of a Java character being 2.
 
 
+
+
 ### Handling 32 bit utf-16 characters in Java
 
 ## Bad documentation or a language addition?
@@ -117,6 +119,14 @@ There are many ways to handle file i/o in Java. A rule of thumb I found in that 
 
 
 ## Reader/Writer Example
+FileReaderExample stinks. It has a number of flaws which you may understand now. From my tests, it seems to work fine for ASCII text, but is not good for other text. I can think of some ways to trick it into working, but I'm lazy and don't want to do more work than I have to . There must be something better ( we'll see soon) than FileReaderExample.
+Look at `Code/FileReaderExample.java`. Also note that I have utf8 and utf16 versions of the input files. To convert I used a cool command line tool available on linux, (maybe mac) and ( maybe windows ).
+
+```
+$ iconv -f UTF-8 -t UTF-16BE dostoyevsky-utf8.txt > dostoyevsky-utf16.txt
+```
+
+Use `xxd` or other hex analyzer to verify that the file converted correctly. Check , for example, the UTF-8 and UTF-16 hex encodings for the cyrillic 'f' - 'Ф'. Look here: https://www.fileformat.info/info/unicode/char/0424/index.htm.
 
 
 
@@ -145,3 +155,6 @@ Before even doing any cool machine learning, we had to go through great efforts 
 I won't tell you the boring details of how we checked text encodings - now you know enough to write your own code to check text encodings. This information is very important for machine learning, for writing international websites, for writing apps - when you write an android app and a user copies from text from a page in your app to paste it into google - what encoding is that text? Will google recognize it? Will your browser crash?
 
 This is important to know.
+
+## References:
+Complete UTF16 listing = http://www.fileformat.info/info/charset/UTF-16/list.htm

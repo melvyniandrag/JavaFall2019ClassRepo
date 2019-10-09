@@ -1,0 +1,19 @@
+\BOOKMARK [1][-]{section.1}{Welcome}{}% 1
+\BOOKMARK [1][-]{section.2}{ASCII}{}% 2
+\BOOKMARK [2][-]{subsection.2.1}{ASCII Art}{section.2}% 3
+\BOOKMARK [2][-]{subsection.2.2}{ASCII is a Seven Bit Encoding}{section.2}% 4
+\BOOKMARK [1][-]{section.3}{Exercise}{}% 5
+\BOOKMARK [1][-]{section.4}{UTF16}{}% 6
+\BOOKMARK [1][-]{section.5}{UTF-16 and Java}{}% 7
+\BOOKMARK [2][-]{subsection.5.1}{UTF-16 is the bomb. But the BOM is not.}{section.5}% 8
+\BOOKMARK [2][-]{subsection.5.2}{Writing UTF16 values with the \134uXXXX syntax}{section.5}% 9
+\BOOKMARK [2][-]{subsection.5.3}{Exercise}{section.5}% 10
+\BOOKMARK [2][-]{subsection.5.4}{xxd}{section.5}% 11
+\BOOKMARK [2][-]{subsection.5.5}{Something Weird Before the Break}{section.5}% 12
+\BOOKMARK [1][-]{section.6}{Final Jeopardy \046 Break Time}{}% 13
+\BOOKMARK [1][-]{section.7}{One More Thing About UTF-16 in Java}{}% 14
+\BOOKMARK [1][-]{section.8}{ Checkpoint }{}% 15
+\BOOKMARK [1][-]{section.9}{UTF-8}{}% 16
+\BOOKMARK [2][-]{subsection.9.1}{Preamble}{section.9}% 17
+\BOOKMARK [2][-]{subsection.9.2}{How UTF-8 works}{section.9}% 18
+\BOOKMARK [1][-]{section.10}{Conclusions}{}% 19

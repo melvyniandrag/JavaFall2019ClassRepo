@@ -14,20 +14,6 @@ We've looked at binary encodings a bit, I've had you play around with bits for  
 
 In the last assignment/lecture we looked at how integers were laid out in binary in Java. Do you remember?
 
-What are all the primitive "whole number types" in Java?
-
-[Vote Jeopardy style]
-
-Let's take a vote. Are Java integers signer or unsigned?
-
-[Vote, Jeopardy style]
-
-And you remember that the first byte was always the sign bit?
-
-And can you remember if Java integers are Big Endian or Little Endian?
-
-[Vote, Jeopardy style]
-
 Good. Since we've got that covered: in today's class we aren't talking about integers, we are talking about text. You'll note that Programming languages have numeric types like `int`, `byte`, `long`, `short`. They also have text types like `String` and `char`. I'm sort of done talking about how whole numbers are done in Java. Today we are talking about text. If there is time, we'll talk another day about how floating point numbers ( fractions, decimals ) are stored on computers. That is quite different from how strings and ints are stored. 
 
 But the subject of today is text.
@@ -37,21 +23,6 @@ But the subject of today is text.
 Back in the beginning, many years ago, there was one standard for characters on a computer. The standard was called ASCII. This set of characters allowed us to express numbers, English language characters, punctuation, and a few other things. In any event, as I said, way back when, before the iPhones and the internet, before Linux and Windows existed, there was a text encoding called ASCII. And ASCII was good and used widely. If you've heard the term ASCII before, I'll bet that you heard it in the context of ASCII art, which is still a funny thing people do.
 
 Things like this:
-      (\-"""-/)
-       |     |
-       \ ^ ^ /  .-.
-        \_o_/  / /
-       /`   `\/  |
-      /       \  |
-      \ (   ) /  |
-     / \_) (_/ \ /
-    |   (\-/)   |
-    \  --^o^--  /
-     \ '.___.' /
-jgs .'  \-=-/  '.
-   /   /`   `\   \
-  (//./       \.\\)
-   `"`         `"`
 ( taken from https://www.asciiart.eu/animals/marsupials)
 
 Ok, ok, get on with it .What is ASCII??!?!?! ASCII describes one way for laying out 1s and 0s to represent text in a computer. ASCII allows you to represent 128 different values, some are printable and some are not. I'm giving you a chart now - I have one of these on my desk at home, one on my desk at work, and I invariably refer to it at least a few times a week. I'm giving you all a laminated copy in case you have a little desk space you want to fill with something useful.

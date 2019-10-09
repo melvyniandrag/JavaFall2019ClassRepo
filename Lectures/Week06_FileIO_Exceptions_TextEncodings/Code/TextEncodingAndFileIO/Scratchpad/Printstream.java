@@ -15,7 +15,7 @@ class Printstream
 { 
     public static void main(String args[]) throws FileNotFoundException 
     { 
-        FileOutputStream fout=new FileOutputStream("file.txt"); 
+        FileOutputStream fout = new FileOutputStream("file.txt"); 
           
         //creating Printstream obj 
         PrintStream out=new PrintStream(fout); 
@@ -23,33 +23,6 @@ class Printstream
   
         //writing to file.txt 
         char c[]={'G','E','E','K'}; 
-          
-        //illustrating print(boolean b) method 
-        out.print(true); 
-          
-        //illustrating print(int i) method 
-        out.print(1); 
-          
-        //illustrating print(float f) method 
-        out.print(4.533f); 
-          
-        //illustrating print(String s) method 
-        out.print("GeeksforGeeks"); 
-        out.println(); 
-          
-        //illustrating print(Object Obj) method 
-        out.print(fout); 
-        out.println(); 
-          
-        //illustrating append(CharSequence csq) method 
-        out.append("Geek"); 
-        out.println(); 
-          
-        //illustrating checkError() method 
-        out.println(out.checkError()); 
-          
-        //illustrating format() method 
-        out.format(Locale.UK, "Welcome to my %s program", s); 
           
         //illustrating flush method 
         out.flush(); 

@@ -43,16 +43,6 @@ Answer: 7 bits
 Enough said. So by now you understand ASCII. I'll just give you a few questions to cement your knowledge of ASCII, okay?
 
 ## Exercise 1 - 1 minute
-How far apart ( in decimal ) are a and A?
-How far apart ( in decimal ) are b and B?
-How far apart ( in decimal ) are z and Z?
-
-How is the number 0 stored in binary in Java on your computer?
-How is the Character 0 stored in binary in the ASCII encoding?
-
-How is the number 1 stored in binary in Java on your computer?
-How is the Character 1 stored in binary in the ASCII encoding?
-
 ## Exercise 2 - 2 minutes
 How many bytes are in a java Character?
 
@@ -153,16 +143,6 @@ It's so easy to understand, but I fear you may be scared of the things I'm sayin
  Run `Code/StringToUTF8.java`
 
 ## [ 8:35 - 9:00 ] File I/O
-So now we know a few ways that text can be encoded by a computer. When I first came to Java I felt really worried about how to read and write files because there were so many options and I wasn't sure about the way Java encoded text and what means Java had for writing/reading files in various encodings. 
-
-In general I felt like I was drowning in all of the different options for reading and writing files in Java. I looked on google ' how to read a file in JAva' and the answers were terrifying. The same of writing. And the most frustrating part is that every tutorial seemed to use a different means for writing a file. Recently I came across this stackoverflow post that sort of echoed my feelings:
-
-https://stackoverflow.com/questions/13959766/best-file-i-o-option-in-java
-
-There are many ways to handle file i/o in Java. A rule of thumb I found in that post for handling file I/O on that page:
-* Class contains 'Stream' = Handles bytes
-* Class contains 'Reader/Writer' = Handles text. Usually using a default encoding.
-
 
 ### Reader/Writer Example
 FileReaderExample stinks. It has a number of flaws which you may understand now. From my tests, it seems to work fine for ASCII text, but is not good for other text. I can think of some ways to trick it into working, but I'm lazy and don't want to do more work than I have to . There must be something better ( we'll see soon) than FileReaderExample.

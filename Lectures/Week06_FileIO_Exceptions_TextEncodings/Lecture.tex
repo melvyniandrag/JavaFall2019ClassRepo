@@ -1,6 +1,5 @@
 \documentclass[12pt]{article}
 \usepackage{hyperref}
-
 \usepackage[margin=1in]{geometry}
 
 \usepackage{color}
@@ -226,10 +225,147 @@ Before I tell you how UTF-8 works, I'll just tell  you that my laptop ( and your
 you will see that in UTF-16 it is encoded as 0x00 0x80, but in UTF-8 it is encoded as 0xC2 0x80.
 
 \subsection{How UTF-8 works}
+What I am going to give you now is a cool exerpt from a little hacker journal that's quite popular. I've given you three articles, one which is relevant to today's lecture, one is relevant to your life, and one is relevant to next week's lecture.
 
 \begin{center}
 \textbf{Handout POC || GTFO pamphlet}
 \end{center}
+
+Take a minute to skim through this now and see if anything in there makes sense to you ( allow 2 minutes ). Now, soon you'll be able to read article one. Maybe not tonigh, but definitely after doing the homework you'll be able to read article one and make some sense of what they're talking about. Article 2 is a great read for people who like doing crafts and projects. Article 3 is likely to go over your head, but you can skim it to set the stage for next week's lecture.
+
+Anyway let's return to lecture. UTF-8 is one of the coolest encoding schemes in the world. It is a variable width encoding, but it has some nice properties that make it easy to parse as a computer.
+
+UTF-8 is great because it is compatible with ASCII! All one-byte UTF-8 characters are valid ASCII characters. So now you understand about half of how UTF-8 works. If you look on Page XXXX of the pamphlet I just gave you you'll find a table explaining how UTF-8 works. Note that the one byte charactrs are just like ASCII. Remember that ASCII is a seven bit encoding with a zero in the first position. I've given you an ASCII table - if you have time later you can choose a few of those hex values and convert them to binary and you'll see they all start with a leading zero.
+
+\begin{center}
+\textbf{write on board the one byte UTF-8 boiler plate}
+\textit{Note that we have 7 bits ( the xs ) to represent our code point. Any code point that needs to convey only 7 bits of info will fit there}
+\end{center}
+
+Now, how does UTF8 work for larger UTF code points?
+
+Note the positions of the xs, ys and zs in the table I gave you for UTF8, the table in the pamphlet.
+
+UTF-8 is a prefix encoding. 
+
+The rules:
+\begin{enumerate}
+\item If the code point is one byte long, start the byte with a zero.
+\item If the code point is two bytes long, start the first byte with 2 ones, then a zero, the your data. The second byte must start with '10'
+\item If the code point is three bytes long, start the first byte wit 3 ones, then a zero, then your data. The second and third bytes start with '10'
+\item If the code point is four bytes long, start the first byte with 4 ones, then a zero, then your data. The second, third and fourth bytes start with '10'
+\end{enumerate}
+
+The rules ( part 2):
+\begin{enumerate}
+\item Get the hex value for the Unicode code point you want to encode in UTF-8 ( That's the U+XXXX(y?) value.)
+For the treble clef, the code point was \textbf{U+1D11E}. Note we are using the value associated with the big U.
+\item Convert the hex after the U+ to binary
+\item See how many binary digits it requires
+\item See if you will need 1, 2, 3, or 4 UTF-8 code points to accomodate that many digits. 
+\item Starting from the left, fill the blank spaces in the UTF-8 boiler plat with the binary digits from the code point you just wrote in binary.
+\item If there are any left over places, fill with zeros.
+\item Done. Convert to hex if you want.
+\end{enumerate}
+
+\begin{center}
+\textbf{Do the treble clef on the board}
+\end{center}
+
+\subsection{Exercise}
+There is a language spoken in Southeast Asia calle \textit{Tamil}.
+One of the letters of the alphabet is the one given here: \url{https://www.fileformat.info/info/unicode/char/0b8a/index.htm}
+
+The unicode code point is U+0B8A. Convert this code point to UTF-8 and verify your answer with the answer online.
+
+Now you more or less understand UTF-8. You might need to look at it a bit longer. That article I've given you shows some problems with UTF-8 in how it's implemeted in various languages. If you know a couple of programming languages and are bored you could read the article, find flaws in your chosen languages and write to the author of the article. You'd get some cool points.
+
+The authors said they'll buy a beer for anyone who finds an error that they didn't document in the article.
+
+\section{Break and Pop Quiz}
+\begin{enumerate}
+\item How far apart ( in decimal ) are a and A?
+\item How far apart ( in decimal ) are b and B?
+\item How far apart ( in decimal ) are z and Z?
+
+\item How is the number 0 stored in binary in Java on your computer?
+\item How is the Character 0 stored in binary in the ASCII encoding?
+
+\item How is the number 1 stored in binary in Java on your computer?
+\item How is the Character 1 stored in binary in the ASCII encoding?
+\end{enumerate}
+
+\section{FileIO}
+Now welcome back to the twilight zone.
+
+So now we know a few ways that text can be encoded by a computer. When I first came to Java I felt really worried about how to read and write files because there were so many options and I wasn't sure about the way Java encoded text and what means Java had for writing/reading files in various encodings. 
+
+In general I felt like I was drowning in all of the different options for reading and writing files in Java. I looked on google ' how to read a file in Jiava' and the answers were terrifying. The same of writing. And the most frustrating part is that every tutorial seemed to use a different means for writing a file. Recently I came across this stackoverflow post that sort of echoed my feelings:
+
+\url{https://stackoverflow.com/questions/13959766/best-file-i-o-option-in-java}
+
+There are many ways to handle file i/o in Java. Indeed for the homework I assigned before where you had to write a file I said to use the FileWriter class, and yet it seemed that everyone in class who wrote a file used a different class that wasn't \textit{FileWriter}. This made me think either 
+
+\begin{enumerate}
+\item you knew way more Java than me
+\item you only knew one way to write a file that you learned in another class, and you used that.
+\end{enumerate}
+
+ A rule of thumb I found in that post for handling file I/O on that page:
+\begin{itemize}
+\item Class contains 'Stream' = Handles bytes
+\item Class contains 'Reader/Writer' = Handles text. Usually using a default encoding.
+\end{itemize}
+
+In general, we prefer streams that allow us to specify the encoding we are reading/writing. FileReader/FileWriter uses the machine default encoding. My machin is UTF-8 encoded. But what if the data file I am reading is UTF-16 encoded? Then the FileReader/FileWriter won't work.
+
+\subsection{Beware the FileReader/FileWriter}
+These two classes read and write based on the machine's default encoding. These two classes read a text file, character by character.
+
+\begin{center}
+\textbf{Run FileReaderExample with hello-utf8.txt}
+\textbf{Run FileReaderExample with hello-utf16.txt}
+\textbf{Run FileReaderExample with dostoyevsky-utf8.txt}
+\textbf{Run FileReaderExample with dostoyevsky-utf16.txt}
+\end{center}
+
+Note in the above examples that the file reader correctly reads 5 characters from the utf files, but reads 10 characters from the utf16 files.
+
+There is an additional example in the code about FileWriter which is maybe subtly wrong. I don't have time ot go into it. If you have alot of time to waste you can run it and see what it does. 
+
+\subsection{InputStreamReader and BufferedReader}
+
+Note as we run the following examples we are using the same code and the same text files. Yet, depending on how we set things up we either get junk or the correct output.
+
+\begin{center}
+\textbf{java InputStreamReaderExample dostoyevsky-utf8.txt UTF-8}
+\textbf{java InputStreamReaderExample dostoyevsky-utf16.txt UTF-8}
+\textbf{java InputStreamReaderExample dostoyevsky-utf16.txt UTF-16}
+\textbf{java InputStreamReaderExample dostoyevsky-utf8.txt UTF-16}
+\end{center}
+
+If you wrote the code wrong and worked as a statistician, you might in one case think the person who wrote the text you are analyzing was Japanese, or Russian. One of these conclusions is correct, one is wrong. It's up to you as a programmer to write the code correctly.
+
+\subsection{OutputStreamWriter}
+Here is one way to control the output format of your bytes
+
+\begin{center}
+\textbf{java OutputStreamWriterExample UTF-8}
+then
+\textbf{cat outputUTF-8.txt | xxd}
+You will see utf8 bytes for "Hello"
+\end{center}
+
+\begin{center}
+\textbf{java OutputStreamWriterExample UTF-16}
+then
+\textbf{cat outputUTF-16.txt | xxd}
+You will see utf16 bytes for "Hello", along with the BOM.
+\end{center}
+
+There are many other ways to do this. I've spent hours experimenting with different file IO classes in Java. If I've given you useful example, then great! If you are still confused after these few examples I've given, then you'll have to run the code I gave you, experiment with it, and think until it becomes clear to you. Remember -  I told you in the beginning that playing with text encodings will make you feel powerless and afraid. It will make you doubt yourself. There is a good chance you'll feel scared and like you aren't good enough. I've explained the rules of this game to you - now you need to go on and apply them so you don't get lost in this mysterious place.
+
+\section{Exceptions}
 
 \section{Conclusions}\label{conclusions}
 We worked hard, and achieved very little.

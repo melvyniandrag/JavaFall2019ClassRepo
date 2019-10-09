@@ -2,6 +2,7 @@ public class StringEmojiConstructor{
 	public static void main(String[] args){
 		String s = "😂";
 		int emoji = Character.codePointAt(s, 0);
+		System.out.println("emoji int = " + emoji);
 		String unumber = "U+" + Integer.toHexString(emoji).toUpperCase();
 		System.out.println(s + "  is code point " + unumber);
 		String s2 = new String(new int[] { emoji }, 0, 1);

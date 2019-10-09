@@ -10,12 +10,16 @@
  * Here is what the example says:
  *
  *
-Java Byte streams are used to perform input and output of 8-bit bytes, whereas Java Character streams are used to perform input and output for 16-bit unicode. Though there are many classes related to character streams but the most frequently used classes are, FileReader and FileWriter. Though internally FileReader uses FileInputStream and FileWriter uses FileOutputStream but here the major difference is that FileReader reads two bytes at a time and FileWriter writes two bytes at a time.
-
-We can re-write the above example, which makes the use of these two classes to copy an input file (having unicode characters) into an output file −
-
-*/
-
+ *	"""
+ *	Java Byte streams are used to perform input and output of 8-bit bytes,
+ *	whereas Java Character streams are used to perform input and output for
+ *	16-bit unicode. Though there are many classes related to character streams
+ *	but the most frequently used classes are, FileReader and FileWriter.
+ *	Though internally FileReader uses FileInputStream and FileWriter uses
+ *	FileOutputStream but here the major difference is that FileReader reads two
+ *	bytes at a time and FileWriter writes two bytes at a time.
+ *	"""
+ */
 import java.io.*;
 public class CopyFile {
 
@@ -30,7 +34,8 @@ public class CopyFile {
          int c;
          while ((c = in.read()) != -1) {
 		System.out.println(String.valueOf(c));
-		 out.write(c); // Here note that c is being truncated to the last two bytes. See the documentation here: https://docs.oracle.com/javase/7/docs/api/java/io/Writer.html#write(char[])
+		 out.write(c); // Here note that c is being truncated to the last two bytes.
+		 // See the documentation here: https://docs.oracle.com/javase/7/docs/api/java/io/Writer.html#write(char[])
 		 // for 'public void write(int c)'
 
 		 // TODO uncomment the line here to show that the whole character isn't being written, only the first byte.

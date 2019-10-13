@@ -122,13 +122,20 @@ Both strings have a strange "FE FF" in the beginning - ignore that for now. Java
 
 \begin{center}
 \textbf{As a class verify that the utf-16 bytes are correct for both Fyodor and hello.}
+Verify the Fyodor bytes using this table:
+\url{https://en.wikipedia.org/wiki/Cyrillic_script_in_Unicode#Basic_Cyrillic_alphabet}
 \end{center}
 
 \subsection{UTF-16 is the bomb. But the BOM is not.}
 The BOM is the "FE FF" we see at the beginning of the byte arrays gotten from the strings. Luckily, Java characters are stored in Big Endian order. That means, that the first byte goes first, then the second byte. As we discussed last week, that is not universally the case. Some UTF-16 methods will come with a "FE FF" or "FF FE" pair of bytes at the beginning. \textbf{This is the twilight zone!!} Sometimes the Byte order mark / BOM is there, sometimes it is not. Tread carefully when you write code that manipulates utf16 text. Sometimes if you get data from a different source, the internet for example, the data will be in Little Endian order. This text will have the BOM/Byte order mark "0xFF, 0xFE". You may need to check this, depending on your use case. 
 
+\subsection{Look at Unicode points U+XXXX syntax}
+Have a look here. \url{https://www.fileformat.info/info/unicode/char/0424/index.htm}
+Across the internet there are various places where you can find unicode data.
+Note that the cyrrillic f is U+0424.
+
 \subsection{Writing UTF16 values with the \textbackslash uXXXX syntax}
-We've seen as we looked on the internet that Unicode code points are often refered to as U+XXXX. The XXXX are hex values. For UTF-16, when the code point fits in two bytes, we can write the code point as \textbackslash uXXXX.
+We've seen as we looked on the internet that Unicode code points are often refered to as U+XXXX. The XXXX are hex values. For UTF-16, when the code point fits in two bytes, we can write the code point as \textbackslash uXXXX. ( In Java, not in all  programming languages ).
 
 See the code in 'UXXXX.java'.
 
@@ -167,16 +174,24 @@ Hints for the Portuguese letters:
 \item https://www.compart.com/en/unicode/U+00E3
 \end{enumerate}
 
+\begin{center}
+\textbf{Show the answer before moving on...}
+\end{center}
+
 \subsection{xxd}
 In this lecture we will make use of the ``xxd" command line tool. This tool should be present on Linux and Mac computers. It is also present in the \textbf{git bash} shell if you are on windows.
 
-xxd gives us a binary dump of a text file. If you quickly run ``xxd filename" you will see a bunch of hex bytes dumped out in your terminal. You may, in your leisure, look for another tool that you like better. I love xxd, and so do many other people. It is a classic Linux tool and I have never needed a substitute. 
+xxd gives us a hex dump of a text file. If you quickly run ``xxd filename" you will see a bunch of hex bytes dumped out in your terminal. You may, in your leisure, look for another tool that you like better. I love xxd, and so do many other people. It is a classic Linux tool and I have never needed a substitute. 
 
 Back to lecture. . .
 
 
 \subsection{Something Weird Before the Break}
 Now, are you ready to see something weird? 
+
+\begin{center}
+\textbf{show ModifiedXXXX.java}
+\end{center}
 
 Run the ModifiedUXXX code like this:
 
@@ -271,6 +286,21 @@ For the treble clef, the code point was \textbf{U+1D11E}. Note we are using the 
 \begin{center}
 \textbf{Do the treble clef on the board}
 \end{center}
+
+\begin{lstlisting}
+0x1D11E = 0b11101000100011110 (17 bits)
+One byte UTF-8 gives 7 free bits for data
+Two bytes give 11 free bits
+Three bytes give 16 free bits
+So we must use 4 bytes, which gives 21 free bits.
+Now we just fill in:
+1111XXXX 10XXXXXX 10XXXXXX 10XXXXXX
+11110000 100XXXXX 10XXXXXX 10XXXXXX // pad with zeros, we only need 17 bits
+11110000 10011101 10000100 10011110 // Fill in the 17 bits from the U+1D11E
+
+11110000:10011101:10000100:10011110 // VERIFY AGAINST https://www.fileformat.info/info/unicode/char/1d11e/index.htm
+\end{lstlisting}
+
 
 \subsection{Exercise}
 There is a language spoken in Southeast Asia calle \textit{Tamil}.

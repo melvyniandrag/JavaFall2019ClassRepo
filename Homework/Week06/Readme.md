@@ -53,3 +53,8 @@ Submit:
 * Problem1: Code and screenshot
 * Problem2: Code
 * Problem3: Code
+
+## If you are curious
+Good video on youtube about UTF-8
+https://www.youtube.com/watch?v=MijmeoH9LT4
+The guy has alot of other interesting videos too.

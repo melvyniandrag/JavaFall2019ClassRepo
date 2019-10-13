@@ -55,7 +55,7 @@ public class FileReaderExample{
 			return;
 		}
 		while( i != -1){
-			System.out.println(i);
+			System.out.println(String.format("%04X", i));
 			try{
 				i = fileReader.read();	
 			}

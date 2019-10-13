@@ -1,0 +1,93 @@
+\documentclass[12pt]{article}
+\usepackage[breaklinks=true]{hyperref}
+\usepackage[margin=1in]{geometry}
+
+\usepackage{color}
+
+\definecolor{pblue}{rgb}{0.13,0.13,1}
+\definecolor{pgreen}{rgb}{0,0.5,0}
+\definecolor{pred}{rgb}{0.9,0,0}
+\definecolor{pgrey}{rgb}{0.46,0.45,0.48}
+
+\usepackage{listings}
+\lstset{language=Java,
+  showspaces=false,
+  showtabs=false,
+  breaklines=true,
+  showstringspaces=false,
+  breakatwhitespace=true,
+  commentstyle=\color{pgreen},
+  keywordstyle=\color{pblue},
+  stringstyle=\color{pred},
+  basicstyle=\ttfamily,
+  frame=single,
+  moredelim=[il][\textcolor{pgrey}]{$$},
+  moredelim=[is][\textcolor{pgrey}]{\%\%}{\%\%}
+}
+
+\title{Image Processing and Steganography
+\author{
+	Melvyn Ian Drag
+}
+\date{\today}
+
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+In this lecture we will learn about how computers store images and what RGB values are. We will warm up by doing simple image manipulation tasks. We will then use what we know about a few Java classes, bit manipulation, and text encodings to hide a message in an image.
+\end{abstract}
+
+\section{Introduction}
+I will show you two examples that motivate the discussion we will have and the exercises you will perform for the next few hours.
+\subsection{Green Screen}
+Show how a program can filter out certain pixels in an image and make them transparent. This is how they make movies - the actors stand in front of a green screen and the computer eliminates the green stuff and replaces it with a battle scene or whatever.
+
+Run the code to make the green man in the image transparent.
+
+\subsection{Steganography}
+As I've mentioned before, you can hide text in the pixels of an image.
+See these two pictures? They look the same. And while one of them is just a boring old image, the other one contains XX text. WHAT SHOULD I PUT? Some emojis? Some code?
+
+\section{RGBA / ARGB}
+In grammar school they told us that the primary colors are:
+\begin{enumerate}
+\item Red
+\item Blue
+\item Yellow
+\end{enumerate}
+That's one of the many half truths that we tell children to help them understand the world without giving them too much detail that would be impossible for their young minds to understand. In computer science we look at the primary colors as Red, blue, green. If you want to read more about the differences between the RGB and RBY systems, you can go on google as we don't have time for that now. In computer science we also say that images have an alpha channel that measures how opaque/transparent a pixel in an image is. So, while there is more to the story, we will agree right now that images are made up of 4 channels:
+\begin{enumerate}
+\item Red
+\item Green
+\item Blue
+\item Alpha
+\end{enumerate}
+
+\section{Loading images in Java}
+Show the code that loads images and point out some relevant parts of it.
+
+\section{Turn Image Red}
+
+\section{Turn Image Green}
+
+\section{Exercise: Turn Image Blue}
+
+\section{Green Screen}
+Change the alpha value to zero for any pixel that is thoroughly green.
+
+\section{Hide a message in a PNG}
+Now this section is motivated by a video I saw on the computerphile channel a few months ago. I was preparing for this class over the summer and looking for fun stuff to do with Java and this just seemed irresistable. Check out the video here if you want: \url{https://www.youtube.com/watch?v=TWEXCYQKyDc} The process is relatively simple. 
+
+\section{Image Formats}
+\subsection{PNG}
+\subsection{JPG}
+\subsection{PPM}
+
+\section{Reading a PPM File}
+
+
+\section{Midterm Exam Discussion
+
+\end{document}

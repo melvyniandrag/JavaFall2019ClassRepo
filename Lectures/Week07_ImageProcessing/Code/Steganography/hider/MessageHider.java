@@ -75,8 +75,23 @@ public class MessageHider{
 	}
 	
 
-	public static byte[] ExtractBytes(int[][] imageArray){
-		return new byte[]{};
+	/**
+	 * Return the last bit from the first 8 * numBytesInMessage bytes
+	 */
+	public static void extractMessage(int[][] imageArray, int numBytesInMessage){
+		System.out.println("Last bits from each pixel of the imageArray are:");
+		int numBits = 8 * numBytesInMessage;
+		for( int row = 0; row < imageArray.length; row++){
+			for( int col = 0; col < imageArray[row].length; col++){
+				if( row * imageArray[row].length + col == numBits ){
+					System.out.println("Did these bits agree with the bits we set when we hid a message?");
+					return;
+				}
+				else{
+					System.out.println(String.format("0x%08X", (0x00000001 & imageArray[row][col])));
+				}
+			}
+		}
 	}
 
 	public static void writeImage(int[][] color) {

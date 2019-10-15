@@ -132,10 +132,6 @@ Now this section is motivated by a video I saw on the computerphile channel a fe
 I will try to hide the message "Hi" in this file. I Will encode "Hi" in UTF-16, which will be 0x00, 0x48, 0x00, 0x69. To do this I will encode the bits in the last bit of the blue channel of the image. For every  pixel, I will OR the red channel with 0x00 if the bit is zero. If the bit is 1 I will OR the red channel with 0x01. Then I will save the image. In UTF-16, "Hi" takes up 32 bits.
 
 
-
-
-
-
 \subsection{Weird stuff happening.}
 Note that the md5sum changes for the image the first time I run the Code/Steganography/backup example. Then when I run the output through it again and again the md5sum stops changing. The first iteration must truncate the data somehow.
 
@@ -147,6 +143,7 @@ We are storing the rgb values in 8 bits, but I suspect the original input has mo
 
 \subsection{Reading a PPM File}
 
+I won't show you how to do this 100\% because that is a bit of code you need to write. I didn't want to leave you with nothing in case you were confused, so See Code/ReadByteFile
 \section{Midterm Exam Discussion}
 
 \end{document}

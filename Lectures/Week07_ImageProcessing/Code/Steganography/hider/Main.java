@@ -12,6 +12,8 @@ public class Main{
 			System.out.println("\nHidden bytes are:");
 			MessageHider.HideBytes(messageBytes, imageArr);
 			MessageHider.writeImage(imageArr);
+			int[][] newImageArr = MessageHider.imageTo2DArr("output.png");
+			MessageHider.extractMessage(newImageArr, messageBytes.length);
 		}
 		catch(NoAlphaChannelException ex){
 			System.err.println("File doesn't have an alpha channel: " + fileName);

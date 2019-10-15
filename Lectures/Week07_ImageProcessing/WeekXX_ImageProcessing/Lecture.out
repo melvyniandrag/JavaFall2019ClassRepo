@@ -1,0 +1,17 @@
+\BOOKMARK [1][-]{section.1}{Introduction}{}% 1
+\BOOKMARK [2][-]{subsection.1.1}{Green Screen}{section.1}% 2
+\BOOKMARK [2][-]{subsection.1.2}{Steganography}{section.1}% 3
+\BOOKMARK [1][-]{section.2}{RGBA / ARGB}{}% 4
+\BOOKMARK [1][-]{section.3}{Loading images in Java}{}% 5
+\BOOKMARK [1][-]{section.4}{Turn Image Red}{}% 6
+\BOOKMARK [1][-]{section.5}{Turn Image Green}{}% 7
+\BOOKMARK [1][-]{section.6}{Exercise: Turn Image Blue}{}% 8
+\BOOKMARK [1][-]{section.7}{What's in a PNG?}{}% 9
+\BOOKMARK [1][-]{section.8}{Green Screen}{}% 10
+\BOOKMARK [1][-]{section.9}{Hide a message in a PNG}{}% 11
+\BOOKMARK [1][-]{section.10}{Image Formats}{}% 12
+\BOOKMARK [2][-]{subsection.10.1}{PNG}{section.10}% 13
+\BOOKMARK [2][-]{subsection.10.2}{JPG}{section.10}% 14
+\BOOKMARK [2][-]{subsection.10.3}{PPM}{section.10}% 15
+\BOOKMARK [1][-]{section.11}{Reading a PPM File}{}% 16
+\BOOKMARK [1][-]{section.12}{Midterm Exam Discussion}{}% 17

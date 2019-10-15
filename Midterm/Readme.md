@@ -12,7 +12,7 @@ In the red image you will see:
 255 0 0
 ```
 
-That means that the pixel has a red value of 255, a green value of 0 and a blue value of 0. 255 is written in binary as 11111111 - note that depending on how you write your code you may/may not have trouble with this as Java numbers are signed. Be careful!
+That means that the pixel has a red value of 255, a green value of 0 and a blue value of 0. 255 is written in unsigned binary as 11111111 - note that depending on how you write your code you may/may not have trouble with this as Java numbers are signed. Be careful!
 
 If you wanted to hide a zero bit in the last bit of this byte you would change `11111111` to `11111110`. If you wanted to hide a one bit in this byte, you would do nothing. Leave `11111111` as `11111111`.
 
@@ -26,7 +26,7 @@ P3
 255
 ```
 
-unless your curiosity is killing you and you want to read more, in which case, go ahead.
+unless your curiosity is killing you and you want to read more, in which case, go ahead. P3 means something, as does 255. The 4 and 4 indicate the dimensions of the image.
 
 ## Submission
 Due via Blackboard by 11:59 PM on October 22nd.

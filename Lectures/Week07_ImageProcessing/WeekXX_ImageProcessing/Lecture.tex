@@ -13,6 +13,7 @@
 \lstset{language=Java,
   showspaces=false,
   showtabs=false,
+  tabsize=2,
   breaklines=true,
   showstringspaces=false,
   breakatwhitespace=true,
@@ -25,7 +26,7 @@
   moredelim=[is][\textcolor{pgrey}]{\%\%}{\%\%}
 }
 
-\title{Image Processing and Steganography
+\title{Image Processing and Steganography}
 \author{
 	Melvyn Ian Drag
 }
@@ -56,8 +57,9 @@ Now we don't have time to make a blockbuster movie this evening, but we can lear
 
 \subsection{Steganography}
 As I've mentioned before, you can hide text in the pixels of an image.
-See these two pictures? They look the same. And while one of them is just a boring old image, the other one contains XX text. WHAT SHOULD I PUT? Some emojis? Some code?
+See these two pictures? They look the same. And while one of them is just a boring old image, the other one contains text. I have concealed a java program in the second file. Of course, you could conceal whatever text you wanted. In this file, I have taken the last 2 bits from every pixel in the image and stored two bits of data in them. The java program I concealed is encoded in UTF-8. I won't tell you what it does just yet, I'll just tell you that it's there. In fact. I fell that what I've just said might be enough to end lecture just now and send you all of on missions to discover the hidden treasure. Nevertheless, we'll work through this together, because I have another task planned for you for your midterm. 
 
+ 
 \section{RGBA / ARGB}
 In grammar school they told us that the primary colors are:
 \begin{enumerate}
@@ -74,28 +76,77 @@ That's one of the many half truths that we tell children to help them understand
 \end{enumerate}
 
 \section{Loading images in Java}
-Show the code that loads images and point out some relevant parts of it.
+Show the code that loads images and point out some relevant parts of it. This program simply reads a png image into memory and then writes it back out to a file. 
+
+\lstinputlisting[language=Java]{Code/RW_DoNothing/ReadAndWritePNG.java}
 
 \section{Turn Image Red}
 
+To turn a png red all we have to do is access all the pixels and make the red channel 0xff, while we make the green and blue channels 0x00.
+
+\lstinputlisting{Code/TurnImageRed/TurnImageRed.java}
+
 \section{Turn Image Green}
+
+To turn a png green, all we need to do is accell all the pixels in the image and turn the green channel to 0xff, while we make the red and blue channels 0x00.
+
+\lstinputlisting{Code/TurnImageGreen/TurnImageGreen.java}
 
 \section{Exercise: Turn Image Blue}
 
+To test your understanding I want you to now turn an image blue, using the provided code an modifying it as appropriate.
+
+\section{What's in a PNG?}
+\begin{center}
+\textbf{Show a HDD, SDD, Ram Sticks, SD Card, USB Stick}
+\textit{All of these devices store computer data as bytes. The hard drive has magnets inside, the ssd, sd card, usb stick work a bit differently. The Ram works still differently, and there are many types of RAM. You might have heard of DDR3 and DDR4 if you've built a Gaming PC or something.}
+\end{center}
+
+Computers store files as bytes. Collections of 1s and 0s. Then, the computer is taught to understand these bytes in a specific way when it reads them. RAM, for example, might store some 1s and 0s as high and low voltages, and then features some sort of circuitry that will understand highs and lows. This is an enormously challenging task, and thanks to Electrical Engineers, we software developers don't have to understand how all that works.
+
+I've already shown you one example of how a the bits in a file can be interpreted in different ways according to what you teach your computer.We saw this via our exploration of UTF-8, ASCII and UTF-16 encodings. Now we will see a different binary format. So far we have seen hte binary formats for text and numbers. We will now take a breif look at the binary format for PNG images.
+
+Show this link: \url{https://en.wikipedia.org/wiki/Portable_Network_Graphics}. Show the section about header data. This describes the first few bytes a computer should expect when reading a png file. Commisions of professional prgrammers have gotten together at some point in history to decide that this sequence of bytes is what should be stored in the beginning of a png file. And if we look at a few png files, we'll see that they all satisfy the sequence of bytes specified by the standard. 
+
+\begin{center}
+\textbf{Take a few minutes to look at the first few bytes of some png files with xxd.}
+\end{center}
+
 \section{Green Screen}
-Change the alpha value to zero for any pixel that is thoroughly green.
+Change the alpha value to zero for any pixel that is thoroughly green. This is (I think) how hollywood does it. I'm not sure since I never made a movie, but I have heard about green screens and my guess is that this is how they work. If there are some pixels in an image that are green and the rest are not, you can "easily" remove the green ones. I say "easily" because there are a bunch of pther considerations. The "greenness" recorded in an image depends on external factors like the camera, lighting, shadows, etc. I would guess that they would want to eliminatie shadows.
+
+Have a look now at the Greenman code. See how it works. Run it and tweak the threshold values on the greenness to make it work better/worse.
+
+\lstinputlisting{Code/Greenman/Greenman.java}
+
+\begin{center}
+\textbf{if there is time find footage of moviemakers recording something with a green screen. Do they use a bunch of lights to minimize shadows and try to make the background somewhat equally green?}
+\end{center}
 
 \section{Hide a message in a PNG}
+
+\subsection{Hiding Hi}
 Now this section is motivated by a video I saw on the computerphile channel a few months ago. I was preparing for this class over the summer and looking for fun stuff to do with Java and this just seemed irresistable. Check out the video here if you want: \url{https://www.youtube.com/watch?v=TWEXCYQKyDc} The process is relatively simple. 
 
-\section{Image Formats}
-\subsection{PNG}
-\subsection{JPG}
-\subsection{PPM}
 
-\section{Reading a PPM File}
+I will try to hide the message "Hi" in this file. I Will encode "Hi" in UTF-16, which will be 0x00, 0x48, 0x00, 0x69. To do this I will encode the bits in the last bit of the blue channel of the image. For every  pixel, I will OR the red channel with 0x00 if the bit is zero. If the bit is 1 I will OR the red channel with 0x01. Then I will save the image. In UTF-16, "Hi" takes up 32 bits.
 
 
-\section{Midterm Exam Discussion
+
+
+
+
+\subsection{Weird stuff happening.}
+Note that the md5sum changes for the image the first time I run the Code/Steganography/backup example. Then when I run the output through it again and again the md5sum stops changing. The first iteration must truncate the data somehow.
+
+We are storing the rgb values in 8 bits, but I suspect the original input has more bits than that.
+
+
+
+\section{PPM Format}
+
+\subsection{Reading a PPM File}
+
+\section{Midterm Exam Discussion}
 
 \end{document}

@@ -54,7 +54,14 @@ public class Exam{
 }
 ```
 
-* 50 points for successfully hiding a message. 
-* 50 points for successfully extracting a message.
+* 25 points for successfully hiding a message. 
+* 25 points for successfully extracting a message.
+* 50 points for successfully explaining your code in class.
 
 I will verify that your code works by providing different inputs to the code and making sure it works for all of them.
+
+And, as there is no way for me to prevent one person doing all the work and simply distributing copies of the exam to others, I am going to test you on the code you wrote. I will likely print out your submission and have you write comments on it explaining how everything works.
+
+Grading this part is subjective and I reserve the right to administer points as I deem fair. 
+
+The take away is - do whatever you have to do to make code that works. Work together, copy from various internet sites, etc.. BUT be prepared to defend every line of code you write.

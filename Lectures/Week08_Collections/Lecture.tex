@@ -1,0 +1,110 @@
+\documentclass[12pt]{article}
+\usepackage[breaklinks=true]{hyperref}
+\usepackage[margin=1in]{geometry}
+
+\usepackage{color}
+
+\definecolor{pblue}{rgb}{0.13,0.13,1}
+\definecolor{pgreen}{rgb}{0,0.5,0}
+\definecolor{pred}{rgb}{0.9,0,0}
+\definecolor{pgrey}{rgb}{0.46,0.45,0.48}
+
+\usepackage{listings}
+\lstset{language=Java,
+  showspaces=false,
+  showtabs=false,
+  tabsize=2,
+  breaklines=true,
+  showstringspaces=false,
+  breakatwhitespace=true,
+  commentstyle=\color{pgreen},
+  keywordstyle=\color{pblue},
+  stringstyle=\color{pred},
+  basicstyle=\ttfamily,
+  frame=single,
+  moredelim=[il][\textcolor{pgrey}]{$$},
+  moredelim=[is][\textcolor{pgrey}]{\%\%}{\%\%}
+}
+
+\title{Java Collections}
+\author{
+	Melvyn Ian Drag
+}
+\date{\today}
+
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+$java.util$ provides many containers. These containers are widely used in Java programming and are implementations of the great data structures you hear about in data structures \& algorithms classes. In today's lecture we'll have a look at a few of them and consider when we would want to use them.
+\end{abstract}
+
+\section{Introduction}
+A java collection is a container you can use to store a bunch of values. For example, in your program you may need to store a bunch of ages - in this case you would
+
+\begin{lstlisting}
+...
+int[] ageArray = {19, 25, 13, 41, 15};
+...
+\end{lstlisting} 
+
+or you might create a class called 'Person' and when want to store a bunch of People. In this case you might
+
+\begin{lstlisting}
+Person[] peopleArr = { new Person(), new Person(), ...};
+\end{lstlisting}
+
+in these two examples I am using arrays. While arrays are fine for simple collections of items, there are some distinct disadvantages of using arrays compared to using a more elegant container. There are some cases where using an array is extremely problematic. One major disadvantage is that the array size is fixed. Once you create an array of 5  elements , you cannot add a sixth person to the array.  
+
+There are many Java Collections. For example, 
+
+\begin{enumerate}
+\item ArrayList
+\item LinkedList
+\item Vector
+\item PriorityQueue
+\item ArrayDeque
+\item HashSet
+\item LinkedHashSet
+\item TreeSet
+\item HashMap
+\item TreeMap
+\item LinkedHashMap
+\item ConcurrentListSkipMap
+\item WeakHashMap
+\item Stack
+\item etc.
+\end{enumerate}
+
+We are going to focus on just a few of them today. Namely, we will compare
+
+\begin{enumerate}
+\item ArrayList
+\item LinkedList
+\item HashSet
+\item TreeSet
+\end{enumerate}
+
+
+\section{The Collections Interface}
+
+\section{What is an ArrayList?}
+
+\section{What is a LinkedList?}
+
+\section{Initializing a List<T> with an ArrayList<T> or LinkedList<T>}
+Weird thing that Java programmers do. Java programmers use this pattern to achieve a bunch of complex things that you won't learn about in this class. Grab a good book and learn to write a Java Web App or Android App and you will see this pattern used in certain ways to achieve particular ends.
+
+\begin{lstlisting}
+List<String> l = new ArrayList<String}(){
+\end{lstlisting}
+
+\section{What Is a HashSet?}
+
+\section{What is a TreeSet?}
+
+
+\section{Timing Comparison}
+
+\end{document}

@@ -9,9 +9,13 @@
 \BOOKMARK [1][-]{section.7}{What's in a PNG?}{}% 9
 \BOOKMARK [1][-]{section.8}{Green Screen}{}% 10
 \BOOKMARK [1][-]{section.9}{Hide a message in a PNG}{}% 11
-\BOOKMARK [1][-]{section.10}{Image Formats}{}% 12
-\BOOKMARK [2][-]{subsection.10.1}{PNG}{section.10}% 13
-\BOOKMARK [2][-]{subsection.10.2}{JPG}{section.10}% 14
-\BOOKMARK [2][-]{subsection.10.3}{PPM}{section.10}% 15
-\BOOKMARK [1][-]{section.11}{Reading a PPM File}{}% 16
-\BOOKMARK [1][-]{section.12}{Midterm Exam Discussion}{}% 17
+\BOOKMARK [2][-]{subsection.9.1}{Hiding Hi}{section.9}% 12
+\BOOKMARK [2][-]{subsection.9.2}{Weird stuff happening.}{section.9}% 13
+\BOOKMARK [1][-]{section.10}{PPM Format}{}% 14
+\BOOKMARK [2][-]{subsection.10.1}{Reading a PPM File}{section.10}% 15
+\BOOKMARK [1][-]{section.11}{A look at the classes used in this class}{}% 16
+\BOOKMARK [1][-]{section.12}{Pass by Value vs. Pass by Reference}{}% 17
+\BOOKMARK [2][-]{subsection.12.1}{Read this}{section.12}% 18
+\BOOKMARK [2][-]{subsection.12.2}{Example Code}{section.12}% 19
+\BOOKMARK [1][-]{section.13}{Midterm Exam Discussion}{}% 20
+\BOOKMARK [1][-]{section.14}{References}{}% 21

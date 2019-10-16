@@ -128,25 +128,57 @@ Have a look now at the Greenman code. See how it works. Run it and tweak the thr
 \subsection{Hiding Hi}
 Now this section is motivated by a video I saw on the computerphile channel a few months ago. I was preparing for this class over the summer and looking for fun stuff to do with Java and this just seemed irresistable. Check out the video here if you want: \url{https://www.youtube.com/watch?v=TWEXCYQKyDc} The process is relatively simple. 
 
-
 I will try to hide the message "Hi" in this file. I Will encode "Hi" in UTF-16, which will be 0x00, 0x48, 0x00, 0x69. To do this I will encode the bits in the last bit of the blue channel of the image. For every  pixel, I will OR the red channel with 0x00 if the bit is zero. If the bit is 1 I will OR the red channel with 0x01. Then I will save the image. In UTF-16, "Hi" takes up 32 bits.
-
 
 \subsection{Weird stuff happening.}
 Note that the md5sum changes for the image the first time I run the Code/Steganography/backup example. Then when I run the output through it again and again the md5sum stops changing. The first iteration must truncate the data somehow.
 
 We are storing the rgb values in 8 bits, but I suspect the original input has more bits than that.
 
-
-
 \section{PPM Format}
 
 \subsection{Reading a PPM File}
 
 I won't show you how to do this 100\% because that is a bit of code you need to write. I didn't want to leave you with nothing in case you were confused, so See Code/ReadByteFile
+
+\lstinputlisting{Code/ReadByteFile/ReadByteFile.java}
+
+
+\section{A look at the classes used in this class}
+
+Check out the TYPE\_INT\_BLAH options
+
+What is ImageIO
+
+What is a buffered image?
+
+\section{Pass by Value vs. Pass by Reference}
+A basic thing you will always need to know when coming to a new language is - 'are arguments to functions in this language passed by value, or by reference?' In Java, function arguments are passed by value.
+
+Java is Strictly pass by Value. Repeat after me 10 times: 'Java is pass by value'.
+
+\subsection{Read this}
+\begin{enumerate}
+\item \url{https://www.geeksforgeeks.org/g-fact-31-java-is-strictly-pass-by-value/}
+\item \url{https://www.javaworld.com/article/2077424/learn-java-does-java-pass-by-reference-or-pass-by-value.html}
+\item \url{https://www.journaldev.com/3884/java-is-pass-by-value-and-not-pass-by-reference}
+\end{enumerate}
+
+\subsection{Example Code}
+
+Fill out two examples. have students do the third
+
+\lstinputlisting{Code/ByValueByRef/ByValueByRef.java}
+
+\subsection{Tricky problem for students}
+What happens if we put an object in an object? Create another class called MyObject, and make it one of the member variables of Container. Then what happens if we change a value inside the MyObject member in a Container? Give students some time to experiment with this.
+
 \section{Midterm Exam Discussion}
+See the exam write up in the Exams folder of this repository. Go over very carefully with class.
+
 
 \section{References}
+
 \begin{enumerate}
 	\item \url{https://en.wikipedia.org/wiki/Netpbm_format}
 	\item \url{http://www.paulbourke.net/dataformats/ppm/}

@@ -7,7 +7,7 @@ import javax.imageio.ImageIO;
 public class ReadAndWritePNG{
 
 	public static void main(String[] args) throws IOException {
-		BufferedImage hugeImage = ImageIO.read(ReadAndWritePNG.class.getResource("greenman.png"));
+		BufferedImage hugeImage = ImageIO.read(ReadAndWritePNG.class.getResource(args[0]));
 		int[][] result = null;
 		try{
 			result = convertToIntArray(hugeImage);

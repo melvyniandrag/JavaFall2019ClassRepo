@@ -31,10 +31,10 @@ public class TurnImageRed{
 		final int pixelLength = 4;
 		for (int pixel = 0, row = 0, col = 0; pixel + 3 < pixels.length; pixel += pixelLength) {
 			int argb = 0; // argb = Alpha,Red, Green, Blue
-			int blue = 0x00;
-			int green = 0x00;
-			int red = 0x00FF0000 ;
-			int	alpha = 0xFF000000; 
+			int blue  = 0x000000FF;
+			int green = 0x0000FF00;
+			int red   = 0x00Ff0000 ;
+			int	alpha = 0x00000000; 
 			argb += blue;
 			argb += green;
 			argb += red;      

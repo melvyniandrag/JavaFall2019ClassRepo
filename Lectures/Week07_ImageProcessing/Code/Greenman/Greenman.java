@@ -35,7 +35,7 @@ public class Greenman{
 			int green = (((int) pixels[pixel + 2] & 0xff) << 8);
 			int red = (((int) pixels[pixel+3] & 0xff ) << 16 );
 			int alpha = 0;
-			if (( (green>>8) > 100 ) && (( red>>16) < 100 ) ){
+			if (( (green>>8) > 100 ) && (( red>>16) > 100 ) && (blue > 100) ){
 				alpha = 0x00;
 			}
 			else{

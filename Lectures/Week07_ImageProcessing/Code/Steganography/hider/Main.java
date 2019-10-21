@@ -4,7 +4,7 @@ public class Main{
 		String fileName = args[0];
 		try{
 			int[][] imageArr = MessageHider.imageTo2DArr(fileName);
-			byte[] messageBytes = args[1].getBytes("UTF-16");
+			byte[] messageBytes = args[1].getBytes("UTF-8");
 			System.out.println("Attempting to hide bytes: ");
 			for( byte b : messageBytes ){
 				System.out.print(String.format("%02X ", b));

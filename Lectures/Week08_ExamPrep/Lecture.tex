@@ -1,6 +1,9 @@
 \documentclass[12pt]{article}
 \usepackage[breaklinks=true]{hyperref}
 \usepackage[margin=1in]{geometry}
+ 
+\usepackage{graphicx} %package to manage images
+\graphicspath{ {./images/} }
 
 \usepackage{color}
 
@@ -26,7 +29,7 @@
   moredelim=[is][\textcolor{pgrey}]{\%\%}{\%\%}
 }
 
-\title{Java Collections}
+\title{Exam Prep: PPM Image Manipulation in Java}
 \author{
 	Melvyn Ian Drag
 }
@@ -37,19 +40,87 @@
 \maketitle
 
 \begin{abstract}
-In case you are unsure of how to do the midterm exam, we will review some ideas.
-We will play around with the ppm image format. Instead of hiding text in the last bit of the red channel, well do the greenscreen thing from last week, but with ppm instead of png. After this exercise, I expect you to be comfortable reading, manipulating, and writing ppm files.
+In this class we will play around with the ppm image format so you have more confidence and ability to be able to complete the midterm exam.
 \end{abstract}
 
 
-\section{About Today's Lecture}
-Today's lecture is a lab rather than a lecture. The main point of today's lecture is to have you think about more about image manipulation so that you are able to complete your exam. Your performance in this lecture will be graded as an extra credit assignment.
+\section{It's Hard to Find a Good Greenman}
+Last week we used a \textit{greenman.png} image to do some image manipulation tasks. This week we will focus on \textit{.ppm} images - but where do we find a good one to play with? Use \textbf{imagemagick}. Note that imagemagick is a command line tool that is popular among linux and macOS users - I don't know if windows users like it or not, though I think you can download it. Anyway, I want to change the 
+mage from \textit{png} format to \textit{ppm}. Here's what the command looks like. If you're on Linux or Mac, you might want to check this program out because it is very userful. Here's how I convert to ppm:
+
+\begin{lstlisting}
+melvyn@thinkpad$ convert greenman.png greenman_bin.ppm
+melvyn@thinkpad$ head -n4 greenman_bin.ppm
+# a bunch of unreadable junk
+# this is because the image is in BINARY ppm format. Check the ppm
+# specification here and see that P6 is a binary format
+# https://en.wikipedia.org/wiki/Netpbm_format
+melvyn@thinkpad$ head -n1 greenman_bin.ppm
+P6
+\end{lstlisting}
+
+For our purposes, we want to use the image in ASCII format, not binary. So I do the command like this:
+
+\begin{lstlisting}[language=bash]
+$ convert greenman.png -compress none greenman_ascii.ppm
+$ head -n4 greenman_ascii.ppm
+P3
+WxH
+255
+... a bunch of numbers between 0 - 255 written in ASCII.
+\end{lstlisting}
+
+And that, boys and girls is the story of how I got this great greenman we are using today. I documented the steps just to show you how these types of problems are solved. Now we move on to viewing the image.
 
 \section{View PPM}
+I want you to see the ppm with your own eyes so you know that it is indeed an image. During lecture I will use our friend \textit{eog} to view it. \textit{imagemagick} also supports ppm files. I don't know about your favorite Windows tools. You can try. 
 
-\section{Create a PPM}
+\begin{center}
+\textbf{Have students try to view the greenman.ppm file - if they cannot allow them to come up and use my laptop.}
+\end{center}
 
-\section{Read it into memory}
+So now we have seen and can modify the image.
+
+\section{Exercise #1}
+The first exercise we will do in class today is have you comment a bit of java code. I spoke to a bunch of people in class and they told me that the midterm was quite hard - so I wrote ppm handling code myself and I just want you to read it and document what it does and how it does it. They say you can learn alot about software by reading other people's code. For this exercise you must comment the code I wrote in the following way:
+
+For every function you must write a comment in the form:
+
+\begin{verbatim}
+/**
+ * Brief description of what function does
+ *
+ * @param paramName1 - description of parameter
+ * @param paramName2 - description of parameter
+ * @param etc.
+ * @throws exceptiontype - circumstance under which it is thrown
+ * @throws exceptiontype2  - circumstance under which it is thrown
+ * @return description of the return value e.g. is it a string, 
+ *         is a HashMap, what does it represent, etc.
+ *
+ * And here goes a more detailed description of the function and
+ * how it works. If the function happens to use a special algorithm,
+ * describe it. If the function relies on the ARGB channel values of 
+ * an image being stored in a single 4 byte int, say that. The idea of  * this section is that someone who reads the code can understand it 
+ * better.
+ */
+\end{verbatim}
+
+\subsection{Example}
+Here is an example:
+\begin{lstlisting}
+/**
+ * Print a string and return if the printed value was more than 80 
+ * characters long.
+ *
+ * @param s - the input string
+ * @return a bool saying if s was longer than 80 characters
+ *
+ * This method actually counts the code points in the string `s'
+ * and not Java 2-byte chars. 
+ */
+public bool 
+\end{lstlisting}
 
 \section{Any pixel that is background should be made white}
 

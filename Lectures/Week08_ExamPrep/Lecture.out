@@ -1,0 +1,7 @@
+\BOOKMARK [1][-]{section.1}{It's Hard to Find a Good Greenman}{}% 1
+\BOOKMARK [1][-]{section.2}{View PPM}{}% 2
+\BOOKMARK [1][-]{section.3}{Create a PPM}{}% 3
+\BOOKMARK [1][-]{section.4}{Read it into memory}{}% 4
+\BOOKMARK [1][-]{section.5}{Any pixel that is background should be made white}{}% 5
+\BOOKMARK [1][-]{section.6}{Write the modified image back out to a file}{}% 6
+\BOOKMARK [1][-]{section.7}{View the image and see that it is modified}{}% 7

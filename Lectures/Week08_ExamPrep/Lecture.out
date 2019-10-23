@@ -1,7 +1,11 @@
 \BOOKMARK [1][-]{section.1}{It's Hard to Find a Good Greenman}{}% 1
-\BOOKMARK [1][-]{section.2}{View PPM}{}% 2
-\BOOKMARK [1][-]{section.3}{Create a PPM}{}% 3
-\BOOKMARK [1][-]{section.4}{Read it into memory}{}% 4
-\BOOKMARK [1][-]{section.5}{Any pixel that is background should be made white}{}% 5
-\BOOKMARK [1][-]{section.6}{Write the modified image back out to a file}{}% 6
-\BOOKMARK [1][-]{section.7}{View the image and see that it is modified}{}% 7
+\BOOKMARK [1][-]{section.2}{Let's see some ppm files}{}% 2
+\BOOKMARK [1][-]{section.3}{Exercise \0431a}{}% 3
+\BOOKMARK [2][-]{subsection.3.1}{ Comment Styling Requirements }{section.3}% 4
+\BOOKMARK [2][-]{subsection.3.2}{Example}{section.3}% 5
+\BOOKMARK [1][-]{section.4}{Exercise \0431b}{}% 6
+\BOOKMARK [1][-]{section.5}{Grading for Exercise 1}{}% 7
+\BOOKMARK [1][-]{section.6}{Exercise \0432}{}% 8
+\BOOKMARK [2][-]{subsection.6.1}{HINT!!!}{section.6}% 9
+\BOOKMARK [1][-]{section.7}{Grading for Exercise 2}{}% 10
+\BOOKMARK [1][-]{section.8}{Coming Up In Class}{}% 11

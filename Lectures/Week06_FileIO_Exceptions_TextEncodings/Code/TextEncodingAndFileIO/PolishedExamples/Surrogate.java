@@ -6,6 +6,7 @@ public class Surrogate{
 		String s2 = new String(new int[]{trebleClefInt, trebleClefInt},
 					 0, 2);
 		System.out.println(s2);
+		System.out.println(s2.length());
 	}
 }
 

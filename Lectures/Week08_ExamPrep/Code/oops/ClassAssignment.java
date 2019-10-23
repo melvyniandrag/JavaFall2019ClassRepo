@@ -6,6 +6,9 @@ public class ClassAssignment{
 		int[][] intArr = null;
 		try{ 
 			intArr = ChangeBackground.ReadPPMIntoIntArray(inputFile);
+			for( int i : intArr[10]){
+				System.out.println(i);
+			}
 		}
 		catch( FileNotFoundException ex1 ){
 			ex1.printStackTrace();

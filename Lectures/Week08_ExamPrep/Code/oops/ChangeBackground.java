@@ -9,6 +9,7 @@ public class ChangeBackground{
 	public static int[][] ReadPPMIntoIntArray(String fileName) throws FileNotFoundException, IOException{
 	    final int[][] ErrorRetVal = null;
 
+
 		File f = new File(fileName);	
 		byte[] fileArr = new byte[(int) f.length()];
 		InputStream is = new BufferedInputStream(new FileInputStream(f));
@@ -32,7 +33,7 @@ public class ChangeBackground{
 		}
 		final int Width  = Integer.parseInt(dimensionStrings[0]);
 		final int Height = Integer.parseInt(dimensionStrings[1]);
-		int[][] ret = new int[Height][Width*CHANNELS_PER_PIXEL];
+		int[][] ret = new int[Height*CHANNELS_PER_PIXEL][Width*CHANNELS_PER_PIXEL];		
 		System.out.println(String.format("Read an %dx%d image", Width, Height));			
 		if(	stringArr.length != Height + 3 ){
 			System.err.println("Not enough rows in datafile.");
@@ -58,8 +59,6 @@ public class ChangeBackground{
 	}
 
 	public static void ChangeWhiteToRed(int[][] inputArray){
-		System.out.println(inputArray.length);
-		System.out.println(inputArray[0].length);
 		for( int row = 0; row < inputArray.length; row++ ){
 			for( int col = 0; col < inputArray[row].length; col += 3 ){
 				//Here comes the background changing logic!
@@ -77,7 +76,6 @@ public class ChangeBackground{
 		if( (red > THRESHOLD) && (green > THRESHOLD) && (blue > THRESHOLD) ){
 			// then the pixel is white ( by our standards ).
 			// btw how do you say 'threshold' in spanish and portuguese?
-			// can you  improve this method?
 			return true;	
 		}
 		return false;
@@ -92,18 +90,14 @@ public class ChangeBackground{
 				Charset.forName("UTF-8")
 			);
 		osw.write("P3\n");
-		osw.write(String.format("%d %d\n", Pixels[0].length/3, Pixels.length));
+		osw.write(String.format("%d %d\n", Pixels[0].length, Pixels.length));
 		osw.write("255\n");
-		System.out.println(Pixels.length);
-		System.out.println(Pixels[0].length);
 		for( int row = 0; row < Pixels.length; ++row ){
-			System.out.println(row + " " + Pixels[0].length);
 			int col = 0;
 			for( col = 0; col < Pixels[0].length - 1; ++col ){
 				osw.write(String.valueOf(Pixels[row][col]) + " ");
 			}
 			osw.write(String.valueOf(Pixels[row][col]) + "\n");
-		}
-		osw.close();		
+		}		
 	}
 }

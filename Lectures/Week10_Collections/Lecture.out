@@ -1,1 +1,13 @@
-\BOOKMARK [1][-]{section.1}{Introduction}{}% 1
+\BOOKMARK [1][-]{section.1}{Exam}{}% 1
+\BOOKMARK [1][-]{section.2}{Introduction}{}% 2
+\BOOKMARK [1][-]{section.3}{What is a list?}{}% 3
+\BOOKMARK [1][-]{section.4}{What is an ArrayList?}{}% 4
+\BOOKMARK [2][-]{subsection.4.1}{overview}{section.4}% 5
+\BOOKMARK [1][-]{section.5}{Exercise: Create 5 different ArrayLists, each holding a different type.}{}% 6
+\BOOKMARK [1][-]{section.6}{What is a LinkedList?}{}% 7
+\BOOKMARK [1][-]{section.7}{The Collections Interface}{}% 8
+\BOOKMARK [2][-]{subsection.7.1}{Reference}{section.7}% 9
+\BOOKMARK [1][-]{section.8}{Initializing a List<T>with an ArrayList<T>or LinkedList<T>}{}% 10
+\BOOKMARK [1][-]{section.9}{Timing Comparison}{}% 11
+\BOOKMARK [1][-]{section.10}{Why Are Collections Useful?}{}% 12
+\BOOKMARK [2][-]{subsection.10.1}{highlight these points}{section.10}% 13

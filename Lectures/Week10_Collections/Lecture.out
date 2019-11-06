@@ -1,13 +1,20 @@
 \BOOKMARK [1][-]{section.1}{Exam}{}% 1
-\BOOKMARK [1][-]{section.2}{Introduction}{}% 2
-\BOOKMARK [1][-]{section.3}{What is a list?}{}% 3
-\BOOKMARK [1][-]{section.4}{What is an ArrayList?}{}% 4
-\BOOKMARK [2][-]{subsection.4.1}{overview}{section.4}% 5
-\BOOKMARK [1][-]{section.5}{Exercise: Create 5 different ArrayLists, each holding a different type.}{}% 6
-\BOOKMARK [1][-]{section.6}{What is a LinkedList?}{}% 7
-\BOOKMARK [1][-]{section.7}{The Collections Interface}{}% 8
-\BOOKMARK [2][-]{subsection.7.1}{Reference}{section.7}% 9
-\BOOKMARK [1][-]{section.8}{Initializing a List<T>with an ArrayList<T>or LinkedList<T>}{}% 10
-\BOOKMARK [1][-]{section.9}{Timing Comparison}{}% 11
-\BOOKMARK [1][-]{section.10}{Why Are Collections Useful?}{}% 12
-\BOOKMARK [2][-]{subsection.10.1}{highlight these points}{section.10}% 13
+\BOOKMARK [2][-]{subsection.1.1}{How to do the exam}{section.1}% 2
+\BOOKMARK [1][-]{section.2}{Introduction}{}% 3
+\BOOKMARK [1][-]{section.3}{What is a list?}{}% 4
+\BOOKMARK [1][-]{section.4}{What is an ArrayList?}{}% 5
+\BOOKMARK [2][-]{subsection.4.1}{overview}{section.4}% 6
+\BOOKMARK [1][-]{section.5}{Exercise: Create 5 different ArrayLists, each holding a different type.}{}% 7
+\BOOKMARK [1][-]{section.6}{What is a LinkedList?}{}% 8
+\BOOKMARK [1][-]{section.7}{Further Illustration}{}% 9
+\BOOKMARK [1][-]{section.8}{The Collections Interface}{}% 10
+\BOOKMARK [2][-]{subsection.8.1}{Exercise}{section.8}% 11
+\BOOKMARK [2][-]{subsection.8.2}{Reference}{section.8}% 12
+\BOOKMARK [1][-]{section.9}{Initializing a List<T>with an ArrayList<T>or LinkedList<T>}{}% 13
+\BOOKMARK [1][-]{section.10}{Timing Comparison}{}% 14
+\BOOKMARK [2][-]{subsection.10.1}{How To Time Code}{section.10}% 15
+\BOOKMARK [2][-]{subsection.10.2}{Timing Comparison}{section.10}% 16
+\BOOKMARK [2][-]{subsection.10.3}{ArrayList vs LinkedList}{section.10}% 17
+\BOOKMARK [1][-]{section.11}{Make Computer Run out of memory?}{}% 18
+\BOOKMARK [1][-]{section.12}{Why Are Collections Useful?}{}% 19
+\BOOKMARK [2][-]{subsection.12.1}{highlight these points}{section.12}% 20

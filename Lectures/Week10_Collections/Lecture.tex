@@ -47,9 +47,6 @@ Anyone who submitted by now and the code works gets a 100 automatically. Anyone 
 \subsection{How to do the exam}
 Take 10 minutes and solve the exam problem in front of students.
 
-\subsection{Historical Pass Rate}
-The historical pass rate for this class is 50\%. There are some people saying the class is too hard - but those people are in the bottom 50\% so I statistically that means these people would have not passed even if I made the class easier as it has been in previous semesters.
-
 \section{Introduction}
 A java collection is a container you can use to store a bunch of values. For example, in your program you may need to store a bunch of ages - in this case you would
 
@@ -135,11 +132,28 @@ Allow 10 minutes to ensure that everyone can use the arraylists successfully.
 \section{What is a LinkedList?}
 To be perfectly honest, I've not yet researched how linked lists are implemented in Java, but I have studied algorithms and I've see how they are implemented in other languages. I'll give you a bit of information now and then we'll do some experiments to see if Java aligns with our expectations.
 
-\textit{Draw a linked list on the board} 
 
 \textit{Read the wikipedia article on linked lists}
 
 I will improvise this section about a linked list. If you don't understand the concept after our discussion in class, you can look on youtube. Sometimes hearing different people say the same things makes those things easier to understand.
+
+\section{Further Illustration}
+\begin{center}
+{\LARGE \textit{Draw a linked list on the board. Draw an Array List on the board Show. ArrayList uses continguous memory. Linked List uses references between non-contiguous blocks of memory}}
+\end{center}
+
+\begin{center}
+{\LARGE Illustration: Have a  bunch of students sitting next to each other hold up their array index on a piece of paper. That's an array list. Give the students the indices and have them point to each other. These students don't sit together. This is a linked list.}
+\end{center}
+
+\begin{center}
+{\LARGE Illustrate an add operation. Show how to add to an array list means we have to displace the people sitting after the insertion index, but we don't have to find the insertion index because we already know where it is. For a linked list, during insertion, we have no idea where in memory the 5th person is - so we have to start at 0 and work our way through the references, then we insert the person. This is why ArrayList and LinkedList have different run times for insertion. The complexity is O(n) in both, but the cost manifests itself differently, so the actual run time is different.}
+\end{center}
+
+\begin{center}
+\textbf{The above is at once very simple, but also very abstract. I 100\% recommend you finish learning Java, then take algorithms, and also learn C or C++. If you understand C, algorithms, and Java, then you will understand what I've said very well. It is almost impossible to explain in isolation without you having learned about computer memory, which comes from a C or C++ class.}
+\end{center}
+
 
 \section{The Collections Interface}
 Here is a good picture I found to explain the collections interface:
@@ -158,7 +172,6 @@ I could have written a long lesson on this, but I think it's better that we just
 
 \subsection{Reference}
 
-
 \url{https://www.javatpoint.com/collections-in-java}
 
 \section{Initializing a List\textless T\textgreater with an ArrayList\textless T\textgreater or LinkedList\textless T\textgreater}
@@ -174,12 +187,39 @@ In this section we'll measure how long different datastructures take to perform 
 \subsection{How To Time Code}
 There are many ways to measure time with Java. I'll just show you one. Java knows how many milliseconds have passed since the \textbf{Epoch}. When is the Epoch? Why is it important I can't remember, but it is a commonly used "t0" in computer science, especially on unix systems. 
 
-
-
-2. Compare the following operations:
-
 Do the add and remove operations. Discuss the complexity of those operations, and then work it out in class.
 
+\subsection{Timing Comparison}
+
+Have the students run this code on their computers to see what is happening. Compare results across class
+
+\lstinputlisting{TimingTest.java}
+
+\subsection{ArrayList vs LinkedList}
+Run this code in front of the class. Compare the run times.
+
+Look at this link
+\url{https://stackoverflow.com/questions/42849486/why-does-linked-list-delete-and-insert-operation-have-complexity-of-o1-shoul/42849562}
+
+Here's the code:
+
+\lstinputlisting{ArrayListTiming.java}
+
+and then for LinkedList
+
+\lstinputlisting{LinkedListTiming.java}
+
+Look at the memory consumption of the ArrayListTiming example for input 1000000!! Java takes up all 4 cpu cores and a bunch of memory!!
+
+\begin{figure}[h]
+  \centering
+    \includegraphics[width=\textwidth]{htop.png}
+  \caption{Java Working Hard!}
+\end{figure}
+
+
+\section{Make Computer Run out of memory?}
+Can you do it, just for fun? Can you make a program that contains such a large, or so many ArrayLists, that the computer runs out of memory?
 
 
 \section{Why Are Collections Useful?}

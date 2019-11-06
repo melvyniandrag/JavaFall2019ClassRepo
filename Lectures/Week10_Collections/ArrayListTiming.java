@@ -5,7 +5,7 @@ import java.util.Collections;
 
 public class ArrayListTiming{
 	public static void main(String[] args){
-		final int N = 100000;	
+		final int N = Integer.parseInt(args[0]);	
 		final int ONE = 1;
 		List<Integer> list = new ArrayList<Integer>(Collections.nCopies(N, 0));
 		long timeStart = System.currentTimeMillis();

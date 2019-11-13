@@ -80,9 +80,11 @@ to which you might rush and think ``USE A SET!!! DUH!!" but there is more to the
 \subsection{What is a hash function}
 Generally a hash function is just a function, but you expect the hash function to have some particular properties. 
 
-You see hash functions all over the place in computer science. Often times, programmers like us use hash functions to generate a small string from a large file. We use things like md5sums, which are hash funtions. Commit this to memory! \textbf{md5sum}! This particular hash is used by programmers all the time, day after day after day. An example of a use case is if I want to give you a pdf to read. I will also give you the md5sum. Before you open the pdf, you run the file through a program that can compute the md5sum.
+You see hash functions all over the place in computer science. Often times, programmers like us use hash functions to generate a small string from a large file. We use things like md5sums, which are hash funtions. Commit this to memory! \textbf{md5sum}! This particular hash is used by programmers all the time, day after day after day. An example of a use case is if I want to give you a pdf to read. I will also give you the md5sum. Before you open the pdf, you run the file through a program that can compute the md5sum. If the md5sum is the same, that means the input to the function was the same and you can trust the file. If te md5sum is different, that means that the input to the md5sum function was different and you shouldnt trust the file.
 
+{\LARGE\textit{show alchemistowl and \url{http://releases.ubuntu.com/trusty/} the link for downloading the Ubuntu linux operating system. Whenever you download a file, you should also get the hash of the file and verify the hash is correct before you install or use the thing from the internet. There are viruses on the internet created by bad people! Programmers like us always provide a way to verify that we aren't downloading viruses.}}
 
+Now, in this class we are using these functions that generate an output for a given input to do a different task. We need the hash function to output a number. We use that number as a n array index
 
 There is alot of algorithmic research that goes into designing great hash functions. I'll tell you about it via an example. 
 
@@ -90,10 +92,23 @@ There is alot of algorithmic research that goes into designing great hash functi
 \item
 \end{itemize}
 
+
+\subsection{An example}
+\lstinputlisting{Code/HashSetTest.java}
+
 \section{What is a TreeSet?}
+\subsection{What is a tree}
+\subsection{An example}
+\lstinputlisting{Code/TreeSetTest.java}
 
 \section{What is a LinkedHashSet?}
 
-\section{Timing Comparison}
+\section{Grades}
+Grades are not an evaluation of your soul or worth as a human being. Grades are an evaluation of your knowledge of Java. 
+
+\section{If Extra Time}
+What is a leap second? When will the next one be? Is there a scheduled one coming up? We might have a party and watch the clocks and try and generate a programatic error at the leap second!
+
+\section{If extra time: start working on homework}
 
 \end{document}

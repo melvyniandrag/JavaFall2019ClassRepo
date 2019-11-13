@@ -40,16 +40,59 @@
 $java.util$ provides many containers. These containers are widely used in Java programming and are implementations of the great data structures you hear about in data structures \& algorithms classes. In today's lecture we'll have a look at a few of them and consider when we would want to use them.
 \end{abstract}
 
+\section{Exam 7:00 - 7:20}
+Ask students to document their code.
+
 \section{Sets}
 We are going to learn about sets today.
+
+The purpose of a set is to store exactly one copy of each item. In this regard, sets are a bit different from arrays. An array 
+
+\textit{Illustrate the concept on the board}
+
+To describe a set is somewhat simple ( unless you think deeply about it in terms of mathematics! ). We will just say a set is like a List, except a list can contain multiple copies ofthe same value - a set cannot. Sometimes you will want this in your code. I can't tell you when or why - you'll need to write alot of code and then some day, if you haven't had the epiphany yet, you'll have it. Sets are useful, and it is a data structure that comes up naturally in many situations when you are writing code. 
+
+I remember when I learned about a dictionary in python - I thought it was the stupidest thing ever! Why would anyone want a to index their arrays by a string, what is wrong with a number?!?!?! A few weeks later I was working on a project and realized it would be super convenient if I could create a relationship between strings and the values they represented . . . and thus my love of the dictionary was born and I pledged to never doubt the importance of an algorithm or datastructure when someone was passionately teaching it to me.
+
+You all might feel this way about this class or the other one I'm teaching. Like ni here, why am I making you manipulate bits, understand image formats, or study the difference between ASCII, UTF8 and UTF16. You can trust that these are important things to know and that if you don't believe me, it's because you haven't written enough programs yet! The same in my other class, the Linux class. We are setting up websites, databases, studying a handful of simple programming languages! These things are really small, simple things I'm showing, and with time, as you do bigger projects, you'll see what we're learning is just the tip of the iceberg!
+
+We are only together for a few weeks in this class, but you will spend the rest of your life as a programmer! You should learn these concepts now and then get ready to continue learning way harder concepts for the rest of your career! Some jobs like accounting and construction are kind of mentally simple - the same thing, over and over again. The same tools. The jobs are incredibly challenging, but don't require too much creativity. Programming on the other hand requires you to have some basic level of love and understanding of math, and then learn a million languages and circuit boards, processors, etc, and deliver on ridiculously short timelines. 
+
+Back to the lecture - there are a bunch of types of sets that one can learn about in a data structures class. Java implements many many types of sets. Today we will have a peek at three of them in no great detail, but just so that you know they are there and more or less what they do.
+
 \begin{enumerate}
 \item HashSet
 \item TreeSet
+\item LinkedHashSet
 \end{enumerate}
 
-\section{What Is a HashSet?}
+Set is the interface that all of these implementations implement. Now you understand it's most essential feature - a set is like a list, but it only stores unique elements, no duplicates! 
+
+\subsection{Interview Warning}
+When you go for your big interview at Amazon ( and I only mention amazon because they are hiring Java and Linux experts both in Newark and New York City! ), you may have a problem that requires you to maintain some unique set of elements. For example, here is a basic interview question:
+
+{\Large\textit{Given an array, how can you remove all duplicates?}}
+
+to which you might rush and think ``USE A SET!!! DUH!!" but there is more to the problem than this. ArrayLists and LinkedLists are naturally ordered! You know who is first and who is last - but do you know this information when you use a set? I'll show you a bit about sets now and talk a tiny tiny tiny bit about theory, but ultimately you need to take a few semesters of algorithms to understand the answer to this problem!
+
+\section{What is a HashSet?}
+
+\subsection{What is a hash function}
+Generally a hash function is just a function, but you expect the hash function to have some particular properties. 
+
+You see hash functions all over the place in computer science. Often times, programmers like us use hash functions to generate a small string from a large file. We use things like md5sums, which are hash funtions. Commit this to memory! \textbf{md5sum}! This particular hash is used by programmers all the time, day after day after day. An example of a use case is if I want to give you a pdf to read. I will also give you the md5sum. Before you open the pdf, you run the file through a program that can compute the md5sum.
+
+
+
+There is alot of algorithmic research that goes into designing great hash functions. I'll tell you about it via an example. 
+
+\begin{itemize}
+\item
+\end{itemize}
 
 \section{What is a TreeSet?}
+
+\section{What is a LinkedHashSet?}
 
 \section{Timing Comparison}
 

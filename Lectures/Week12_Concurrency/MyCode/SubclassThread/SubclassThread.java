@@ -8,7 +8,7 @@ public class SubclassThread extends Thread {
 	}
 
 	public void run(){
-			System.out.println(String.format("Hello from thread %d", this.threadNum));
+			System.out.printf("Hello from thread %d%n", this.threadNum);
 	}
 
 	public static void main(String[] args){

@@ -12,7 +12,7 @@ public class SynchronizedSumReduce implements Runnable{
 		_myInts = ints;
 	}
 
-	private synchronized void updateTotal( int partialSum ){
+	private synchronized static void updateTotal( int partialSum ){
 		total += partialSum;
 	}
 

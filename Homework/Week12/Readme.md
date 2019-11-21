@@ -5,14 +5,16 @@ Read the Java tutorial about concurrency. Take screenshots of 3 different pages
 in the tutorial. You might as well read it since you're already there taking
 pictures.
 
+The tutorial is here: https://docs.oracle.com/javase/tutorial/essential/concurrency/
+You can click 'next' on each page to walk through the tutorial.
+
 ## Problem 2
 Rewrite the sum example we did in class to instead find the product of the
 numbers in an ArrayList ( and it must use more than one thread! ). I don't care
 if you use *synchronized* or *AtomicInt* or whatever you want, just make a
-little multithreaded application that computes the product of 0 through N-1.
+little multithreaded application that computes the product of 1 through N-1.
 
 *Use the code in MyCode/HomeworkTemplate to do the homework*
-
 
 *NOTE!!! THe sum example started at 0. The product example cannot, or else it
 will just return 0 every time, because 0 * n1 * n2 * n3 etc = 0*

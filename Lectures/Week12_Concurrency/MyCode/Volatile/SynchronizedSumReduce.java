@@ -11,7 +11,6 @@ public class SynchronizedSumReduce implements Runnable{
 
 	SynchronizedSumReduce( List<Integer> ints ){
 		_myInts = ints;
-		System.out.println("constructed");
 	}
 	
 	// since total is volatile, this method is not synchronized.
@@ -73,7 +72,6 @@ public class SynchronizedSumReduce implements Runnable{
 		final long T0 = System.nanoTime();
 		long TF = 0;
 		Thread.sleep(1000);
-		System.out.println("Starting!");
 		t1.start();
 		t2.start();
 		t3.start();

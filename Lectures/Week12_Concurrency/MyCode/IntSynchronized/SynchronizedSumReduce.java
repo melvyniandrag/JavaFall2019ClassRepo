@@ -44,24 +44,25 @@ public class SynchronizedSumReduce implements Runnable{
 		t3.start();
 		t4.start();
 		try{
-			t1.join();
-			t2.join();
-			t3.join();
-			t4.join();
+			//t1.join();
+			//t2.join();
+			//t3.join();
+			//t4.join();
 		}
 	
 		catch( Exception ex ){
 			System.err.println(ex.toString());
 		}
 		final long TF = System.nanoTime();
-		System.out.println(String.format(
-			"The sum of the integers in [%d, %d) is %d.",
-			0, N, SynchronizedSumReduce.total )
-		);
-		System.out.println(String.format(
-			"The sum took %d nanoseconds to compute.",
-			TF - T0)
-		);
+		System.out.println(SynchronizedSumReduce.total);
+		//System.out.println(String.format(
+		//	"The sum of the integers in [%d, %d) is %d.",
+		//	0, N, SynchronizedSumReduce.total )
+		//);
+		//System.out.println(String.format(
+		//	"The sum took %d nanoseconds to compute.",
+		//	TF - T0)
+		//);
 	}
 }
 

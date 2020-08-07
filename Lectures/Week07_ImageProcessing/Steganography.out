@@ -1,0 +1,25 @@
+\BOOKMARK [1][-]{section.1}{Introduction}{}% 1
+\BOOKMARK [1][-]{section.2}{Setup}{}% 2
+\BOOKMARK [1][-]{section.3}{Review}{}% 3
+\BOOKMARK [1][-]{section.4}{cron}{}% 4
+\BOOKMARK [1][-]{section.5}{Backups with Cron}{}% 5
+\BOOKMARK [2][-]{subsection.5.1}{tar}{section.5}% 6
+\BOOKMARK [2][-]{subsection.5.2}{backup}{section.5}% 7
+\BOOKMARK [2][-]{subsection.5.3}{Going Further}{section.5}% 8
+\BOOKMARK [1][-]{section.6}{Intermezzo}{}% 9
+\BOOKMARK [1][-]{section.7}{SQL}{}% 10
+\BOOKMARK [2][-]{subsection.7.1}{Intro}{section.7}% 11
+\BOOKMARK [2][-]{subsection.7.2}{Murder Mystery}{section.7}% 12
+\BOOKMARK [2][-]{subsection.7.3}{Play more with SQLite3}{section.7}% 13
+\BOOKMARK [2][-]{subsection.7.4}{Recap}{section.7}% 14
+\BOOKMARK [2][-]{subsection.7.5}{End SQL Statements with ;}{section.7}% 15
+\BOOKMARK [2][-]{subsection.7.6}{Running sqlite3 commands from a script}{section.7}% 16
+\BOOKMARK [2][-]{subsection.7.7}{Conclusion}{section.7}% 17
+\BOOKMARK [1][-]{section.8}{Break}{}% 18
+\BOOKMARK [1][-]{section.9}{Exam}{}% 19
+\BOOKMARK [2][-]{subsection.9.1}{bash functions}{section.9}% 20
+\BOOKMARK [2][-]{subsection.9.2}{read}{section.9}% 21
+\BOOKMARK [2][-]{subsection.9.3}{source}{section.9}% 22
+\BOOKMARK [2][-]{subsection.9.4}{case}{section.9}% 23
+\BOOKMARK [2][-]{subsection.9.5}{final note to lecturer}{section.9}% 24
+\BOOKMARK [1][-]{section.10}{Did anyone get the PR?}{}% 25

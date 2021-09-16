@@ -45,6 +45,214 @@ topic that you might have forgotten, but need to understand for our final
 project.
 \end{abstract}
 
+\section{Start with the math stuff}
+It is important that you know how to convert numbers between base 2 ( binary),
+base 10 ( decimal ) and base 16 (hexadecimal, usually people just say "hex" )
+
+Pretty much we just think of every digit as powers of the base.
+
+So in base 10:
+10*0, 10**1,  10**2, etc..
+
+in base 2:
+2**0, 2**1, 2**3
+
+and in base 16:
+16**0, 16**1, 16**2
+
+
+Example 1:
+convert 6574 base10  to base 2, then convert back to base 10
+
+Whats the largest power of 2 that goes in?
+1,2,4,8,16,32,64,128,256,512,1024,2048, 4096=2**12, 8192 = 2**13 so 2**12 is the
+biggest one. 2**12 with be the 13th bit ( dont forget the 0 bit, indexing starts
+at 0,not 1 )
+Then the remainder is 6574 - 4096 = 2478
+Then we can take one 2**11 from that 2478 - 2048 = 430
+The n we can take one 2**8 from that 430 - 256 = 174
+And we can take one 2**7 from there 174 - 128 = 46
+Then we can take one 2**5 from there 46 - 32 = 14
+Then take one 2**3 from there 14 - 8 = 6
+Then take a 2*2 from there 6 - 4 = 2
+Then we are left with a single 2**1
+So the binary must be 
+1100110101110
+
+in other words:
+1 2**12
+1 2**11
+0 2**10
+0 2**9
+1 2**8
+1 2**7
+0 2**6
+1 2**5
+0 2**4
+1 2**3
+1 2**2
+1 2**1
+0 2**0
+
+And that is how decimal to binary conversion works.
+
+To go from binary to decimal, just add the powers of 2. 
+So this would be 
+2**12 + 2**11 + 2**8 +...
+
+Weve printed left to right the 13th down to the 0th bit.
+
+Why do we care about Binary numbers?!?! What's the point of this?! 
+In this class we will doing real computer science. We will be manipulating bits.
+Sometimes you will want to manipulate bits in your hardware. You'll want to know
+what the 1s and 0s are in your computer for some reason. Binary numbers tell you
+explicitly what numbers are in your computer. You know computers use
+electricity? If there is a high voltage the computer interprets that as 1. If
+ther eis a low voltage the computer takes that to be a zero. And with just that
+your computer can do crazy stuff like send emails ,drive cars, solve math
+problems. Sometimes youll need to get your hands dirty and look at the 1s and
+0s.
+
+NOTE! we havent talked about sign bits yet. Java numbers are all + or -. Well
+need to look at the conversion from decimal to a signed binary number. We will
+talk about taht later, it requires a little more thinking on your part so I just
+want you to show me that you understand this first.
+
+\subsection{Working with hex numbers.}
+
+What is the point of hex numbers?! The point is hex numbers are awesome at
+storing 8 bit  binary numbers in just 2 chatracters. And its super easy and
+beautiful to go bac kand forth between hex and binary.
+
+First lets look at decimal to hex.
+
+its the same as decimal to binary .Except now we work with powers of 16 and not
+2.
+
+16**0 = 1
+16**1 = 16
+16**2 = 256
+16**3 = 4096
+
+So lets convert our old friend 6574 to hex.
+
+There is 1 4096. Remainder is 6574 - 4096 = 2478
+In there there are 9 16**2s. 256 * 9 = 2304. And 2478 - 2304 = 174
+And there are 10 number 16**1s in there. 174 - 10*16 = 14.
+And then there are 14 ones.
+So the digits in our hex number would be 
+1, 9, 10, 14 corresponding to 1 16**3, 9 16**2, 10 16**1 and 14 16**0.
+By convention, for convenience, we write hex 10 as A, hex 14 as E.
+So the number in hex is 19AE.
+
+\subsection{Going the other way, hex to decimal}
+This is just as with binary. Its easier to do hex to decimal than decimal to
+hex. Just multiply like this: 1*16**3 + 9 * 16**2 + 10*16**1 + 14 * 16**0
+
+\subsection{And now the beautfiful thing}
+I hope you see the beauty in what were doing. If not yet, then this bit here
+will knock your socks off.
+
+[consider reviewing the three pillars of OOP really quick ]
+
+Ok now that Im sure you know the pilars of oop let me show this other thing we
+were talking about
+
+
+take a binary number and make sure it has a multiple of 8 digits. 
+
+Take tihs one 10011 this has only 5. Lets put some zeros on the left ot make it
+8
+
+00010011. 
+
+thats better
+
+To go to hex, first split it into two groups of four. Oh this is why its so
+beautiful
+
+0001    0011
+
+
+Now turn each of the halves into decimal
+
+
+1       3
+
+And then turn the decimals into hex.
+
+13
+
+and thats how you write a byte in hex!!
+
+Heres another one
+
+11111100
+
+convert to hex
+
+easy
+
+there are 8 bits already so good.
+
+Then split in two
+
+1111 1100
+
+
+then each half to decimal
+
+15   12
+
+
+then each half to hex
+
+FC
+
+
+done!
+
+By the way, you can write the hex numbers in caps or lowercase, but dont mix
+that would be uncommon. FC and fc is good. fC or Fc woulc be unusual and probaly
+jpeople would look at you weird.
+
+
+
+Okay and now lets look at that number 6574 again. 
+
+In binary we found it to be
+
+1100110101110
+
+Lets break it into 8 bit bytes
+
+11001 10101110
+
+pad on the left with 0s
+
+00011001 10101110
+
+Now break the bytes into groups of 4
+
+
+0001 1001 1010 1110
+
+and now convert each one to dcimal
+
+1    9    10   14
+
+and then to hex
+
+19 AE
+
+
+Which is exactly what we found earlier. 
+
+There are other ways to do these conversions. If you know another way that's
+great .Some are faster some are shorter. I think this method is straight forward
+and algorithmic. As you practice it will become super easy to do. If you dont
+practice it might be confusing.
+
 \section{Introduction}
 A java collection is a container you can use to store a bunch of values. For example, in your program you may need to store a bunch of ages - in this case you would
 
@@ -136,6 +344,21 @@ ago, I only knew a bit about Java that I had to learn for school and for work. I
 was able to prepare a fairly decent lecture because I knew how to read the
 documents! Everything about Java is there on the internet, you just need a few
 minutes to sit and patiently read and digest what you've read.
+
+Today we are talking about Lists in particular. Let me show you a couple of
+things:
+\url{https://docs.oracle.com/javase/8/docs/api/java/util/LinkedList.html}
+There  is the official oracle documentation for the LinkedList class.
+Look near the top and see that  Linked List is an object, an AbstractCollection,
+an Abstract List, and AbstractSequentialList, and implements interfaces
+Serializable, Cloneable,  Iterable, a Deque, a List and a Queue.
+If you want the full story about what the Java implementation of  a LINked List
+can do you can look through the documentation for each one of the base classes
+and interfaces. We will do that later in the semester as an exercise. For now
+we're just looking at the basic methods of the class.
+
+\subsection{Basic methods}
+\subsection{Iterating over a collection and doing stuff to it}
 
 
 \section{What is a list?}

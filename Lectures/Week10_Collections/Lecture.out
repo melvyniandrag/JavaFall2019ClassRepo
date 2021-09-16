@@ -1,20 +1,24 @@
-\BOOKMARK [1][-]{section.1}{Introduction}{}% 1
-\BOOKMARK [1][-]{section.2}{The Collections Interface}{}% 2
-\BOOKMARK [1][-]{section.3}{What is a list?}{}% 3
-\BOOKMARK [1][-]{section.4}{What is an ArrayList?}{}% 4
-\BOOKMARK [2][-]{subsection.4.1}{overview}{section.4}% 5
-\BOOKMARK [1][-]{section.5}{Exercise: Create 5 different ArrayLists, each holding a different type.}{}% 6
-\BOOKMARK [1][-]{section.6}{What is a LinkedList?}{}% 7
-\BOOKMARK [1][-]{section.7}{Further Illustration}{}% 8
-\BOOKMARK [1][-]{section.8}{The Collections Interface}{}% 9
-\BOOKMARK [2][-]{subsection.8.1}{Exercise}{section.8}% 10
-\BOOKMARK [2][-]{subsection.8.2}{Reference}{section.8}% 11
-\BOOKMARK [1][-]{section.9}{Initializing a List<T>with an ArrayList<T>or LinkedList<T>}{}% 12
-\BOOKMARK [1][-]{section.10}{Timing Comparison}{}% 13
-\BOOKMARK [2][-]{subsection.10.1}{How To Time Code}{section.10}% 14
-\BOOKMARK [2][-]{subsection.10.2}{Timing Comparison}{section.10}% 15
-\BOOKMARK [2][-]{subsection.10.3}{ArrayList vs LinkedList}{section.10}% 16
-\BOOKMARK [1][-]{section.11}{Make Computer Run out of memory?}{}% 17
-\BOOKMARK [1][-]{section.12}{Why Are Collections Useful?}{}% 18
-\BOOKMARK [2][-]{subsection.12.1}{highlight these points}{section.12}% 19
-\BOOKMARK [2][-]{subsection.12.2}{Quiz: Can you name 5 methods in the Java Collections API?}{section.12}% 20
+\BOOKMARK [1][-]{section.1}{Start with the math stuff}{}% 1
+\BOOKMARK [1][-]{section.2}{Introduction}{}% 2
+\BOOKMARK [1][-]{section.3}{The Collections Interface}{}% 3
+\BOOKMARK [1][-]{section.4}{Implementations of Collection Interface and the Children of Those Implementations}{}% 4
+\BOOKMARK [2][-]{subsection.4.1}{Basic methods}{section.4}% 5
+\BOOKMARK [2][-]{subsection.4.2}{Iterating over a collection and doing stuff to it}{section.4}% 6
+\BOOKMARK [1][-]{section.5}{What is a list?}{}% 7
+\BOOKMARK [1][-]{section.6}{What is an ArrayList?}{}% 8
+\BOOKMARK [2][-]{subsection.6.1}{overview}{section.6}% 9
+\BOOKMARK [1][-]{section.7}{Exercise: Create 5 different ArrayLists, each holding a different type.}{}% 10
+\BOOKMARK [1][-]{section.8}{What is a LinkedList?}{}% 11
+\BOOKMARK [1][-]{section.9}{Further Illustration}{}% 12
+\BOOKMARK [1][-]{section.10}{The Collections Interface}{}% 13
+\BOOKMARK [2][-]{subsection.10.1}{Exercise}{section.10}% 14
+\BOOKMARK [2][-]{subsection.10.2}{Reference}{section.10}% 15
+\BOOKMARK [1][-]{section.11}{Initializing a List<T>with an ArrayList<T>or LinkedList<T>}{}% 16
+\BOOKMARK [1][-]{section.12}{Timing Comparison}{}% 17
+\BOOKMARK [2][-]{subsection.12.1}{How To Time Code}{section.12}% 18
+\BOOKMARK [2][-]{subsection.12.2}{Timing Comparison}{section.12}% 19
+\BOOKMARK [2][-]{subsection.12.3}{ArrayList vs LinkedList}{section.12}% 20
+\BOOKMARK [1][-]{section.13}{Make Computer Run out of memory?}{}% 21
+\BOOKMARK [1][-]{section.14}{Why Are Collections Useful?}{}% 22
+\BOOKMARK [2][-]{subsection.14.1}{highlight these points}{section.14}% 23
+\BOOKMARK [2][-]{subsection.14.2}{Quiz: Can you name 5 methods in the Java Collections API?}{section.14}% 24

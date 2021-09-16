@@ -13,16 +13,7 @@ public class ArrayListTiming{
 			if(i % 1000 == 0){
 				System.out.println("processing iteration: " + i);
 			}
-			Random rn = new Random();
-			//The below should work in Java, but it doesn't. This is unexpected behavior - the mod operator should always return positive.
-			//int index = rn.nextInt() % N;
-			// To fix the problem do this:
-			int index = rn.nextInt() % N;
-			if(index < 0){
-				index += N;
-			}
-			// More about the issue:
-			//https://stackoverflow.com/questions/5385024/mod-in-java-produces-negative-numbers
+			int index = 1;
 			list.add(index, ONE);
 		}
 		long timeEnd = System.currentTimeMillis();

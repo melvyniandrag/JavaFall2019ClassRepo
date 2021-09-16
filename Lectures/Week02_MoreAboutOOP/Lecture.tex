@@ -1,0 +1,129 @@
+\documentclass[12pt,a4paper]{article}
+\include{the_workbook_preamble}
+%
+\begin{document}
+%
+%title and author details
+\title{\textbf{Week01 - Getting Started in the Cloud}}
+%\author[1]{Melvyn Ian Drag}
+\date{\today}
+%
+\maketitle
+
+\begin{abstract}
+In this class we discuss the final keyword, the static keyword, access
+specifiers, control flow, primitive types vs classes,enum classes, loops.  We
+will review pillars of OOP to further cement them in your mind.
+\end{abstract}
+
+\section{In no particular order}
+This class will be about a variety of topics. The topics are all basic java
+topics and are presented in random order. I usually like to build a big lecture
+around a central idea, but today we are focusing on lots of small ideas!
+
+\section{The final keyword}
+This word is for constants. Sometimes in your programs you want to create a
+value and make sure that it doesnt change. This would be a constant.
+
+For example, the following values should never change during your program's
+runtime:
+
+\begin{itemize}
+\item final double PI = 3.14;
+\item final int SECS\_PER\_MIN = 60;
+\item final int MINS\_PER\_HOUR = 60;
+\item final double LITERS\_PER\_GAL = 3.81; // I think
+\item \textit{get more suggestions from students}
+\end{itemize}
+
+Also note that it's customary to put your final values in capital letters. Not
+required by the java compiler, but it is nice to do this for your colleagues.
+Java programmers expect constant values to be written in capital letters.
+
+\section{The static keyword}
+For you learning Java, the word "static" is probably confusing. What does it
+mean? We won't worry about the history of this word, I'll just tell you what it
+means:
+
+Static means "just one". It means there is "just one" of the thing in your whole
+program. It often has the implication that the static thing is shared by your
+whole program. It also often has the implication that it is not tied to a
+particular instance of a class. 
+
+
+Example 1: The main method is static. Why? it doesnt require you to new up a
+class instance, you can call main without a class instance.
+
+Write simple program. then ask students if we've instantiated any objects - did
+we call "new"? No. But we're still calling a method if we run this. Which
+method? main().
+
+Example 2: Standard example
+Every time you create an object, you increment the counter.
+
+Understanding the static keyword will be very important when we talk about
+multithreading in a couple of weeks.
+
+\section{control flow}
+
+\subsection{if, elif, else}
+
+\subsection{switch}
+
+\section{loops}
+\subsection{while}
+
+\subsection{do while}
+
+\subsection{for}
+ 
+\section{Data types}
+\subsection{Almost everything in Java is an Object}
+All objects in Java, including arrays, inherit some basic functionality from the
+Object class.So when you make a base object in Java, it isn't really the base
+object, there is the Object class below it. 
+
+An example of methods you get from the Object class are toString() and clone().
+
+clone() method would be fun to play with - is it a deep copy? Shallow copy? or
+just the sae exact object with a new name?
+
+\subsection{Primitive types are not objects.}
+\begin{itemize}
+\item int
+\item double
+\item float
+\item char
+\item byte
+\item bool
+\end{itemize}
+
+Interesting that in java the byte datatype is 16 bits. This will be very
+important in the coming weeks when we look at the way that computers do binary
+encoding of text data. In many languages a char is 8 bits! But java has an 8
+bit type called "byte" instead. Very interesting history behind why this is.
+
+\subsection{Java classes that had me confused}
+When I learned Java I was in a hurry. Had no book and no guidance, so I was
+mainly just reading code I found online, compiling it, and tweaking it to see
+what happened.
+
+At that time I had no idea what the point of these types were! If there is an
+int, why does Java give us Integer? Are they the same? Different?
+
+\begin{itemize}
+\item Integer
+\item Double
+\item Character
+\item Boolean
+\item Float
+\item Byte
+\end{itemize}
+
+I can tell you now - these types are the Object form the underlying primitive.
+So an Integer is like an int, but it's an object instead of a primitive. 
+
+One immediate benefit of this is that you can use certain libraries that expect
+objects. Some libraries dont want primitives.
+
+\end{document}

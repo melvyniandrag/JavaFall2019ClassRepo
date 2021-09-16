@@ -1,0 +1,26 @@
+\BOOKMARK [1][-]{section.1}{Introduction}{}% 1
+\BOOKMARK [1][-]{section.2}{The final keyword}{}% 2
+\BOOKMARK [1][-]{section.3}{The static keyword}{}% 3
+\BOOKMARK [2][-]{subsection.3.1}{bonus}{section.3}% 4
+\BOOKMARK [1][-]{section.4}{Data types}{}% 5
+\BOOKMARK [2][-]{subsection.4.1}{Almost everything in Java is an Object}{section.4}% 6
+\BOOKMARK [2][-]{subsection.4.2}{Primitive types are not objects.}{section.4}% 7
+\BOOKMARK [2][-]{subsection.4.3}{Java classes that had me confused}{section.4}% 8
+\BOOKMARK [1][-]{section.5}{Introduction}{}% 9
+\BOOKMARK [1][-]{section.6}{What is a list?}{}% 10
+\BOOKMARK [1][-]{section.7}{What is an ArrayList?}{}% 11
+\BOOKMARK [2][-]{subsection.7.1}{overview}{section.7}% 12
+\BOOKMARK [1][-]{section.8}{Exercise: Create 5 different ArrayLists, each holding a different type.}{}% 13
+\BOOKMARK [1][-]{section.9}{What is a LinkedList?}{}% 14
+\BOOKMARK [1][-]{section.10}{Further Illustration}{}% 15
+\BOOKMARK [1][-]{section.11}{The Collections Interface}{}% 16
+\BOOKMARK [2][-]{subsection.11.1}{Exercise}{section.11}% 17
+\BOOKMARK [2][-]{subsection.11.2}{Reference}{section.11}% 18
+\BOOKMARK [1][-]{section.12}{Initializing a List<T>with an ArrayList<T>or LinkedList<T>}{}% 19
+\BOOKMARK [1][-]{section.13}{Timing Comparison}{}% 20
+\BOOKMARK [2][-]{subsection.13.1}{How To Time Code}{section.13}% 21
+\BOOKMARK [2][-]{subsection.13.2}{Timing Comparison}{section.13}% 22
+\BOOKMARK [2][-]{subsection.13.3}{ArrayList vs LinkedList}{section.13}% 23
+\BOOKMARK [1][-]{section.14}{Make Computer Run out of memory?}{}% 24
+\BOOKMARK [1][-]{section.15}{Why Are Collections Useful?}{}% 25
+\BOOKMARK [2][-]{subsection.15.1}{highlight these points}{section.15}% 26

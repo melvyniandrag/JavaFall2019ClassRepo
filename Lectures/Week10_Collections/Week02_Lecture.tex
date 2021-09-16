@@ -27,7 +27,7 @@
   moredelim=[is][\textcolor{pgrey}]{\%\%}{\%\%}
 }
 
-\title{Java Collections Part 1}
+\title{Java Collections}
 \author{
 	Melvyn Ian Drag
 }
@@ -38,12 +38,163 @@
 \maketitle
 
 \begin{abstract}
-$java.util$ provides many containers. These containers are widely used in Java programming and are implementations of the great data structures you hear about in data structures \& algorithms classes. In today's lecture we'll have a look at a few of them and consider when we would want to use them.
-
-We will also review how to convert between numeric types. This is a basic CS
-topic that you might have forgotten, but need to understand for our final
-project.
+$java.util$ provides many containers. These containers are widely used in Java
+programming and are implementations of the great data structures you hear about
+in data structures \& algorithms classes. In today's lecture we'll have a look
+at a few of them and consider when we would want to use them. Before getting to
+that interesting material, however, we'll review primitives vs objects, the
+static keyword, and the final keyword.
 \end{abstract}
+
+\section{Introduction}
+Lets get the basic stuff out of the way. These are little things that don't fit
+anywhere, but they are cool and useful.
+
+\section{The final keyword}
+Dry opening.
+what are some constant values you might include in a program?
+I mean, what are some :final: values you will include? Maybe you write a
+mathematical program and you want to put a constant value to use in your
+formulas.
+
+Ask class.
+My ideas:
+PI, Avogadros Number, e ( eulers number ), SpeedOfLight.
+How many protons does an oxygen atom have? This would be a constant that someone
+writing a chemistry program would put in his code.
+How many seats are there on a Boeing 747? Someone writing the program to handle
+booking tickets for a flight would need to write this into te code as a constant
+value.
+
+
+
+\url{https://www.tutorialspoint.com/can-we-declare-final-variables-without-initialization-in-java}
+The final keyword in Java is for constants. But Java is very cool about how it
+handles the final keyword - it means you can assign to the value only once. But
+you don't have to initialize the variable as soon as you declare it! 
+
+In many other languages you must do
+\begin{lstlisting}
+const int i = 1;
+\end{lstlisting}
+
+but you cannot do
+
+\begin{lstlisting}
+const int i;
+i = 1;
+\end{lstlisting}
+
+\section{The static keyword}
+We use static in every single Java program we write - somewhere, in at least one
+of our classes, we create a method called `public static void main(String[] args)`
+
+static is an annoying keyword - can I say that? Do you mind if I call it
+annoying? Its confusing, maybe that's a better word. In English itself we don't
+really use the word "static". And then when we do use it we use it to mean
+something that doesnt change ( as opposed to dynamic ), or we might talk about
+when the radio isn't easy to hear you call the noise ( ask class to make the
+noise, make sure that the foreign students know what I'm talking about ) static.
+
+Ok - so what does static mean in Java? It means that the thing marked static
+belongs to the class, and not to a particular instance of the class. So for the
+last homework you had to do:
+
+\begin{lstlisting}
+Car truck = new FireTruck();
+truck.SprayWater();
+\end{lstlisting}
+
+That's because "SprayWater" is an \textit{instance} method - it's a method that
+instances of a class can call. Static methods are not tied to an instance of a
+class. You dont need to create an object to use a static method.
+
+Example 1: The main method is static. Why? it doesnt require you to new up a
+class instance, you can call main without a class instance.
+
+Write simple program. then ask students if we've instantiated any objects - did
+we call "new"? No. But we're still calling a method if we run this. Which
+method? main(). 
+
+Extend the example to create a static method and a non-static method. Ask class
+which one we can call in main( )without instantiating an object. ( answer: the
+static one ). Then ask, how can we ever use the non-static method? ( answer:
+first new up an object )
+
+Example 2: Standard example
+Note that static is not just applied to methods. You can also share variables /
+members across a program. In this program we'll create a static member variable
+called numFuzzyWuzzies, and it will store the numbre of fuzzyWuzzies that we
+create.
+
+
+Every time you create an object, you increment the counter. Create a fuzzy wuzzy
+class. Every time you instantiate it, update the static member numFuzzyWuzzies.
+
+Understanding the static keyword will be very important when we talk about
+multithreading in a couple of weeks.
+
+
+In summary: the static keyword means that a variable or method does not belong
+to any instance of a class - it is instead property of the class itself, and it
+can be used througout your whole program.
+
+\subsection{bonus}
+A question I don't know the answer to - in Java can you call a static method
+from a class instance? Like truck.StaticSprayWater()?There would be no reason to
+do this, but I'm just curious to know.
+
+\section{Data types}
+\subsection{Almost everything in Java is an Object}
+All objects in Java, including arrays, inherit some basic functionality from the
+Object class.So when you make a base object in Java, it isn't really the base
+object, there is the Object class below it. 
+
+An example of methods you get from the Object class are toString() and clone().
+
+clone() method would be fun to play with - is it a deep copy? Shallow copy? or
+just the sae exact object with a new name?
+
+\subsection{Primitive types are not objects.}
+\begin{itemize}
+\item int
+\item double
+\item float
+\item char
+\item byte
+\item bool
+\end{itemize}
+
+Interesting that in java the byte datatype is 16 bits. This will be very
+important in the coming weeks when we look at the way that computers do binary
+encoding of text data. In many languages a char is 8 bits! But java has an 8
+bit type called "byte" instead. Very interesting history behind why this is.
+
+\subsection{Java classes that had me confused}
+When I learned Java I was in a hurry. Had no book and no guidance, so I was
+mainly just reading code I found online, compiling it, and tweaking it to see
+what happened.
+
+At that time I had no idea what the point of these types were! If there is an
+int, why does Java give us Integer? Are they the same? Different?
+
+\begin{itemize}
+\item Integer
+\item Double
+\item Character
+\item Boolean
+\item Float
+\item Byte
+\end{itemize}
+
+I can tell you now - these types are the Object form the underlying primitive.
+So an Integer is like an int, but it's an object instead of a primitive. 
+
+One immediate benefit of this is that you can use certain libraries that expect
+objects. Some libraries dont want primitives.
+
+
+BREAK before we move on to LISTS
 
 \section{Introduction}
 A java collection is a container you can use to store a bunch of values. For example, in your program you may need to store a bunch of ages - in this case you would
@@ -88,55 +239,6 @@ We are going to focus on just a few of them today. Namely, we will compare
 \item ArrayList
 \item LinkedList
 \end{enumerate}
-
-
-\section{The Collections Interface}
-As we've discussed in this class, an interface is one way that Java does
-inheritance. Interfaces provide a set of methods that the implementations must
-implement. Here are the methods provided by the collections interface:
-
-\begin{lstlisting}
-boolean add(E e)
-boolean addAll(Collection<? extends E> c)
-void clear()
-boolean    contains(Object o)
-boolean     containsAll(Collection<?> c)
-boolean     equals(Object o)
-int     hashCode()
-boolean     isEmpty()
-Iterator<E>     iterator()
-default Stream<E>     parallelStream()
-boolean     remove(Object o)
-boolean     removeAll(Collection<?> c)
-default boolean     removeIf(Predicate<? super E> filter)
-boolean     retainAll(Collection<?> c)
-int     size()
-default Spliterator<E>     spliterator()
-default Stream<E>     stream()
-Object[]     toArray()
-<T> T[]     toArray(T[] a)
-\end{lstlisting}
-
-reference:
-\url{https://docs.oracle.com/javase/8/docs/api/java/util/Collection.html}
-
-Have a look at the methods above and you will see that there are many useful
-methods for working with a collection of things.
-
-
-\section{Implementations of Collection Interface and the Children of Those
-Implementations}
-Now we can have a look at the classes the implement this Interface.
-We will look through the hierarchy all hte way down until we reach the
-Collections we are interested today.
-
-The takeaway I expect you to have from the next few minutes is some comfort with
-reading technical documentation. When they asked me to teach this class 3 years
-ago, I only knew a bit about Java that I had to learn for school and for work. I
-was able to prepare a fairly decent lecture because I knew how to read the
-documents! Everything about Java is there on the internet, you just need a few
-minutes to sit and patiently read and digest what you've read.
-
 
 \section{What is a list?}
 A list is an abstract idea - it's a bunch of objects in a row, like the arrays that we've seen so far. The list contains a bunch of items. You can delete items from it and add items to it. As I said before - big drawback of arrays is that the size of an array is fixed.
@@ -250,11 +352,11 @@ Look at this link
 
 Here's the code:
 
+\lstinputlisting{ArrayListTiming.java}
 
-\lstinputlisting{MiddleInsertionComparison.java}
+and then for LinkedList
 
-The lets look at the output of the code.
-
+\lstinputlisting{LinkedListTiming.java}
 
 Look at the memory consumption of the ArrayListTiming example for input 1000000!! Java takes up all 4 cpu cores and a bunch of memory!!
 
@@ -267,9 +369,6 @@ Look at the memory consumption of the ArrayListTiming example for input 1000000!
 
 \section{Make Computer Run out of memory?}
 Can you do it, just for fun? Can you make a program that contains such a large, or so many ArrayLists, that the computer runs out of memory?
-
-
-
 
 
 \section{Why Are Collections Useful?}
@@ -286,8 +385,4 @@ In case I haven't made it abundantly clear through examples by now, collections 
 BTW If you don't know what an \textbf{API} is, it means \textbf{Application Programming Interface}. It pretty much means the publicly facing part of your code that other people can access. That may not be helpful - an example is warranted here.
 
 There is a good chance that you know next to nothing about linked lists outside of what I've told you today. Even if you have studied algorithms and data structures, you probably implemented a very simplistic linked list. Nevertheless, today you learned how to add, and remove elements from a linked list. That is because it has a good API. You, the \textbf{Application Programmer}, only have to know a few functions, you don't need to understand the guts of the whole linked list code to use it. The API is the set of publicly accessible functions that application programmers will use.
-
-\subsection{Quiz: Can you name 5 methods in the Java Collections API?}
-What are they?
-
 \end{document}

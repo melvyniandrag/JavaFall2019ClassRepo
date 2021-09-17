@@ -1,31 +1,32 @@
-\documentclass[12pt]{article}
-\usepackage[breaklinks=true]{hyperref}
-\usepackage[margin=0.75in]{geometry}
-
-\usepackage{graphicx}
-\usepackage{color}
-
-\definecolor{pblue}{rgb}{0.13,0.13,1}
-\definecolor{pgreen}{rgb}{0,0.5,0}
-\definecolor{pred}{rgb}{0.9,0,0}
-\definecolor{pgrey}{rgb}{0.46,0.45,0.48}
-
-\usepackage{listings}
-\lstset{language=Java,
-  showspaces=false,
-  showtabs=false,
-  tabsize=2,
-  breaklines=true,
-  showstringspaces=false,
-  breakatwhitespace=true,
-  commentstyle=\color{pgreen},
-  keywordstyle=\color{pblue},
-  stringstyle=\color{pred},
-  basicstyle=\ttfamily,
-  frame=single,
-  moredelim=[il][\textcolor{pgrey}]{$$},
-  moredelim=[is][\textcolor{pgrey}]{\%\%}{\%\%}
-}
+\documentclass[10pt]{article}
+\include{the_workbook_preamble}
+%\usepackage[breaklinks=true]{hyperref}
+%\usepackage[margin=0.75in]{geometry}
+%
+%\usepackage{graphicx}
+%\usepackage{color}
+%
+%\definecolor{pblue}{rgb}{0.13,0.13,1}
+%\definecolor{pgreen}{rgb}{0,0.5,0}
+%\definecolor{pred}{rgb}{0.9,0,0}
+%\definecolor{pgrey}{rgb}{0.46,0.45,0.48}
+%
+%\usepackage{listings}
+%\lstset{language=Java,
+%  showspaces=false,
+%  showtabs=false,
+%  tabsize=2,
+%  breaklines=true,
+%  showstringspaces=false,
+%  breakatwhitespace=true,
+%  commentstyle=\color{pgreen},
+%  keywordstyle=\color{pblue},
+%  stringstyle=\color{pred},
+%  basicstyle=\ttfamily,
+%  frame=single,
+%  moredelim=[il][\textcolor{pgrey}]{$$},
+%  moredelim=[is][\textcolor{pgrey}]{\%\%}{\%\%}
+%}
 
 \title{Java Collections Part 1}
 \author{
@@ -253,10 +254,13 @@ great .Some are faster some are shorter. I think this method is straight forward
 and algorithmic. As you practice it will become super easy to do. If you dont
 practice it might be confusing.
 
+I've given you a homework assignment to do this.
+
+
 \section{Introduction}
 A java collection is a container you can use to store a bunch of values. For example, in your program you may need to store a bunch of ages - in this case you would
 
-\begin{lstlisting}
+\begin{lstlisting}[style=java]
 ...
 int[] ageArray = {19, 25, 13, 41, 15};
 ...
@@ -264,7 +268,7 @@ int[] ageArray = {19, 25, 13, 41, 15};
 
 or you might create a class called 'Person' and when want to store a bunch of People. In this case you might
 
-\begin{lstlisting}
+\begin{lstlisting}[style=java]
 Person[] peopleArr = { new Person(), new Person(), ...};
 \end{lstlisting}
 
@@ -303,7 +307,7 @@ As we've discussed in this class, an interface is one way that Java does
 inheritance. Interfaces provide a set of methods that the implementations must
 implement. Here are the methods provided by the collections interface:
 
-\begin{lstlisting}
+\begin{lstlisting}[style=java]
 boolean add(E e)
 boolean addAll(Collection<? extends E> c)
 void clear()
@@ -331,6 +335,21 @@ reference:
 Have a look at the methods above and you will see that there are many useful
 methods for working with a collection of things.
 
+\section{Hands On Practice}
+Now we will play with these collection methods.
+
+There are a bunch so we'll go through them one at a time.
+Here is a code listing for the practice iwth students. Feel free to include or
+exclude print statements as time allows.
+
+\lstinputlisting[style=java]{TestCollectionAPI.java}
+
+\begin{figure}[h]
+  \centering
+    \includegraphics[width=0.5\textwidth]{outputOfCollectionsAPIExperiment.png}
+  \caption{Illustration of a variety of classes which implement the Collection class.}
+\end{figure}
+
 
 \section{Implementations of Collection Interface and the Children of Those
 Implementations}
@@ -357,14 +376,28 @@ can do you can look through the documentation for each one of the base classes
 and interfaces. We will do that later in the semester as an exercise. For now
 we're just looking at the basic methods of the class.
 
-\subsection{Basic methods}
 \subsection{Iterating over a collection and doing stuff to it}
+There are a few ways to iterate over a java collection. 
+
+Sometimes you want to walk over the elements in a collection.
+
+Heres how to do it with a forloop
+
+\lstinputlisting[style=java]{ForLoopList.java}
+
+Heres how to do it with an iterator
+
+\lstinputlisting[style=java]{IteratorList.java}
+
+And here is a way to iterate over a list and perform the same operation to every
+element in this list. This is often referred to as a map operation:
+\lstinputlisting[style=java]{StreamExample.java}
 
 
 \section{What is a list?}
 A list is an abstract idea - it's a bunch of objects in a row, like the arrays that we've seen so far. The list contains a bunch of items. You can delete items from it and add items to it. As I said before - big drawback of arrays is that the size of an array is fixed.
 
-\lstinputlisting{IntArrayCreator.java}
+\lstinputlisting[style=java]{IntArrayCreator.java}
 
 Note that all of the above arrays have four elements in them, and that cannot be changed! Sometimes that's what you want, sometimes thats not. Your call. If you want a variable number of elements in your container, use a List not an array.
 
@@ -372,10 +405,10 @@ Note that all of the above arrays have four elements in them, and that cannot be
 \subsection{overview}
 An ArrayList is a container like an array, but the size isn't fixed. You can put some elements of a specified type in them. See this example to create ArrayLists of different types:
 
-\lstinputlisting{ArrayListDemo.java}
+\lstinputlisting[style=java]{ArrayListDemo.java}
 
 WARNING! This code won't work:
-\begin{lstlisting}
+\begin{lstlisting}[style=java]
 ...
 ArrayList<int> intArrayList = new ArrayList<int>();
 ...
@@ -407,24 +440,6 @@ To be perfectly honest, I've not yet researched how linked lists are implemented
 
 I will improvise this section about a linked list. If you don't understand the concept after our discussion in class, you can look on youtube. Sometimes hearing different people say the same things makes those things easier to understand.
 
-\section{Further Illustration}
-\begin{center}
-{\LARGE \textit{Draw a linked list on the board. Draw an Array List on the board Show. ArrayList uses continguous memory. Linked List uses references between non-contiguous blocks of memory}}
-\end{center}
-
-\begin{center}
-{\LARGE Illustration: Have a  bunch of students sitting next to each other hold up their array index on a piece of paper. That's an array list. Give the students the indices and have them point to each other. These students don't sit together. This is a linked list.}
-\end{center}
-
-\begin{center}
-{\LARGE Illustrate an add operation. Show how to add to an array list means we have to displace the people sitting after the insertion index, but we don't have to find the insertion index because we already know where it is. For a linked list, during insertion, we have no idea where in memory the 5th person is - so we have to start at 0 and work our way through the references, then we insert the person. This is why ArrayList and LinkedList have different run times for insertion. The complexity is O(n) in both, but the cost manifests itself differently, so the actual run time is different.}
-\end{center}
-
-\begin{center}
-\textbf{The above is at once very simple, but also very abstract. I 100\% recommend you finish learning Java, then take algorithms, and also learn C or C++. If you understand C, algorithms, and Java, then you will understand what I've said very well. It is almost impossible to explain in isolation without you having learned about computer memory, which comes from a C or C++ class.}
-\end{center}
-
-
 \section{The Collections Interface}
 Here is a good picture I found to explain the collections interface:
 
@@ -447,7 +462,7 @@ I could have written a long lesson on this, but I think it's better that we just
 \section{Initializing a List\textless T\textgreater with an ArrayList\textless T\textgreater or LinkedList\textless T\textgreater}
 Weird thing that Java programmers do. Java programmers use this pattern to achieve a bunch of complex things that you won't learn about in this class. Grab a good book and learn to write a Java Web App or Android App and you will see this pattern used in certain ways to achieve particular ends.
 
-\begin{lstlisting}
+\begin{lstlisting}[style=java]
 List<String> l = new ArrayList<String>(){"Hello", "World"};
 \end{lstlisting}
 
@@ -463,9 +478,19 @@ Do the add and remove operations. Discuss the complexity of those operations, an
 
 Have the students run this code on their computers to see what is happening. Compare results across class
 
-\lstinputlisting{TimingTest.java}
+\lstinputlisting[style=java]{TimingTest.java}
 
-\subsection{ArrayList vs LinkedList}
+
+\begin{figure}[h]
+  \centering
+    \includegraphics[width=\textwidth]{outputOfTimingTest.png}
+  \caption{Comparison of some operators}
+\end{figure}
+
+
+\subsection{ArrayList vs LinkedList dramatic runtime diffference and memory
+usage}
+
 Run this code in front of the class. Compare the run times.
 
 Look at this link
@@ -473,26 +498,18 @@ Look at this link
 
 Here's the code:
 
+\lstinputlisting[style=java]{MiddleInsertionComparison.java}
 
-\lstinputlisting{MiddleInsertionComparison.java}
+
+You will see that 
 
 The lets look at the output of the code.
 
-
-Look at the memory consumption of the ArrayListTiming example for input 1000000!! Java takes up all 4 cpu cores and a bunch of memory!!
-
 \begin{figure}[h]
   \centering
-    \includegraphics[width=\textwidth]{htop.png}
-  \caption{Java Working Hard!}
+    \includegraphics[width=\textwidth]{middleInsertionComparison.png}
+  \caption{Compare ArrayList vs LinkedList middle insertion}
 \end{figure}
-
-
-\section{Make Computer Run out of memory?}
-Can you do it, just for fun? Can you make a program that contains such a large, or so many ArrayLists, that the computer runs out of memory?
-
-
-
 
 
 \section{Why Are Collections Useful?}

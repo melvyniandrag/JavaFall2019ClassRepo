@@ -1,0 +1,39 @@
+1. I suppose you know that numbers are represented in a certain  format on computers. You know, for example, that Java represented whole numbers in one of the following datatypes:
+* byte - one byte
+* short - two bytes
+* int - four bytes
+* long - 8 bytes
+
+And we talked last week about the format Java uses. It is abbreviated T.C. 
+
+Ask class what the format is?
+
+And remind everyone the way it works.
+
+1. If number is positive, write normally in all but the top byte. If number is negative:
+a) write positive binary
+b) flip bits
+c) add binary one.
+d) now you have the negative binary representation
+
+Well text data is represented in different ways. Twos complement is for integer types, but there are different ways to store text data.
+
+Internally, Java uses the UTF16 format, but this doesn't matter too much to us.
+
+When reading data from a file, Java needs to know the data format of the file.
+
+When writing data to a file, a good programmer ( like you ) ought to specify exactly which data format he/she wants.
+
+Data formats for text data are called "Text Encodings"
+
+The text encodings we will look at today are ASCII, UTF8, and UTF16. 
+
+Use xxd to show the hex contents of files. Unfortunately there is no standard hex viewer in windows.
+
+A text file is a file that just contains text data. 
+
+There are several ways to represent text data that you need to know about.
+
+Today we will talk about ASCII, UTF8 and UTF16.
+
+

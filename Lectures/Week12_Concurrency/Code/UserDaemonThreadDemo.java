@@ -10,13 +10,13 @@ class UserDaemonThreadDemo
          mt.setDaemon(true);
          mt.start ();
       }
-      try
-      {
-         Thread.sleep (100);
-      }
-      catch (InterruptedException e)
-      {
-      }
+      //try
+      //{
+      //   Thread.sleep (100);
+      //}
+      //catch (InterruptedException e)
+      //{
+      //}
    }
 }
 class MyThread extends Thread

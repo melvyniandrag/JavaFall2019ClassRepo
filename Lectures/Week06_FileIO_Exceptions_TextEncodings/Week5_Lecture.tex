@@ -1,9 +1,10 @@
 \documentclass[12pt]{article}
 \usepackage{hyperref}
 \usepackage[margin=1in]{geometry}
-
+\usepackage{graphicx}
 \usepackage{color}
-
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
 \definecolor{pblue}{rgb}{0.13,0.13,1}
 \definecolor{pgreen}{rgb}{0,0.5,0}
 \definecolor{pred}{rgb}{0.9,0,0}
@@ -59,6 +60,61 @@ must be aware that there are others.
 
 We are going to talk about ASCII, UTF8, and UTF16.
 
+Please before we get started, take a moment to go to
+\url{github.com/melvyniandrag} and note the
+\textit{TextFilesInDifferentEncodings} repository there. Click the repo. Then
+note there is a green button that says "Code". Click that button, then go to
+"download zip" and download it. Then unzip it. Start a new Java project in
+Eclipse and add the files from the repository to your new project src folder.
+
+
+\section{Lets Play Around Before We Look At Theory}
+
+I will write the code on the board and ask everyone to create the same class
+inside a package called textencodings in the project they just created.
+See Figure \ref{fig:environment} to see what your computer should look like.
+
+\lstinputlisting[caption=Read a UTF8 Encoded File]{ScannerExample.java}
+
+\begin{figure}[h]
+\centering
+	\includegraphics[width=0.8\textwidth]{environment.png}
+	\caption{{\small \texttt{What your setup should look like now.}}}
+	\label{fig:environment}
+\end{figure}
+
+
+\subsection{Now Do This}
+\begin{itemize}
+\item change the ENCODING to UTF16 and rerun. The computer prints out junk.
+\item Then change the ENCODING to UTF16 and also change the input file to the
+one with utf-16 instead of utf-8. Rerun. Now the computer prints out the correc
+t thing.
+\end{itemize}
+
+\subsection{What Happened?}
+There are many different schemes / techniques / styles of storing text data on
+computers. I mean to say that the ones and zeros can be rearranged. The format
+of the ones and zeros is known as a text encoding. The three we are talking
+about are: (audience participation)
+
+\subsection{I'd like to show you one more thing before we talk theory}
+Run the dostoyevsky files through xxd on laptop or on lectern pc. xxd is a
+command line tool that dumps out file contents in hex.Show that the hex is
+different for the dostoyevsky files. Show that the hex is different for the
+hello files.
+
+
+\section{How about one more example?}
+Buffered readers can be more efficient than other types of readers when reading
+Java programs. File IO is very time consuming - it is the most time consuming
+thing for computers. 
+
+
+Checkout this example that reads a file using a Buffered Reader.
+\lstinputlisting[caption=Read a file using a
+BufferedReader]{InputStreamExample.java}
+ 
 \section{ASCII}
 Many years ago, a short while after the beginning, there was an encoding called "ASCII". You see, the computers and the programmning languages in the beginning were designed in the USA and the UK mainly, and so all of the technology was dealt with in English. This is why the programming languages say ``character'' and ``integer'' and not whatever their equivalents are in other languages. At the same time, math and science publications were moving away from German, French and Russian and everything was being written in English, for ease of international exchange of ideas. 
 
@@ -102,15 +158,25 @@ jgs .'  \-=-/  '.
 \subsection{ASCII is a Seven Bit Encoding}
 Show that the table goes up to 127. On the board, multiply 2x2x2x2x2x2x2 = 128 = 2\^7, with seven bits we get numbers 0-127.
 
-\section{Exercise}
-How many bytes are in a Character in Java? Instruct the class to write a code to get the number of bytes in a character. Use the \textit{Character.SIZE} member to find out.
+Indeed, ASCII characters are seven bits and so they fit in a single byte. This
+is why in certain older programming languages out there the "char" datatype is
+one byte - because a character takes up only one byte.
 
-Answer: 2 bytes / 16 bits.
+\subsection{Please review the ascii table}
+This shows the binary representation of all valid characters from years ago.
+ASCII is still popular btw, but that is only because the ancient ASCII encoding
+is compatible with a new encoding. The computer scientists who designed this
+stuff were very clever.
+
+
+\subsection{TODO}
+What is the ASCII representation of hello?
+Note: there is not ASCII representation for fyodor in cyrrillic,because ASCII is
+for english letters only.
+Leave the ascii neatly on the side of the board.
 
 \section{UTF16}
-I told you we were in the twilight zone - things are just starting to get weird. Java uses two bytes for a character, and yet I told you that the ASCII encoding uses only seven bits, which fits in one byte!
-
-When ASCII came out, this was many years ago as I told you. But Java came out in the early 1990s \textit{(Check me out on this, I might be off bya couple of years)}, and at this time personal computers were starting to spread around the world. The computers back then were primitive compared to what we have now \textbf{Show class a picture of the Commodore 64}, but the computers were being used by speakers of many languages. At this time it was becoming very important for people to write in their own native languages. Some people used Cyrillic letters, others used Sanskrit letters, Japanese and Chinese had many many characters, and so on. The ASCII encoding had one bit left over, so by turning on the remaining bit in the encoding there were now 128 new characters that could be represented by ASCII.
+When ASCII came out, this was many years ago as I told you. In the early 1990s \textit{(Check me out on this, I might be off bya couple of years)}, and at this time personal computers were starting to spread around the world. The computers back then were primitive compared to what we have now \textbf{Show class a picture of the Commodore 64}, but the computers were being used by speakers of many languages. At this time it was becoming very important for people to write in their own native languages. Some people used Cyrillic letters, others used Sanskrit letters, Japanese and Chinese had many many characters, and so on. The ASCII encoding had one bit left over, so by turning on the remaining bit in the encoding there were now 128 new characters that could be represented by ASCII.
 
 \begin{center}
 \textbf{Write on board 8 bits, show how putting a 1 in the leading position allowed for 128 new values. For all the old 128 values, there was a new value corresponding to it if you turned the first bit on.}
@@ -120,13 +186,32 @@ Do you think that all the alphabets in the world fit in the allocated 128 extra 
 
 Different vendors tried different things. You could install different character sets on your computer, each characterset representing different letters, but this was cumbersome. Many different internationalization schemes appeared in the technological world. It's very interesting stuff and if you want to know more you can poke around the internet.
 
-As I mentioned before, Java came out in the early 1990s, and it was about this time that people were clamoring for a standard internationalization scheme so the mess of competing character sets didn't continue to spiral out of control. What was decided was that all characters could be represented - instead of in 8 bits - in 16 bits! The new standard was dubbed unicode, and this implementation was called UTF-16. 
+In the early 1990s, and it was about this time that people were clamoring for a standard internationalization scheme so the mess of competing character sets didn't continue to spiral out of control. What was decided was that all characters could be represented - instead of in 8 bits - in 16 bits! The new standard was dubbed unicode, and this implementation was called UTF-16. 
 
-Remember now, we are in the twilight zone, where there are gotchas and strange pits for you to fall into. Shortly after the release of Java, after the language designers adopted this 16 bit character for their new, modern language, the standards committee changed it's mind. The Unicode consortium continued on with UTF-16, but they realized that all the characters in the world could not be represented in 16 bits. So the amended the UTF-16 standard such that it would \textit{usually} use 16 bits for characters, but othertimes it would use 32 bits as was necessary.
+Ive given you two utf16 files right? The ones and zeros in those files follow
+the pattern specified in the utf16 specification. I don't know all the rules of
+UTF16 off the top of my head. Anyway, there are rules. In ascii an a is 0xXY,
+well in utf16 it is 0x00 0xXY - 16 bits instead of 8.
+
+Heres an interesting thing: Java came out in the early 90s. What text encoding
+scheme do you think the Java people chose to use for the  Java String and
+Character types?
+
+Shortly after the release of Java, after the language designers adopted this 16 bit character for their new, modern language, the standards committee changed it's mind. The Unicode consortium continued on with UTF-16, but they realized that all the characters in the world could not be represented in 16 bits. So the amended the UTF-16 standard such that it would \textit{usually} use 16 bits for characters, but othertimes it would use 32 bits as was necessary.
 
 As such, UTF-16 is known as a variable-width encoding, whereas ASCII was a fixed, 7 bit wide encoding. Do not forget! UTF-16 can hold 2 byte characters, or 4 byte characters.
 
 And so Java, already designed and released to the world, had a 16 bit character type, that was \textit{usually} good enough for text, but sometimes things went haywire.
+
+\section{Exercises}
+\subsection{Exercise 1}
+How many bytes are in a Character in Java? Instruct the class to write a code to get the number of bytes in a character. Use the \textit{Character.SIZE} member to find out.
+
+Answer: 2 bytes / 16 bits.
+
+\subsection{Exercise 2}
+Write and run this code:
+\lstinputlisting[caption=string vs byte arraylength]{UTF16Lengths.java}
 
 \section{UTF-16 and Java}
 Do not forget! All characters in Java are 16 bits wide. Other programming languages will behave differently - forget everything you know! Java characters are 16 bits wide.
@@ -151,39 +236,25 @@ Have a look here. \url{https://www.fileformat.info/info/unicode/char/0424/index.
 Across the internet there are various places where you can find unicode data.
 Note that the cyrrillic f is U+0424.
 
-\subsection{Writing UTF16 values with the \textbackslash uXXXX syntax}
-We've seen as we looked on the internet that Unicode code points are often refered to as U+XXXX. The XXXX are hex values. For UTF-16, when the code point fits in two bytes, we can write the code point as \textbackslash uXXXX. ( In Java, not in all  programming languages ).
+\section{How to write Unicode characters in Java.}
 
-See the code in 'UXXXX.java'.
+Your keyboard probably only has English characters on it. So how do you write
+unicode strings in Java? Note - if you speak Arabic you will probably have an
+international keyboard layout that lets you type arabic characters. But then how
+do you type Chinese characters with your Arabic keyboard? 
 
-Run the code. Note that you should see the "0" in the output. Depending on your machine, you may or may not see the \textbackslash u0080 symbol.
+We can write the code points using a special syntax.This syntax is not for any
+particular unicode. Note that today we are learning about two flavors of
+unicode: UTF8 and UTF16. These code points that we are going to type now are the
+same for both. The binary is different, but this representation is the same.
+Just like the letter "a" can be ascii, utf8 or utf16.
 
-\begin{center}
-\textbf{Ask around and see if anyone got the symbol to print}
-\end{center}
+Here's how you put foreign characters in your Java programs:
 
-\subsection{Exercise}
-
-You have 5 minutes to complete this task. 
-
-If you tap out you can look at IAmACheater.java
-
-One of my favorite Portuguese words is:
 
 \begin{center}
 \textit{recordação} 
 \end{center}
-
-Note I am missing the font to write this. Must write it on the board and sort out how to include the font in this docunment.
-
-Write a Java string for this word using only unicode escape sequences. The unicode escape sequences for the english letters can be found using your ascii table. e.g. r = \textbackslash u0052. Print the string to the console.
-
-Your code should look like:
-
-\begin{lstlisting}
-String s = "\u0052\u0065...";
-System.out.println(s);
-\end{lstlisting}
 
 Hints for the Portuguese letters:
 \begin{enumerate}
@@ -191,34 +262,28 @@ Hints for the Portuguese letters:
 \item https://www.compart.com/en/unicode/U+00E3
 \end{enumerate}
 
-\begin{center}
-\textbf{Show the answer before moving on...}
-\end{center}
-
-\subsection{xxd}
-In this lecture we will make use of the ``xxd" command line tool. This tool should be present on Linux and Mac computers. It is also present in the \textbf{git bash} shell if you are on windows.
-
-xxd gives us a hex dump of a text file. If you quickly run ``xxd filename" you will see a bunch of hex bytes dumped out in your terminal. You may, in your leisure, look for another tool that you like better. I love xxd, and so do many other people. It is a classic Linux tool and I have never needed a substitute. 
-
-Back to lecture. . .
+Look up the characters in that reference.
 
 
-\subsection{Something Weird Before the Break}
-Now, are you ready to see something weird? 
+\lstinputlisting[caption=portuguese]{Portuguese.java}
 
-\begin{center}
-\textbf{show ModifiedXXXX.java}
-\end{center}
+\subsection{Exercise}
+Use this reference: https://www.khngai.com/chinese/charmap/tbluni.php?page=0
+and make your Java program print out a 15 different chinese characters.
 
-Run the ModifiedUXXX code like this:
+\subsection{Interesting note about the last thing:}
+https://chinese.stackexchange.com/questions/16788/is-there-really-no-unicode-for-%E6%89%8C
 
-\begin{lstlisting}
-java ModifiedUXXXX | xxd
-\end{lstlisting}
+Note that there are many weird symbols all over the page. This is because the
+browser doesnt support the binary for that particular character. So the browser
+is trying to display a series of 1s and 0s, but the font it has doesnt have the
+right character to draw on the screen.
 
-Look at the output. On my machine I see C280 and not 0080 as I've told you to expect. Does anyone have anything other than C280?
+Consider - just 30 years ago American computers only supported english - ASCII.
+But now we have to support all the languages in the world. That means the fonts
+we use - Times New Roman, etc ( what are some more fonts?) need to be updated to
+contain ways to draw letters in new languages.
 
-Remember - xxd is showing us the hexadecimal output of our program. We asked our program to print out 0x0080 - but it printed out 0xc280. Remember, I told you text encodings are dangerous things. Startups have failed, programmers have falied to deliver results, all because of what I've just shown you. Many people do not understand what I've just shown you.
 
 \section{Final Jeopardy \& Break Time}
 \begin{itemize}
@@ -229,24 +294,24 @@ Remember - xxd is showing us the hexadecimal output of our program. We asked our
 \item Write "hello" in UTF-16LE, and prepend an appropriate BOM.
 \end{itemize}
 
-\section {One More Thing About UTF-16 in Java}
-Remember when I told you that UTF-16 could be stored in 2 bytes or 4 bytes? Poor Java. . . the developers tried so hard to make a language that was modern and supported the latest internationalization standards . . . then the internationalization committee screwed them over and changed utf-16 from a fixed 16 bit encoding to a variable 16 or maybe 32 bit encoding. 
+\subsection{One More Fun Thing}
+\lstinputlisting[caption=smile]{PrintEmoji.java}
 
-No matter, the Java folks solved that problem. The two byte UTF-16 characters come in what is called a Surrogate pair. You take a two-byte prefix and a two byte suffix in line with the UTF-16 specification, and this forms a character. Neither the prefix nor the suffix forms a valid code point on its own - neither one represents a symbol on its own - but together, they represent a symbol. 
-
-Java UTF-16 strings can be created in several ways when the value requires 4 bytes.
-
-See 'PolishedExamples/Surrogate.java' to see how to create a string using Surrogate pairs in UXXXX format or using an integer value from the U+XXXXXX specification. Notice that the treble clef in the example has 5 character in the U+XXXXX, whereas the others we've seen have only 4. That's because it needs more than 2 bytes. Notice how you can create it with an integer from the U+XXXXX number however.
-
-After that example
-
-Look at 'PrintEmoji.java' This is either in PolishedExamples or Scratchpad, can't rememebr which.
 
 \section{ Checkpoint }
 Remember that Java internally stores text data in chars, Characters and Strings in a UTF-16 encoding. Not ASCII. And not any of the other million encodings that exist. Always UTF-16. And always big-endian.
 
 \section{UTF-8}
 \subsection{Preamble}
+
+Go to google.com and right click -> view page source. It says UTF8.
+
+Most people use utf8 on the internet. The eclipse IDE stores all data as UTF8.
+The code files you write - those are utf8 files! If you convert them to utf16
+and try to compile them, they wont work!
+
+The list goes on. Most people are using utf8 these days.
+
 Unfortunately again for Java ( and for Windows as well ), UTF-16 is not a widely used or loved text encoding. If you write a program that ingests data from the internet or desktop applications, the text is probably encoded in what is called "UTF-8". As I  mentioned before, when Java ( and Windows ) came about in the early 1990s, the Unicode consortium was working dilligently to choose the best encoding for international text. And silly things like emojis, and mathematical symbols, etc..
 
 Shortly after they settled on UTF16 being a 16 bit encoding, they decided it should be variable 16/32. Then they decicded it should actually be 8/16/24/32 bits. This new encoding, that ranged from 1 - 4 bytes, was called "UTF-8". 
@@ -300,10 +365,6 @@ For the treble clef, the code point was \textbf{U+1D11E}. Note we are using the 
 \item Done. Convert to hex if you want.
 \end{enumerate}
 
-\begin{center}
-\textbf{Do the treble clef on the board}
-\end{center}
-
 \begin{lstlisting}
 0x1D11E = 0b11101000100011110 (17 bits)
 One byte UTF-8 gives 7 free bits for data
@@ -325,97 +386,38 @@ One of the letters of the alphabet is the one given here: \url{https://www.filef
 
 The unicode code point is U+0B8A. Convert this code point to UTF-8 and verify your answer with the answer online.
 
-Now you more or less understand UTF-8. You might need to look at it a bit longer. That article I've given you shows some problems with UTF-8 in how it's implemeted in various languages. If you know a couple of programming languages and are bored you could read the article, find flaws in your chosen languages and write to the author of the article. You'd get some cool points.
 
-The authors said they'll buy a beer for anyone who finds an error that they didn't document in the article.
+\section{Writing Files in Java}
+I gave you two ways to read files before. And I gave you a bunch of information
+about ASCII, UTF8 and UTF16. I need to tell you a few ways to write files out in
+different text encodings. You might want to write your file data as utf8, you
+might want utf16, you might want something else.
 
-\section{Break and Pop Quiz}
-\begin{enumerate}
-\item How far apart ( in decimal ) are a and A?
-\item How far apart ( in decimal ) are b and B?
-\item How far apart ( in decimal ) are z and Z?
+\subsection{Oneway}
+\lstinputlisting[caption=With Files.write]{SimpleWriter.java}
 
-\item How is the number 0 stored in binary in Java on your computer?
-\item How is the Character 0 stored in binary in the ASCII encoding?
+\subsection{Another way}
+\lstinputlisting[caption=With OutputStreamWriter]{OutputStreamWriterExample.java}
 
-\item How is the number 1 stored in binary in Java on your computer?
-\item How is the Character 1 stored in binary in the ASCII encoding?
-\end{enumerate}
-
-\section{FileIO}
-Now welcome back to the twilight zone.
-
-So now we know a few ways that text can be encoded by a computer. When I first came to Java I felt really worried about how to read and write files because there were so many options and I wasn't sure about the way Java encoded text and what means Java had for writing/reading files in various encodings. 
-
-In general I felt like I was drowning in all of the different options for reading and writing files in Java. I looked on google ' how to read a file in Jiava' and the answers were terrifying. The same of writing. And the most frustrating part is that every tutorial seemed to use a different means for writing a file. Recently I came across this stackoverflow post that sort of echoed my feelings:
-
-\url{https://stackoverflow.com/questions/13959766/best-file-i-o-option-in-java}
-
-There are many ways to handle file i/o in Java. Indeed for the homework I assigned before where you had to write a file I said to use the FileWriter class, and yet it seemed that everyone in class who wrote a file used a different class that wasn't \textit{FileWriter}. This made me think either 
-
-\begin{enumerate}
-\item you knew way more Java than me
-\item you only knew one way to write a file that you learned in another class, and you used that.
-\end{enumerate}
-
- A rule of thumb I found in that post for handling file I/O on that page:
-\begin{itemize}
-\item Class contains 'Stream' = Handles bytes
-\item Class contains 'Reader/Writer' = Handles text. Usually using a default encoding.
-\end{itemize}
-
-In general, we prefer streams that allow us to specify the encoding we are reading/writing. FileReader/FileWriter uses the machine default encoding. My machin is UTF-8 encoded. But what if the data file I am reading is UTF-16 encoded? Then the FileReader/FileWriter won't work.
-
-\subsection{Beware the FileReader/FileWriter}
-These two classes read and write based on the machine's default encoding. These two classes read a text file, character by character.
-
-\begin{center}
-\textbf{Run FileReaderExample with hello-utf8.txt}
-\textbf{Run FileReaderExample with hello-utf16.txt}
-\textbf{Run FileReaderExample with dostoyevsky-utf8.txt}
-\textbf{Run FileReaderExample with dostoyevsky-utf16.txt}
-\end{center}
-
-Note in the above examples that the file reader correctly reads 5 characters from the utf files, but reads 10 characters from the utf16 files.
-
-There is an additional example in the code about FileWriter which is maybe subtly wrong. I don't have time ot go into it. If you have alot of time to waste you can run it and see what it does. 
-
-\subsection{InputStreamReader and BufferedReader}
-
-Note as we run the following examples we are using the same code and the same text files. Yet, depending on how we set things up we either get junk or the correct output.
-
-\begin{center}
-\textbf{java InputStreamReaderExample dostoyevsky-utf8.txt UTF-8}
-\textbf{java InputStreamReaderExample dostoyevsky-utf16.txt UTF-8}
-\textbf{java InputStreamReaderExample dostoyevsky-utf16.txt UTF-16}
-\textbf{java InputStreamReaderExample dostoyevsky-utf8.txt UTF-16}
-\end{center}
-
-If you wrote the code wrong and worked as a statistician, you might in one case think the person who wrote the text you are analyzing was Japanese, or Russian. One of these conclusions is correct, one is wrong. It's up to you as a programmer to write the code correctly.
-
-\subsection{OutputStreamWriter}
-Here is one way to control the output format of your bytes
-
-\begin{center}
-\textbf{java OutputStreamWriterExample UTF-8}
-then
-\textbf{cat outputUTF-8.txt | xxd}
-You will see utf8 bytes for "Hello"
-\end{center}
-
-\begin{center}
-\textbf{java OutputStreamWriterExample UTF-16}
-then
-\textbf{cat outputUTF-16.txt | xxd}
-You will see utf16 bytes for "Hello", along with the BOM.
-\end{center}
-
-There are many other ways to do this. I've spent hours experimenting with different file IO classes in Java. If I've given you useful example, then great! If you are still confused after these few examples I've given, then you'll have to run the code I gave you, experiment with it, and think until it becomes clear to you. Remember -  I told you in the beginning that playing with text encodings will make you feel powerless and afraid. It will make you doubt yourself. There is a good chance you'll feel scared and like you aren't good enough. I've explained the rules of this game to you - now you need to go on and apply them so you don't get lost in this mysterious place.
 
 \section{Exceptions}
+Java is a language that has exceptions. If something goes wrong, Java can throw
+an exception instead of just crashing the program. You can catch the exception
+and do something with it. 
 
-Sorry I haven't had time to work on the Exceptions part of the lecture too much. I worked on it before but I'm not sure if we'll have time in this lecture to cover it in great depth. I'll give a whirlwind tour of exceptions here just so you know what all these Exceptions are in the code I've been showing you today.
+For example, in this class we've see :
+FileNotFoundException.
 
-\section{Conclusions}\label{conclusions}
-We worked hard, and achieved very little.
+If you try to read a file that isn't there - what should happen? One valid thing
+to do is just crash the program. But that's kind of bad - you wont know what
+went wrong! So Java lets you catch(FileNotFoundException ex) and then read what
+went wrong System.err.println(ex.getMessage()). There are more things to know
+about exceptions. The throws keyword, try/catch/finally. For now we will just do
+Try/Catch and the check out ex.getMEssage. The exception has more information
+too like a stacktrace and other things. Feel free to explore the API!
+
+
+\section{Review}
+Revisit the learning objectives from the beginning. Did we learn anything?
+
 \end{document}

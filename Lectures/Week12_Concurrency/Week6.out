@@ -1,0 +1,22 @@
+\BOOKMARK [1][-]{section.1}{Extra Credit}{}% 1
+\BOOKMARK [1][-]{section.2}{Introduction}{}% 2
+\BOOKMARK [2][-]{subsection.2.1}{What we'll learn tonight}{section.2}% 3
+\BOOKMARK [1][-]{section.3}{Get the Class Repo}{}% 4
+\BOOKMARK [1][-]{section.4}{The problem of the Night}{}% 5
+\BOOKMARK [1][-]{section.5}{Threads}{}% 6
+\BOOKMARK [2][-]{subsection.5.1}{Create Threads by Subclassing Thread}{section.5}% 7
+\BOOKMARK [2][-]{subsection.5.2}{Create Runnables by Subclassing Runnable}{section.5}% 8
+\BOOKMARK [2][-]{subsection.5.3}{You need to read more}{section.5}% 9
+\BOOKMARK [1][-]{section.6}{The synchronized keyword}{}% 10
+\BOOKMARK [2][-]{subsection.6.1}{The example of the day in code}{section.6}% 11
+\BOOKMARK [2][-]{subsection.6.2}{A Problem! And a Solution! Use the Right Datatype}{section.6}% 12
+\BOOKMARK [2][-]{subsection.6.3}{Forgetting to synchronize my threads caused an error!}{section.6}% 13
+\BOOKMARK [1][-]{section.7}{Break and Experiment. 15 minutes.}{}% 14
+\BOOKMARK [1][-]{section.8}{ Another interesting thing - 10 minutes }{}% 15
+\BOOKMARK [1][-]{section.9}{Timing}{}% 16
+\BOOKMARK [1][-]{section.10}{The volatile keyword}{}% 17
+\BOOKMARK [1][-]{section.11}{Atomic variables}{}% 18
+\BOOKMARK [2][-]{subsection.11.1}{ AtomicInt }{section.11}% 19
+\BOOKMARK [2][-]{subsection.11.2}{Exercise}{section.11}% 20
+\BOOKMARK [2][-]{subsection.11.3}{Last Note about Atomic Types}{section.11}% 21
+\BOOKMARK [2][-]{subsection.11.4}{If time to kill}{section.11}% 22
